@@ -22,14 +22,14 @@ Begin VB.Form ShipsTransactions
       BorderStyle     =   0  'None
       Height          =   690
       Left            =   450
-      TabIndex        =   56
-      Top             =   8925
+      TabIndex        =   51
+      Top             =   8400
       Width           =   8940
       Begin Dacara_dcButton.dcButton cmdButton 
          Height          =   690
          Index           =   0
          Left            =   225
-         TabIndex        =   57
+         TabIndex        =   52
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -54,7 +54,7 @@ Begin VB.Form ShipsTransactions
          Height          =   690
          Index           =   5
          Left            =   7350
-         TabIndex        =   58
+         TabIndex        =   53
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -79,7 +79,7 @@ Begin VB.Form ShipsTransactions
          Height          =   690
          Index           =   1
          Left            =   1650
-         TabIndex        =   59
+         TabIndex        =   54
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -104,7 +104,7 @@ Begin VB.Form ShipsTransactions
          Height          =   690
          Index           =   2
          Left            =   3075
-         TabIndex        =   60
+         TabIndex        =   55
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -129,7 +129,7 @@ Begin VB.Form ShipsTransactions
          Height          =   690
          Index           =   3
          Left            =   4500
-         TabIndex        =   61
+         TabIndex        =   56
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -154,7 +154,7 @@ Begin VB.Form ShipsTransactions
          Height          =   690
          Index           =   4
          Left            =   5925
-         TabIndex        =   62
+         TabIndex        =   57
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -182,9 +182,9 @@ Begin VB.Form ShipsTransactions
       BorderStyle     =   0  'None
       Enabled         =   0   'False
       ForeColor       =   &H80000008&
-      Height          =   3840
+      Height          =   3465
       Left            =   8550
-      TabIndex        =   26
+      TabIndex        =   24
       Top             =   2625
       Width           =   4515
       Begin VB.TextBox txtNationalityID 
@@ -203,9 +203,9 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   71
+         TabIndex        =   66
          TabStop         =   0   'False
-         Top             =   2700
+         Top             =   2325
          Width           =   780
       End
       Begin VB.TextBox Text9 
@@ -224,10 +224,10 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   70
+         TabIndex        =   65
          TabStop         =   0   'False
          Text            =   "Manifest.NationalityID"
-         Top             =   2700
+         Top             =   2325
          Width           =   3540
       End
       Begin VB.TextBox txtShipSaveAndNewID 
@@ -246,9 +246,9 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   55
+         TabIndex        =   50
          TabStop         =   0   'False
-         Top             =   3450
+         Top             =   3075
          Width           =   780
       End
       Begin VB.TextBox Text10 
@@ -267,10 +267,10 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   54
+         TabIndex        =   49
          TabStop         =   0   'False
          Text            =   "Ships.ShipSaveAndNewID"
-         Top             =   3450
+         Top             =   3075
          Width           =   3540
       End
       Begin VB.TextBox txtShipRepeatedEntriesID 
@@ -289,9 +289,9 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   53
+         TabIndex        =   48
          TabStop         =   0   'False
-         Top             =   3075
+         Top             =   2700
          Width           =   780
       End
       Begin VB.TextBox Text5 
@@ -310,10 +310,10 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   52
+         TabIndex        =   47
          TabStop         =   0   'False
          Text            =   "Ships.ShipRepeatedEntriesID"
-         Top             =   3075
+         Top             =   2700
          Width           =   3540
       End
       Begin VB.TextBox Text8 
@@ -332,7 +332,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   40
+         TabIndex        =   36
          TabStop         =   0   'False
          Text            =   "Manifest.DestinationID"
          Top             =   825
@@ -354,7 +354,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   39
+         TabIndex        =   35
          TabStop         =   0   'False
          Top             =   825
          Width           =   780
@@ -375,7 +375,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   38
+         TabIndex        =   34
          TabStop         =   0   'False
          Text            =   "Manifest.TripID"
          Top             =   75
@@ -397,9 +397,9 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   37
+         TabIndex        =   33
          TabStop         =   0   'False
-         Text            =   "Manifers.SexID"
+         Text            =   "Manifers.GenderID"
          Top             =   1950
          Width           =   3540
       End
@@ -419,7 +419,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   36
+         TabIndex        =   32
          TabStop         =   0   'False
          Text            =   "Manifest.PropertyID"
          Top             =   1575
@@ -441,7 +441,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   35
+         TabIndex        =   31
          TabStop         =   0   'False
          Text            =   "Manifest.ShipID"
          Top             =   1200
@@ -463,7 +463,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   34
+         TabIndex        =   30
          TabStop         =   0   'False
          Top             =   75
          Width           =   780
@@ -484,7 +484,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   33
+         TabIndex        =   29
          TabStop         =   0   'False
          Top             =   1200
          Width           =   780
@@ -505,12 +505,12 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   32
+         TabIndex        =   28
          TabStop         =   0   'False
          Top             =   1575
          Width           =   780
       End
-      Begin VB.TextBox txtSexID 
+      Begin VB.TextBox txtGenderID 
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0FF&
          BorderStyle     =   0  'None
@@ -526,52 +526,9 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   31
+         TabIndex        =   27
          TabStop         =   0   'False
          Top             =   1950
-         Width           =   780
-      End
-      Begin VB.TextBox Text6 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   75
-         TabIndex        =   30
-         TabStop         =   0   'False
-         Text            =   "Manifest.AgeID"
-         Top             =   2325
-         Width           =   3540
-      End
-      Begin VB.TextBox txtAgeID 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   3675
-         TabIndex        =   29
-         TabStop         =   0   'False
-         Top             =   2325
          Width           =   780
       End
       Begin VB.TextBox Text7 
@@ -590,7 +547,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   28
+         TabIndex        =   26
          TabStop         =   0   'False
          Text            =   "Manifest.RouteID"
          Top             =   450
@@ -612,7 +569,7 @@ Begin VB.Form ShipsTransactions
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   27
+         TabIndex        =   25
          TabStop         =   0   'False
          Top             =   450
          Width           =   780
@@ -662,7 +619,7 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtDestination 
+   Begin UserControls.newText txtDestinationDescription 
       Height          =   465
       Left            =   2475
       TabIndex        =   2
@@ -684,7 +641,7 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtShip 
+   Begin UserControls.newText txtShipDescription 
       Height          =   465
       Left            =   2475
       TabIndex        =   3
@@ -706,7 +663,7 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtProperty 
+   Begin UserControls.newText txtPropertyDescription 
       Height          =   465
       Left            =   2475
       TabIndex        =   4
@@ -772,7 +729,7 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtSex 
+   Begin UserControls.newText txtGenderDescription 
       Height          =   465
       Left            =   2475
       TabIndex        =   7
@@ -794,11 +751,11 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtAge 
+   Begin UserControls.newText txtCare 
       Height          =   465
       Left            =   2475
-      TabIndex        =   8
-      Top             =   5325
+      TabIndex        =   11
+      Top             =   6900
       Width           =   4965
       _ExtentX        =   8758
       _ExtentY        =   820
@@ -816,7 +773,7 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtCare 
+   Begin UserControls.newText txtRemarks 
       Height          =   465
       Left            =   2475
       TabIndex        =   12
@@ -838,33 +795,11 @@ Begin VB.Form ShipsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtRemarks 
-      Height          =   465
-      Left            =   2475
-      TabIndex        =   13
-      Top             =   7950
-      Width           =   4965
-      _ExtentX        =   8758
-      _ExtentY        =   820
-      ForeColor       =   0
-      MaxLength       =   40
-      Text            =   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-      BackColor       =   4210688
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Ubuntu Condensed"
-         Size            =   11.25
-         Charset         =   161
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-   End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
       Index           =   0
       Left            =   3300
-      TabIndex        =   42
+      TabIndex        =   38
       TabStop         =   0   'False
       Top             =   1650
       Width           =   390
@@ -892,7 +827,7 @@ Begin VB.Form ShipsTransactions
       Height          =   465
       Index           =   2
       Left            =   7500
-      TabIndex        =   43
+      TabIndex        =   39
       TabStop         =   0   'False
       Top             =   2175
       Width           =   390
@@ -920,7 +855,7 @@ Begin VB.Form ShipsTransactions
       Height          =   465
       Index           =   4
       Left            =   7500
-      TabIndex        =   44
+      TabIndex        =   40
       TabStop         =   0   'False
       Top             =   2700
       Width           =   390
@@ -948,7 +883,7 @@ Begin VB.Form ShipsTransactions
       Height          =   465
       Index           =   6
       Left            =   7500
-      TabIndex        =   45
+      TabIndex        =   41
       TabStop         =   0   'False
       Top             =   3225
       Width           =   390
@@ -976,7 +911,7 @@ Begin VB.Form ShipsTransactions
       Height          =   465
       Index           =   8
       Left            =   7500
-      TabIndex        =   46
+      TabIndex        =   42
       TabStop         =   0   'False
       Top             =   4800
       Width           =   390
@@ -1002,11 +937,11 @@ Begin VB.Form ShipsTransactions
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   9
-      Left            =   7500
-      TabIndex        =   47
+      Index           =   1
+      Left            =   3750
+      TabIndex        =   43
       TabStop         =   0   'False
-      Top             =   5325
+      Top             =   1650
       Width           =   390
       _ExtentX        =   688
       _ExtentY        =   820
@@ -1030,11 +965,11 @@ Begin VB.Form ShipsTransactions
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   1
-      Left            =   3750
-      TabIndex        =   48
+      Index           =   3
+      Left            =   7950
+      TabIndex        =   44
       TabStop         =   0   'False
-      Top             =   1650
+      Top             =   2175
       Width           =   390
       _ExtentX        =   688
       _ExtentY        =   820
@@ -1058,11 +993,11 @@ Begin VB.Form ShipsTransactions
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   3
+      Index           =   5
       Left            =   7950
-      TabIndex        =   49
+      TabIndex        =   45
       TabStop         =   0   'False
-      Top             =   2175
+      Top             =   2700
       Width           =   390
       _ExtentX        =   688
       _ExtentY        =   820
@@ -1086,11 +1021,11 @@ Begin VB.Form ShipsTransactions
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   5
-      Left            =   7950
-      TabIndex        =   50
+      Index           =   10
+      Left            =   3750
+      TabIndex        =   46
       TabStop         =   0   'False
-      Top             =   2700
+      Top             =   5325
       Width           =   390
       _ExtentX        =   688
       _ExtentY        =   820
@@ -1112,13 +1047,36 @@ Begin VB.Form ShipsTransactions
       PicSizeH        =   16
       PicSizeW        =   16
    End
+   Begin UserControls.newText txtNationalityAbbreviation 
+      Height          =   465
+      Left            =   2475
+      TabIndex        =   8
+      Top             =   5325
+      Width           =   765
+      _ExtentX        =   1349
+      _ExtentY        =   820
+      Alignment       =   2
+      ForeColor       =   0
+      MaxLength       =   5
+      Text            =   "AAAAA"
+      BackColor       =   4210688
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Ubuntu Condensed"
+         Size            =   11.25
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   11
-      Left            =   3750
-      TabIndex        =   51
+      Index           =   9
+      Left            =   3300
+      TabIndex        =   59
       TabStop         =   0   'False
-      Top             =   5850
+      Top             =   5325
       Width           =   390
       _ExtentX        =   688
       _ExtentY        =   820
@@ -1140,36 +1098,13 @@ Begin VB.Form ShipsTransactions
       PicSizeH        =   16
       PicSizeW        =   16
    End
-   Begin UserControls.newText txtNationalityAbbreviation 
-      Height          =   465
-      Left            =   2475
-      TabIndex        =   9
-      Top             =   5850
-      Width           =   765
-      _ExtentX        =   1349
-      _ExtentY        =   820
-      Alignment       =   2
-      ForeColor       =   0
-      MaxLength       =   5
-      Text            =   "AAAAA"
-      BackColor       =   4210688
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Ubuntu Condensed"
-         Size            =   11.25
-         Charset         =   161
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-   End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   10
-      Left            =   3300
-      TabIndex        =   64
+      Index           =   7
+      Left            =   7950
+      TabIndex        =   61
       TabStop         =   0   'False
-      Top             =   5850
+      Top             =   3225
       Width           =   390
       _ExtentX        =   688
       _ExtentY        =   820
@@ -1191,39 +1126,11 @@ Begin VB.Form ShipsTransactions
       PicSizeH        =   16
       PicSizeW        =   16
    End
-   Begin Dacara_dcButton.dcButton cmdIndex 
-      Height          =   465
-      Index           =   7
-      Left            =   7950
-      TabIndex        =   66
-      TabStop         =   0   'False
-      Top             =   3225
-      Width           =   390
-      _ExtentX        =   688
-      _ExtentY        =   820
-      BackColor       =   14742518
-      ButtonShape     =   3
-      ButtonStyle     =   8
-      Caption         =   ""
-      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-         Name            =   "Ubuntu Condensed"
-         Size            =   9.75
-         Charset         =   161
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   0
-      PicNormal       =   "ShipsTransactions.frx":3D9E
-      PicSizeH        =   16
-      PicSizeW        =   16
-   End
    Begin UserControls.newDate mskDOB 
       Height          =   465
       Left            =   2475
-      TabIndex        =   10
-      Top             =   6375
+      TabIndex        =   9
+      Top             =   5850
       Width           =   1455
       _ExtentX        =   2672
       _ExtentY        =   820
@@ -1243,8 +1150,8 @@ Begin VB.Form ShipsTransactions
    Begin UserControls.newText txtPhone 
       Height          =   465
       Left            =   2475
-      TabIndex        =   11
-      Top             =   6900
+      TabIndex        =   10
+      Top             =   6375
       Width           =   4965
       _ExtentX        =   8758
       _ExtentY        =   820
@@ -1278,8 +1185,8 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   13
       Left            =   450
-      TabIndex        =   69
-      Top             =   6975
+      TabIndex        =   64
+      Top             =   6450
       Width           =   1590
    End
    Begin VB.Shape shpWedge 
@@ -1310,8 +1217,8 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   12
       Left            =   450
-      TabIndex        =   68
-      Top             =   6450
+      TabIndex        =   63
+      Top             =   5925
       Width           =   1590
    End
    Begin VB.Label lblNationalityDescription 
@@ -1330,8 +1237,8 @@ Begin VB.Form ShipsTransactions
       ForeColor       =   &H00000000&
       Height          =   255
       Left            =   4200
-      TabIndex        =   67
-      Top             =   5925
+      TabIndex        =   62
+      Top             =   5400
       Width           =   4110
    End
    Begin VB.Label lblLabel 
@@ -1350,8 +1257,8 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   11
       Left            =   450
-      TabIndex        =   65
-      Top             =   5925
+      TabIndex        =   60
+      Top             =   5400
       Width           =   1590
    End
    Begin VB.Label lblWeekday 
@@ -1371,7 +1278,7 @@ Begin VB.Form ShipsTransactions
       ForeColor       =   &H00000000&
       Height          =   255
       Left            =   3975
-      TabIndex        =   63
+      TabIndex        =   58
       Top             =   1200
       Width           =   450
    End
@@ -1381,7 +1288,7 @@ Begin VB.Form ShipsTransactions
       BorderStyle     =   0  'Transparent
       Height          =   390
       Left            =   3900
-      Top             =   9600
+      Top             =   9075
       Visible         =   0   'False
       Width           =   840
    End
@@ -1393,7 +1300,7 @@ Begin VB.Form ShipsTransactions
       Height          =   540
       Index           =   1
       Left            =   3600
-      Top             =   8400
+      Top             =   7875
       Visible         =   0   'False
       Width           =   465
    End
@@ -1403,7 +1310,7 @@ Begin VB.Form ShipsTransactions
       BorderStyle     =   0  'Transparent
       Height          =   840
       Left            =   9375
-      Top             =   8400
+      Top             =   7875
       Visible         =   0   'False
       Width           =   465
    End
@@ -1415,7 +1322,7 @@ Begin VB.Form ShipsTransactions
       Height          =   840
       Index           =   0
       Left            =   2025
-      Top             =   6750
+      Top             =   6225
       Visible         =   0   'False
       Width           =   465
    End
@@ -1448,7 +1355,7 @@ Begin VB.Form ShipsTransactions
       ForeColor       =   &H00000000&
       Height          =   315
       Left            =   4200
-      TabIndex        =   41
+      TabIndex        =   37
       Top             =   1725
       Width           =   840
    End
@@ -1469,7 +1376,7 @@ Begin VB.Form ShipsTransactions
       ForeColor       =   &H000080FF&
       Height          =   720
       Left            =   225
-      TabIndex        =   25
+      TabIndex        =   23
       Top             =   75
       Width           =   4845
    End
@@ -1489,7 +1396,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   10
       Left            =   450
-      TabIndex        =   24
+      TabIndex        =   22
       Top             =   3300
       Width           =   1590
    End
@@ -1509,8 +1416,8 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   9
       Left            =   450
-      TabIndex        =   23
-      Top             =   8025
+      TabIndex        =   21
+      Top             =   7500
       Width           =   1590
    End
    Begin VB.Label lblLabel 
@@ -1529,28 +1436,8 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   8
       Left            =   450
-      TabIndex        =   22
-      Top             =   7500
-      Width           =   1590
-   End
-   Begin VB.Label lblLabel 
-      BackColor       =   &H000080FF&
-      Caption         =   "Ηλικία"
-      BeginProperty Font 
-         Name            =   "Ubuntu Condensed"
-         Size            =   9.75
-         Charset         =   161
-         Weight          =   400
-         Underline       =   0   'False
-         Italic          =   0   'False
-         Strikethrough   =   0   'False
-      EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   315
-      Index           =   7
-      Left            =   450
-      TabIndex        =   21
-      Top             =   5400
+      TabIndex        =   20
+      Top             =   6975
       Width           =   1590
    End
    Begin VB.Label lblLabel 
@@ -1569,7 +1456,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   6
       Left            =   450
-      TabIndex        =   20
+      TabIndex        =   19
       Top             =   4875
       Width           =   1590
    End
@@ -1589,7 +1476,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   5
       Left            =   450
-      TabIndex        =   19
+      TabIndex        =   18
       Top             =   4350
       Width           =   1590
    End
@@ -1609,7 +1496,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   4
       Left            =   450
-      TabIndex        =   18
+      TabIndex        =   17
       Top             =   3825
       Width           =   1590
    End
@@ -1629,7 +1516,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   3
       Left            =   450
-      TabIndex        =   17
+      TabIndex        =   16
       Top             =   2775
       Width           =   1590
    End
@@ -1649,7 +1536,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   1
       Left            =   450
-      TabIndex        =   16
+      TabIndex        =   15
       Top             =   2250
       Width           =   1590
    End
@@ -1669,7 +1556,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   0
       Left            =   450
-      TabIndex        =   15
+      TabIndex        =   14
       Top             =   1725
       Width           =   1590
    End
@@ -1689,7 +1576,7 @@ Begin VB.Form ShipsTransactions
       Height          =   315
       Index           =   2
       Left            =   450
-      TabIndex        =   14
+      TabIndex        =   13
       Top             =   1200
       Width           =   1590
    End
@@ -1717,11 +1604,11 @@ Private Function AbortProcedure(blnStatus)
     If Not blnStatus Then
         If MyMsgBox(3, strApplicationName, strStandardMessages(3), 2) Then
             blnStatus = False
-            ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtSexID, txtAgeID, txtNationalityID
-            ClearFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+            ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtGenderID, txtNationalityID
+            ClearFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
             ClearFields lblWeekday, lblRouteDescription, lblNationalityDescription
-            DisableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+            DisableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
             UpdateButtons Me, 5, 1, 0, 0, IIf(CheckForLoadedForm("ShipsRouteReport"), 0, 1), 0, 1
         End If
     End If
@@ -1735,11 +1622,11 @@ End Function
 Private Function DeleteRecord()
     
     If MainDeleteRecord("CommonDB", "Manifest", strApplicationName, "TripID", txtID.text, "True") Then
-        ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtSexID, txtAgeID, txtNationalityID
-        ClearFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+        ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtGenderID, txtNationalityID
+        ClearFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
         ClearFields lblWeekday, lblRouteDescription, lblNationalityDescription
-        DisableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+        DisableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
         UpdateButtons Me, 5, 1, 0, 0, IIf(CheckForLoadedForm("ShipsRouteReport"), 0, 1), 0, 1
     End If
     
@@ -1751,20 +1638,20 @@ Private Function NewRecord()
     If txtShipRepeatedEntriesID.text = "1" Then
         If txtID.text <> "" Then
             DisplayLastRecord txtID.text
-            ClearFields txtSexID, txtAgeID, txtNationalityID
-            ClearFields txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+            ClearFields txtGenderID, txtNationalityID
+            ClearFields txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
             ClearFields lblNationalityDescription
             txtLastName.SetFocus
         End If
     Else
-        ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtSexID, txtAgeID, txtNationalityID
-        ClearFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+        ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtGenderID, txtNationalityID
+        ClearFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
         ClearFields lblWeekday, lblRouteDescription, lblNationalityDescription
     End If
     
     blnStatus = True
-    EnableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-    EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+    EnableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+    EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
     If txtShipRepeatedEntriesID.text <> "1" Then
         mskDate.SetFocus
         InitializeFields mskDate
@@ -1783,15 +1670,15 @@ Private Function SaveRecord()
     
     If Not ValidateFields Then Exit Function
     
-    txtID.text = MainSaveRecord("CommonDB", "Manifest", blnStatus, strApplicationName, "TripID", txtID.text, mskDate.text, txtRouteID.text, txtDestinationID.text, txtShipID.text, txtPropertyID.text, txtLastName.text, txtFirstName.text, txtSexID.text, txtAgeID.text, txtNationalityID.text, mskDOB.text, txtPhone.text, txtCare.text, txtRemarks.text, 1, strCurrentUser)
+    txtID.text = MainSaveRecord("CommonDB", "Manifest", blnStatus, strApplicationName, "TripID", txtID.text, mskDate.text, txtRouteID.text, txtDestinationID.text, txtShipID.text, txtPropertyID.text, txtLastName.text, txtFirstName.text, txtGenderID.text, txtNationalityID.text, mskDOB.text, txtPhone.text, txtCare.text, txtRemarks.text, 1, strCurrentUser)
         
     If txtID.text <> "" Then
         SaveRecord = True
-        ClearFields txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtSexID, txtAgeID, txtNationalityID
-        ClearFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+        ClearFields txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtGenderID, txtNationalityID
+        ClearFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
         ClearFields lblWeekday, lblRouteDescription, lblNationalityDescription
-        DisableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+        DisableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
         UpdateButtons Me, 5, 1, 0, 0, IIf(CheckForLoadedForm("ShipsRouteReport"), 0, 1), 0, 1
     Else
         DisplayErrorMessage True, strStandardMessages(5)
@@ -1831,21 +1718,21 @@ Private Function ValidateFields()
     'Προορισμός
     If Len(txtDestinationID.text) = 0 Then
         MyMsgBox 4, strApplicationName, strStandardMessages(1), 1
-        txtDestination.SetFocus
+        txtDestinationDescription.SetFocus
         Exit Function
     End If
     
     'Πλοίο
     If Len(txtShipID.text) = 0 Then
         MyMsgBox 4, strApplicationName, strStandardMessages(1), 1
-        txtShip.SetFocus
+        txtShipDescription.SetFocus
         Exit Function
     End If
     
     'Ιδιότητα
     If Len(txtPropertyID.text) = 0 Then
         MyMsgBox 4, strApplicationName, strStandardMessages(1), 1
-        txtProperty.SetFocus
+        txtPropertyDescription.SetFocus
         Exit Function
     End If
     
@@ -1862,16 +1749,9 @@ Private Function ValidateFields()
     End If
     
     'Φύλο
-    If Len(txtSexID.text) = 0 Then
+    If Len(txtGenderID.text) = 0 Then
         MyMsgBox 4, strApplicationName, strStandardMessages(1), 1
-        txtSex.SetFocus
-        Exit Function
-    End If
-    
-    'Ηλικία
-    If Len(txtAgeID.text) = 0 Then
-        MyMsgBox 4, strApplicationName, strStandardMessages(1), 1
-        txtAge.SetFocus
+        txtGenderDescription.SetFocus
         Exit Function
     End If
     
@@ -1959,11 +1839,11 @@ Private Sub cmdIndex_Click(index As Integer)
             End With
         Case 2
             'Προορισμός
-            Set tmpRecordset = CheckForMatch("CommonDB", "Destinations", "DestinationDescription", "String", txtDestination.text)
+            Set tmpRecordset = CheckForMatch("CommonDB", "Destinations", "DestinationDescription", "String", txtDestinationDescription.text)
             If tmpRecordset.RecordCount > 0 Then
                 tmpTableData = DisplayIndex(tmpRecordset, 2, True, 2, 0, 2, "ID", "Περιγραφή", 0, 40, 1, 0)
                 txtDestinationID.text = tmpTableData.strCode
-                txtDestination.text = tmpTableData.strFirstField
+                txtDestinationDescription.text = tmpTableData.strFirstField
             End If
         Case 3
             'Προορισμός
@@ -1974,11 +1854,11 @@ Private Sub cmdIndex_Click(index As Integer)
             End With
         Case 4
             'Πλοίο
-            Set tmpRecordset = CheckForMatch("CommonDB", "Ships", "ShipDescription", "String", txtShip.text)
+            Set tmpRecordset = CheckForMatch("CommonDB", "Ships", "ShipDescription", "String", txtShipDescription.text)
             If tmpRecordset.RecordCount > 0 Then
                 tmpTableData = DisplayIndex(tmpRecordset, 2, True, 4, 0, 1, 7, 8, "ID", "Περιγραφή", "Επαναλαμβανόμενη καταχώρηση", "Αποθήκευση και δημιουργία με ενα κλικ", 0, 40, 0, 0, 1, 0, 1, 1)
                 txtShipID.text = tmpTableData.strCode
-                txtShip.text = tmpTableData.strFirstField
+                txtShipDescription.text = tmpTableData.strFirstField
                 txtShipRepeatedEntriesID.text = tmpTableData.strSecondField
                 txtShipSaveAndNewID.text = tmpTableData.strThirdField
             End If
@@ -1990,11 +1870,11 @@ Private Sub cmdIndex_Click(index As Integer)
             End With
         Case 6
             'Ιδιότητα
-            Set tmpRecordset = CheckForMatch("CommonDB", "OccupantsDescriptions", "OccupantDescriptionDescription", "String", txtProperty.text)
+            Set tmpRecordset = CheckForMatch("CommonDB", "ShipsOccupants", "ShipOccupantDescription", "String", txtPropertyDescription.text)
             If tmpRecordset.RecordCount > 0 Then
                 tmpTableData = DisplayIndex(tmpRecordset, 2, True, 2, 0, 1, "ID", "Περιγραφή", 0, 40, 1, 0)
                 txtPropertyID.text = tmpTableData.strCode
-                txtProperty.text = tmpTableData.strFirstField
+                txtPropertyDescription.text = tmpTableData.strFirstField
             End If
         Case 7
             'Ιδιότητα
@@ -2004,21 +1884,13 @@ Private Sub cmdIndex_Click(index As Integer)
             End With
         Case 8
             'Φύλο
-            Set tmpRecordset = CheckForMatch("CommonDB", "Genders", "GenderDescription", "String", txtSex.text)
+            Set tmpRecordset = CheckForMatch("CommonDB", "Genders", "GenderDescription", "String", txtGenderDescription.text)
             If tmpRecordset.RecordCount > 0 Then
                 tmpTableData = DisplayIndex(tmpRecordset, 2, True, 2, 0, 1, "ID", "Περιγραφή", 0, 40, 1, 0)
-                txtSexID.text = tmpTableData.strCode
-                txtSex.text = tmpTableData.strFirstField
+                txtGenderID.text = tmpTableData.strCode
+                txtGenderDescription.text = tmpTableData.strFirstField
             End If
         Case 9
-            'Ηλικία
-            Set tmpRecordset = CheckForMatch("CommonDB", "Ages", "AgeDescription", "String", txtAge.text)
-            If tmpRecordset.RecordCount > 0 Then
-                tmpTableData = DisplayIndex(tmpRecordset, 2, True, 2, 0, 1, "ID", "Περιγραφή", 0, 40, 1, 0)
-                txtAgeID.text = tmpTableData.strCode
-                txtAge.text = tmpTableData.strFirstField
-            End If
-        Case 10
             'Ιθαγένεια
             Set tmpRecordset = CheckForMatch("CommonDB", "Nationalities", "NationalityAbbreviation", "String", txtNationalityAbbreviation.text)
             If tmpRecordset.RecordCount > 0 Then
@@ -2027,7 +1899,7 @@ Private Sub cmdIndex_Click(index As Integer)
                 txtNationalityAbbreviation.text = tmpTableData.strFirstField
                 lblNationalityDescription.Caption = tmpTableData.strSecondField
             End If
-        Case 11
+        Case 10
             'Ιθαγένεια
             With TablesNationalities
                 .Tag = "True"
@@ -2059,15 +1931,15 @@ Public Function SeekRecord(strTable, tmpPersonID)
     
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
-    ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtSexID, txtAgeID, txtNationalityID
-    ClearFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+    ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtGenderID, txtNationalityID
+    ClearFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
     ClearFields lblWeekday, lblRouteDescription, lblNationalityDescription
-    DisableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+    DisableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
     
     SeekRecord = False
     
-    If MainSeekRecord("CommonDB", strTable, "TripID", tmpPersonID, True, txtID, mskDate, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtLastName, txtFirstName, txtSexID, txtAgeID, txtNationalityID, mskDOB, txtPhone, txtCare, txtRemarks) Then
+    If MainSeekRecord("CommonDB", strTable, "TripID", tmpPersonID, True, txtID, mskDate, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtLastName, txtFirstName, txtGenderID, txtNationalityID, mskDOB, txtPhone, txtCare, txtRemarks) Then
         'Δρομολόγιο
         Set tmpRecordset = CheckForMatch("CommonDB", "Routes", "RouteID", "Numeric", txtRouteID.text)
         txtRouteID.text = tmpRecordset.Fields(0)
@@ -2076,25 +1948,21 @@ Public Function SeekRecord(strTable, tmpPersonID)
         'Προορισμός
         Set tmpRecordset = CheckForMatch("CommonDB", "Destinations", "DestinationID", "Numeric", txtDestinationID.text)
         txtDestinationID.text = tmpRecordset.Fields(0)
-        txtDestination.text = tmpRecordset.Fields(2)
+        txtDestinationDescription.text = tmpRecordset.Fields(2)
         'Πλοίο
         Set tmpRecordset = CheckForMatch("CommonDB", "Ships", "ShipID", "Numeric", txtShipID.text)
         txtShipID.text = tmpRecordset.Fields(0)
-        txtShip.text = tmpRecordset.Fields(1)
+        txtShipDescription.text = tmpRecordset.Fields(1)
         txtShipRepeatedEntriesID.text = tmpRecordset.Fields(7)
         txtShipSaveAndNewID.text = tmpRecordset.Fields(8)
         'Ιδιότητα
-        Set tmpRecordset = CheckForMatch("CommonDB", "OccupantsDescriptions", "OccupantDescriptionID", "Numeric", txtPropertyID.text)
+        Set tmpRecordset = CheckForMatch("CommonDB", "ShipsOccupants", "ShipOccupantID", "Numeric", txtPropertyID.text)
         txtPropertyID.text = tmpRecordset.Fields(0)
-        txtProperty.text = tmpRecordset.Fields(1)
+        txtPropertyDescription.text = tmpRecordset.Fields(1)
         'Φύλο
-        Set tmpRecordset = CheckForMatch("CommonDB", "Genders", "GenderID", "Numeric", txtSexID.text)
-        txtSexID.text = tmpRecordset.Fields(0)
-        txtSex.text = tmpRecordset.Fields(1)
-        'Ηλικία
-        Set tmpRecordset = CheckForMatch("CommonDB", "Ages", "AgeID", "Numeric", txtAgeID.text)
-        txtAgeID.text = tmpRecordset.Fields(0)
-        txtAge.text = tmpRecordset.Fields(1)
+        Set tmpRecordset = CheckForMatch("CommonDB", "Genders", "GenderID", "Numeric", txtGenderID.text)
+        txtGenderID.text = tmpRecordset.Fields(0)
+        txtGenderDescription.text = tmpRecordset.Fields(1)
         'Ιθαγένεια
         If txtNationalityID.text <> "" Then
             Set tmpRecordset = CheckForMatch("CommonDB", "Nationalities", "NationalityID", "Numeric", txtNationalityID.text)
@@ -2104,8 +1972,8 @@ Public Function SeekRecord(strTable, tmpPersonID)
         End If
         'Τα υπόλοιπα
         lblWeekday.Caption = DisplayWeekDay(mskDate.text)
-        EnableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-        EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+        EnableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+        EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
         UpdateButtons Me, 5, 0, 1, 1, 0, 1, 0
         blnStatus = False
         SeekRecord = True
@@ -2149,11 +2017,11 @@ Private Sub Form_Load()
 
     UpdateColors Me, False
 
-    ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtSexID, txtAgeID, txtNationalityID, txtNationalityID
-    ClearFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+    ClearFields txtID, txtRouteID, txtDestinationID, txtShipID, txtPropertyID, txtGenderID, txtNationalityID, txtNationalityID
+    ClearFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
     ClearFields lblWeekday, lblRouteDescription, lblNationalityDescription
-    DisableFields mskDate, txtRoute, txtDestination, txtShip, txtProperty, txtLastName, txtFirstName, txtSex, txtAge, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
-    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10), cmdIndex(11)
+    DisableFields mskDate, txtRoute, txtDestinationDescription, txtShipDescription, txtPropertyDescription, txtLastName, txtFirstName, txtGenderDescription, txtCare, txtRemarks, txtNationalityAbbreviation, mskDOB, txtPhone
+    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
     UpdateButtons Me, 5, 1, 0, 0, IIf(CheckForLoadedForm("ShipsRouteReport"), 0, 1), 0, 1
 
 End Sub
@@ -2184,26 +2052,6 @@ Private Sub mskDate_Validate(Cancel As Boolean)
     
 End Sub
 
-Private Sub txtAge_Change()
-
-    If txtAge.text = "" Then
-        ClearFields txtAgeID
-    End If
-
-End Sub
-
-Private Sub txtAge_KeyDown(KeyCode As Integer, Shift As Integer)
-
-    If KeyCode = vbKeyF2 Then cmdIndex_Click 9
-
-End Sub
-
-Private Sub txtAge_Validate(Cancel As Boolean)
-
-    If txtAgeID.text = "" And txtAge.text <> "" Then cmdIndex_Click 9: If txtAgeID.text = "" Then Cancel = True
-
-End Sub
-
 Private Sub txtNationalityAbbreviation_Change()
 
     If txtNationalityAbbreviation.text = "" Then
@@ -2214,56 +2062,56 @@ End Sub
 
 Private Sub txtNationalityAbbreviation_KeyDown(KeyCode As Integer, Shift As Integer)
 
-    If KeyCode = vbKeyF2 Then cmdIndex_Click 10
-    If KeyCode = vbKeyF5 Then cmdIndex_Click 11
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 9
+    If KeyCode = vbKeyF5 Then cmdIndex_Click 10
 
 End Sub
 
 
 Private Sub txtNationalityAbbreviation_Validate(Cancel As Boolean)
 
-    If txtNationalityID.text = "" And txtNationalityAbbreviation.text <> "" Then cmdIndex_Click 10: If txtNationalityID.text = "" Then Cancel = True
+    If txtNationalityID.text = "" And txtNationalityAbbreviation.text <> "" Then cmdIndex_Click 9: If txtNationalityID.text = "" Then Cancel = True
     
 End Sub
 
-Private Sub txtSex_Change()
+Private Sub txtGenderDescription_Change()
 
-    If txtSex.text = "" Then
-        ClearFields txtSexID
+    If txtGenderDescription.text = "" Then
+        ClearFields txtGenderID
     End If
 
 End Sub
 
-Private Sub txtSex_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtGenderDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If KeyCode = vbKeyF2 Then cmdIndex_Click 8
 
 End Sub
 
-Private Sub txtSex_Validate(Cancel As Boolean)
+Private Sub txtGenderDescription_Validate(Cancel As Boolean)
 
-    If txtSexID.text = "" And txtSex.text <> "" Then cmdIndex_Click 8: If txtSexID.text = "" Then Cancel = True
+    If txtGenderID.text = "" And txtGenderDescription.text <> "" Then cmdIndex_Click 8: If txtGenderID.text = "" Then Cancel = True
 
 End Sub
 
-Private Sub txtProperty_Change()
+Private Sub txtPropertyDescription_Change()
 
-    If txtProperty.text = "" Then
+    If txtPropertyDescription.text = "" Then
         ClearFields txtPropertyID
     End If
 
 End Sub
 
-Private Sub txtProperty_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtPropertyDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If KeyCode = vbKeyF2 Then cmdIndex_Click 6
     If KeyCode = vbKeyF5 Then cmdIndex_Click 7
 
 End Sub
 
-Private Sub txtProperty_Validate(Cancel As Boolean)
+Private Sub txtPropertyDescription_Validate(Cancel As Boolean)
 
-    If txtPropertyID.text = "" And txtProperty.text <> "" Then cmdIndex_Click 6: If txtPropertyID.text = "" Then Cancel = True
+    If txtPropertyID.text = "" And txtPropertyDescription.text <> "" Then cmdIndex_Click 6: If txtPropertyID.text = "" Then Cancel = True
 
 End Sub
 
@@ -2288,45 +2136,45 @@ Private Sub txtRoute_Validate(Cancel As Boolean)
 
 End Sub
 
-Private Sub txtShip_Change()
+Private Sub txtShipDescription_Change()
 
-    If txtShip.text = "" Then
+    If txtShipDescription.text = "" Then
         ClearFields txtShipID
     End If
     
 End Sub
 
-Private Sub txtShip_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtShipDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If KeyCode = vbKeyF2 Then cmdIndex_Click 4
     If KeyCode = vbKeyF5 Then cmdIndex_Click 5
 
 End Sub
 
-Private Sub txtShip_Validate(Cancel As Boolean)
+Private Sub txtShipDescription_Validate(Cancel As Boolean)
 
-    If txtShipID.text = "" And txtShip.text <> "" Then cmdIndex_Click 4: If txtShipID.text = "" Then Cancel = True
+    If txtShipID.text = "" And txtShipDescription.text <> "" Then cmdIndex_Click 4: If txtShipID.text = "" Then Cancel = True
 
 End Sub
 
-Private Sub txtDestination_Change()
+Private Sub txtDestinationDescription_Change()
                                                                 
-    If txtDestination.text = "" Then
+    If txtDestinationDescription.text = "" Then
         ClearFields txtDestinationID
     End If
 
 End Sub
 
-Private Sub txtDestination_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtDestinationDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If KeyCode = vbKeyF2 Then cmdIndex_Click 2
     If KeyCode = vbKeyF5 Then cmdIndex_Click 3
 
 End Sub
 
-Private Sub txtDestination_Validate(Cancel As Boolean)
+Private Sub txtDestinationDescription_Validate(Cancel As Boolean)
 
-    If txtDestinationID.text = "" And txtDestination.text <> "" Then cmdIndex_Click 2: If txtDestinationID.text = "" Then Cancel = True
+    If txtDestinationID.text = "" And txtDestinationDescription.text <> "" Then cmdIndex_Click 2: If txtDestinationID.text = "" Then Cancel = True
     
 End Sub
 

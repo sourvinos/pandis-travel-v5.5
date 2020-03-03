@@ -181,11 +181,11 @@ Begin VB.Form TablesOccupantsDescriptions
          Left            =   75
          TabIndex        =   9
          TabStop         =   0   'False
-         Text            =   "OccupantsDescriptions.OccupantDescriptionStatisticID"
+         Text            =   "ShipsOccupants.StatisticID"
          Top             =   450
          Width           =   3540
       End
-      Begin VB.TextBox txtOccupantDescriptionStatisticID 
+      Begin VB.TextBox txtStatisticID 
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0FF&
          BorderStyle     =   0  'None
@@ -207,7 +207,7 @@ Begin VB.Form TablesOccupantsDescriptions
          Top             =   450
          Width           =   780
       End
-      Begin VB.TextBox txtOccupantDescriptionID 
+      Begin VB.TextBox txtID 
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0FF&
          BorderStyle     =   0  'None
@@ -248,7 +248,7 @@ Begin VB.Form TablesOccupantsDescriptions
          Left            =   75
          TabIndex        =   6
          TabStop         =   0   'False
-         Text            =   "OccupantsDescriptions.OccupantDescriptionID"
+         Text            =   "ShipsOccupants.ID"
          Top             =   75
          Width           =   3540
       End
@@ -264,7 +264,7 @@ Begin VB.Form TablesOccupantsDescriptions
          Keys            =   "ˇ"
       End
    End
-   Begin iGrid300_10Tec.iGrid grdOccupantsDescriptions 
+   Begin iGrid300_10Tec.iGrid grdShipsOccupants 
       Height          =   6240
       Left            =   8550
       TabIndex        =   1
@@ -285,7 +285,7 @@ Begin VB.Form TablesOccupantsDescriptions
       EndProperty
       ForeColor       =   -2147483631
    End
-   Begin UserControls.newText txtOccupantDescriptionDescription 
+   Begin UserControls.newText txtDescription 
       Height          =   465
       Left            =   3150
       TabIndex        =   0
@@ -307,7 +307,7 @@ Begin VB.Form TablesOccupantsDescriptions
          Strikethrough   =   0   'False
       EndProperty
    End
-   Begin UserControls.newText txtOccupantDescriptionStatisticDescription 
+   Begin UserControls.newText txtStatisticDescription 
       Height          =   465
       Left            =   3150
       TabIndex        =   2
@@ -541,11 +541,14 @@ Private Function AbortProcedure(blnStatus)
     If Not blnStatus Then
         If MyMsgBox(3, strApplicationName, strStandardMessages(3), 2) Then
             blnStatus = False
-            ClearFields txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID
-            ClearFields txtOccupantDescriptionStatisticDescription
-            DisableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+            
+            ClearFields txtID, txtStatisticID
+            ClearFields txtDescription, txtStatisticDescription
+            
+            DisableFields txtDescription, txtStatisticDescription
             DisableFields cmdIndex(0)
-            grdOccupantsDescriptions.SetFocus
+            
+            grdShipsOccupants.SetFocus
             UpdateButtons Me, 4, 1, 0, 0, 0, 1
         End If
         Exit Function
@@ -559,13 +562,16 @@ End Function
 
 Private Function DeleteRecord()
     
-    If MainDeleteRecord("CommonDB", "OccupantsDescriptions", strApplicationName, "OccupantDescriptionID", txtOccupantDescriptionID.text, "True") Then
+    If MainDeleteRecord("CommonDB", "ShipsOccupants", strApplicationName, "ID", txtID.text, "True") Then
         PopulateGrid
-        HighlightRow grdOccupantsDescriptions, lngSelectedRow, 1, "", True
-        ClearFields txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID
-        ClearFields txtOccupantDescriptionStatisticDescription
-        DisableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+        HighlightRow grdShipsOccupants, lngSelectedRow, 1, "", True
+        
+        ClearFields txtID, txtStatisticID
+        ClearFields txtDescription, txtStatisticDescription
+        
+        DisableFields txtDescription, txtStatisticDescription
         DisableFields cmdIndex(0)
+        
         UpdateButtons Me, 4, 1, 0, 0, 0, 1
     End If
 
@@ -575,22 +581,22 @@ Private Function NewRecord()
     
     blnStatus = True
     
-    ClearFields txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID
-    ClearFields txtOccupantDescriptionStatisticDescription
+    ClearFields txtID, txtStatisticID
+    ClearFields txtDescription, txtStatisticDescription
     
-    EnableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+    EnableFields txtDescription, txtStatisticDescription
     EnableFields cmdIndex(0)
     
     UpdateButtons Me, 4, 0, 1, 0, 1, 0
-    txtOccupantDescriptionDescription.SetFocus
+    txtDescription.SetFocus
 
 End Function
 
 Private Function PopulateGrid()
 
-    If FillGridFromDB("CommonDB", grdOccupantsDescriptions, "OccupantsDescriptions", "", "", "", 2, 0, 1) Then
-        grdOccupantsDescriptions.SetFocus
-        grdOccupantsDescriptions.SetCurCell 1, 1
+    If FillGridFromDB("CommonDB", grdShipsOccupants, "ShipsOccupants", "", "", "", 2, 0, 1) Then
+        grdShipsOccupants.SetFocus
+        grdShipsOccupants.SetCurCell 1, 1
     End If
 
 End Function
@@ -599,13 +605,16 @@ Private Function SaveRecord()
     
     If Not ValidateFields Then Exit Function
     
-    If MainSaveRecord("CommonDB", "OccupantsDescriptions", blnStatus, strApplicationName, "OccupantDescriptionID", txtOccupantDescriptionID.text, txtOccupantDescriptionDescription.text, txtOccupantDescriptionStatisticID.text, 1, strCurrentUser) <> 0 Then
+    If MainSaveRecord("CommonDB", "ShipsOccupants", blnStatus, strApplicationName, "ID", txtID.text, txtDescription.text, txtStatisticID.text, 1, strCurrentUser) <> 0 Then
         PopulateGrid
-        HighlightRow grdOccupantsDescriptions, lngSelectedRow, 2, txtOccupantDescriptionDescription.text, True
+        HighlightRow grdShipsOccupants, lngSelectedRow, 2, txtDescription.text, True
         lngSelectedRow = 0
-        ClearFields txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID
-        ClearFields txtOccupantDescriptionStatisticDescription
-        DisableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+        
+        ClearFields txtID, txtStatisticID
+        ClearFields txtDescription, txtStatisticDescription
+        
+        DisableFields txtDescription, txtStatisticDescription
+        
         DisableFields cmdIndex(0)
         UpdateButtons Me, 4, 1, 0, 0, 0, 1
     Else
@@ -619,18 +628,18 @@ Private Function ValidateFields()
     ValidateFields = False
     
     '–ÂÒÈ„Ò·ˆﬁ
-    If Len(Trim(txtOccupantDescriptionDescription.text)) = 0 Then
+    If Len(Trim(txtDescription.text)) = 0 Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
         End If
-        txtOccupantDescriptionDescription.SetFocus
+        txtDescription.SetFocus
         Exit Function
     End If
     
     '≈ÌÁÏÂÒ˛ÌÂÈ ÛÙ·ÙÈÛÙÈÍ‹ ÛÙÔÈ˜Âﬂ·
-    If txtOccupantDescriptionStatisticID.text = "" Then
+    If txtStatisticID.text = "" Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
         End If
-        txtOccupantDescriptionStatisticDescription.SetFocus
+        txtStatisticDescription.SetFocus
         Exit Function
     End If
     
@@ -645,27 +654,29 @@ Private Function SeekRecord()
 
     Dim blnEnableDelete As Boolean
     
-    If grdOccupantsDescriptions.RowCount = 0 Then Exit Function
+    If grdShipsOccupants.RowCount = 0 Then Exit Function
     
-    ClearFields txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID
-    ClearFields txtOccupantDescriptionStatisticDescription
-    DisableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+    ClearFields txtID, txtStatisticID
+    ClearFields txtDescription, txtStatisticDescription
+    
+    DisableFields txtDescription, txtStatisticDescription
+    
     DisableFields cmdIndex(0)
    
-    blnEnableDelete = SimpleSeek("Manifest", "TripOccupantDescriptionID", grdOccupantsDescriptions.CellValue(grdOccupantsDescriptions.CurRow, 1))
+    blnEnableDelete = SimpleSeek("Manifest", "TripOccupantDescriptionID", grdShipsOccupants.CellValue(grdShipsOccupants.CurRow, 1))
     
-    If MainSeekRecord("CommonDB", "OccupantsDescriptions", "OccupantDescriptionID", grdOccupantsDescriptions.CellValue(grdOccupantsDescriptions.CurRow, 1), True, txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID) Then
+    If MainSeekRecord("CommonDB", "ShipsOccupants", "ID", grdShipsOccupants.CellValue(grdShipsOccupants.CurRow, 1), True, txtID, txtDescription, txtStatisticID) Then
         '≈ÌÁÏÂÒ˛ÌÂÈ ÛÙ·ÙÈÛÙÈÍ‹ ÛÙÔÈ˜Âﬂ·
-        Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoID", "Numeric", txtOccupantDescriptionStatisticID.text)
-        txtOccupantDescriptionStatisticID.text = tmpRecordset.Fields(0)
-        txtOccupantDescriptionStatisticDescription.text = tmpRecordset.Fields(1)
+        Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoID", "Numeric", txtStatisticID.text)
+        txtStatisticID.text = tmpRecordset.Fields(0)
+        txtStatisticDescription.text = tmpRecordset.Fields(1)
         '
         blnStatus = False
-        lngSelectedRow = grdOccupantsDescriptions.CurRow
-        EnableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+        lngSelectedRow = grdShipsOccupants.CurRow
+        EnableFields txtDescription, txtStatisticDescription
         EnableFields cmdIndex(0)
         UpdateButtons Me, 4, 0, 1, IIf(blnEnableDelete, 1, 0), 1, 0
-        txtOccupantDescriptionDescription.SetFocus
+        txtDescription.SetFocus
     End If
     
 End Function
@@ -696,11 +707,11 @@ Private Sub cmdIndex_Click(index As Integer)
     Select Case index
         Case 0
             '≈ÌÁÏÂÒ˛ÌÂÈ ÛÙ·ÙÈÛÙÈÍ‹ ÛÙÔÈ˜Âﬂ·
-            Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoDescription", "String", txtOccupantDescriptionStatisticDescription.text)
+            Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoDescription", "String", txtStatisticDescription.text)
             If tmpRecordset.RecordCount > 0 Then
                 tmpTableData = DisplayIndex(tmpRecordset, 2, True, 2, 0, 1, "ID", "–ÂÒÈ„Ò·ˆﬁ", 0, 40, 1, 0)
-                txtOccupantDescriptionStatisticID.text = tmpTableData.strCode
-                txtOccupantDescriptionStatisticDescription.text = tmpTableData.strFirstField
+                txtStatisticID.text = tmpTableData.strCode
+                txtStatisticDescription.text = tmpTableData.strFirstField
             End If
     End Select
 
@@ -710,12 +721,12 @@ Private Sub Form_Activate()
 
     If Me.Tag = "True" Then
         Me.Tag = "False"
-        AddColumnsToGrid grdOccupantsDescriptions, False, 25, GetSetting(strApplicationName, "Layout Strings", "grdOccupantsDescriptions"), "04LNID,40LNName", "ID,–ÂÒÈ„Ò·ˆﬁ"
+        AddColumnsToGrid grdShipsOccupants, False, 25, GetSetting(strApplicationName, "Layout Strings", "grdShipsOccupants"), "04LNID,40LNName", "ID,–ÂÒÈ„Ò·ˆﬁ"
         Me.Refresh
         PopulateGrid
     End If
 
-    'AddDummyLines grdOccupantsDescriptions, "99999", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA¡¡¡¡¡¡¡¡¡¡"
+    'AddDummyLines grdShipsOccupants, "99999", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAA¡¡¡¡¡¡¡¡¡¡"
 
 End Sub
 
@@ -754,30 +765,31 @@ End Function
 Private Sub Form_Load()
     
     UpdateColors Me, False
-    SetUpGrid lstIconList, grdOccupantsDescriptions
+    SetUpGrid lstIconList, grdShipsOccupants
     
-    ClearFields txtOccupantDescriptionID, txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticID
-    ClearFields txtOccupantDescriptionStatisticDescription
-    DisableFields txtOccupantDescriptionDescription, txtOccupantDescriptionStatisticDescription
+    ClearFields txtID, txtStatisticID
+    ClearFields txtDescription, txtStatisticDescription
+    
+    DisableFields txtDescription, txtStatisticDescription
     DisableFields cmdIndex(0)
     
     UpdateButtons Me, 4, 1, 0, 0, 0, 1
 
 End Sub
 
-Private Sub grdOccupantsDescriptions_DblClick(ByVal lRow As Long, ByVal lCol As Long, bRequestEdit As Boolean)
+Private Sub grdShipsOccupants_DblClick(ByVal lRow As Long, ByVal lCol As Long, bRequestEdit As Boolean)
 
     SeekRecord
 
 End Sub
 
-Private Sub grdOccupantsDescriptions_HeaderRightClick(ByVal lCol As Long, ByVal Shift As Integer, ByVal X As Long, ByVal Y As Long)
+Private Sub grdShipsOccupants_HeaderRightClick(ByVal lCol As Long, ByVal Shift As Integer, ByVal X As Long, ByVal Y As Long)
 
     PopupMenu mnuHdrPopUp
 
 End Sub
 
-Private Sub grdOccupantsDescriptions_KeyPress(KeyAscii As Integer)
+Private Sub grdShipsOccupants_KeyPress(KeyAscii As Integer)
 
     If KeyAscii = vbKeyReturn Then SeekRecord
     
@@ -785,29 +797,27 @@ End Sub
 
 Private Sub mnu¡ÔËﬁÍÂıÛÁ–Î‹ÙÔıÚ”ÙÁÎ˛Ì_Click()
     
-    SaveSetting strApplicationName, "Layout Strings", "grdOccupantsDescriptions", grdOccupantsDescriptions.LayoutCol
+    SaveSetting strApplicationName, "Layout Strings", "grdShipsOccupants", grdShipsOccupants.LayoutCol
 
 End Sub
 
-Private Sub txtOccupantDescriptionStatisticDescription_Change()
+Private Sub txtStatisticDescription_Change()
 
-    If txtOccupantDescriptionStatisticDescription.text = "" Then
-        ClearFields txtOccupantDescriptionStatisticID
+    If txtStatisticDescription.text = "" Then
+        ClearFields txtStatisticID
     End If
 
 End Sub
 
-
-Private Sub txtOccupantDescriptionStatisticDescription_KeyDown(KeyCode As Integer, Shift As Integer)
+Private Sub txtStatisticDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If KeyCode = vbKeyF2 Then cmdIndex_Click 0
 
 End Sub
 
+Private Sub txtStatisticDescription_Validate(Cancel As Boolean)
 
-Private Sub txtOccupantDescriptionStatisticDescription_Validate(Cancel As Boolean)
-
-    If txtOccupantDescriptionStatisticID.text = "" And txtOccupantDescriptionStatisticDescription.text <> "" Then cmdIndex_Click 0: If txtOccupantDescriptionStatisticID.text = "" Then Cancel = True
+    If txtStatisticID.text = "" And txtStatisticDescription.text <> "" Then cmdIndex_Click 0: If txtStatisticID.text = "" Then Cancel = True
 
 End Sub
 

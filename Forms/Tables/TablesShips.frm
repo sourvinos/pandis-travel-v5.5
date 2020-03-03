@@ -2026,7 +2026,7 @@ End Function
 
 Private Function PopulateCrewGrid()
 
-    If FillGridFromDB("CommonDB", grdCrew, "ShipsCrew", "", "", "CrewShipID = " & txtShipID.text, 2, 0, 1, 2, 3, 4, 5) Then
+    If FillGridFromDB("CommonDB", grdCrew, "ShipsCrew", "", "", "CrewShipID = " & txtShipID.text, 2, 0, 1, 2, 3, 4, 5, 6) Then
         PopulateCrewGrid = True
     Else
         PopulateCrewGrid = False
@@ -2092,15 +2092,6 @@ Private Function ValidateFields()
                 grdCrew.SetFocus
                 Exit Function
             End If
-            'Ιδιότητα
-            If IsNull(grdCrew.CellValue(lngRow, "PropertyDescription")) Or IsEmpty(grdCrew.CellValue(lngRow, "PropertyDescription")) Then
-                If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
-                End If
-                btnPanel_Click 1
-                grdCrew.SetCurCell lngRow, "PropertyDescription"
-                grdCrew.SetFocus
-                Exit Function
-            End If
             'Φύλο
             If IsNull(grdCrew.CellValue(lngRow, "GenderDescription")) Or IsEmpty(grdCrew.CellValue(lngRow, "GenderDescription")) Then
                 If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
@@ -2110,12 +2101,21 @@ Private Function ValidateFields()
                 grdCrew.SetFocus
                 Exit Function
             End If
-            'Ηλικία
-            If IsNull(grdCrew.CellValue(lngRow, "AgeDescription")) Or IsEmpty(grdCrew.CellValue(lngRow, "AgeDescription")) Then
+            'Ιθαγένεια
+            If IsNull(grdCrew.CellValue(lngRow, "NationalityDescription")) Or IsEmpty(grdCrew.CellValue(lngRow, "NationalityDescription")) Then
                 If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
                 End If
                 btnPanel_Click 1
-                grdCrew.SetCurCell lngRow, "AgeDescription"
+                grdCrew.SetCurCell lngRow, "NationalityDescription"
+                grdCrew.SetFocus
+                Exit Function
+            End If
+            'Ιδιότητα
+            If IsNull(grdCrew.CellValue(lngRow, "OccupantDescription")) Or IsEmpty(grdCrew.CellValue(lngRow, "OccupantDescription")) Then
+                If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+                End If
+                btnPanel_Click 1
+                grdCrew.SetCurCell lngRow, "OccupantDescription"
                 grdCrew.SetFocus
                 Exit Function
             End If
@@ -2512,7 +2512,7 @@ End Sub
 
 Private Sub grdCrew_RequestEdit(ByVal lRow As Long, ByVal lCol As Long, ByVal iKeyAscii As Integer, bCancel As Boolean, sText As String, lMaxLength As Long, eTextEditOpt As iGrid300_10Tec.ETextEditFlags)
 
-    If lCol = 1 Or lCol >= 7 Then bCancel = True
+    If lCol = 1 Or lCol > grdCrew.colCount - 2 Then bCancel = True
 
 End Sub
 
@@ -2545,42 +2545,26 @@ Private Function AddColumnsAndCombosToCrewGrid()
 
     Dim strSavedLayout As String
     
-    'Local recordsets
-    Dim TableOccupantsDescriptions As TableDef
-    Dim TableAges As TableDef
+    'Tables
     Dim TableGenders As TableDef
+    Dim TableNationalities As TableDef
+    Dim TableShipsOccupants As TableDef
     
-    Dim rsOccupantsDescriptions As Recordset
-    Dim rsAges As Recordset
+    'Local recordsets
     Dim rsGenders As Recordset
+    Dim rsNationalities As Recordset
+    Dim rsShipsOccupants As Recordset
     
     'Αρχικές τιμές
-    Set TableOccupantsDescriptions = dBaseTables("OccupantsDescriptions")
     Set TableGenders = dBaseTables("Genders")
-    Set TableAges = dBaseTables("Ages")
+    Set TableNationalities = dBaseTables("Nationalities")
+    Set TableShipsOccupants = dBaseTables("ShipsOccupants")
     
-    Set rsAges = TableAges.OpenRecordset()
     Set rsGenders = TableGenders.OpenRecordset()
-    Set rsOccupantsDescriptions = TableOccupantsDescriptions.OpenRecordset()
+    Set rsNationalities = TableNationalities.OpenRecordset()
+    Set rsShipsOccupants = TableShipsOccupants.OpenRecordset()
     
     With grdCrew
-        
-        'Ιδιότητα
-        With .Combos.Add("PropertyDescription")
-            While Not rsOccupantsDescriptions.EOF
-                .AddItem sItemText:=rsOccupantsDescriptions!OccupantDescriptionDescription, vItemValue:=CLng(rsOccupantsDescriptions!OccupantDescriptionID)
-                rsOccupantsDescriptions.MoveNext
-            Wend
-            rsOccupantsDescriptions.Close
-        End With
-        'Ηλικία
-        With .Combos.Add("AgeDescription")
-            While Not rsAges.EOF
-                .AddItem sItemText:=rsAges!AgeDescription, vItemValue:=CLng(rsAges!AgeID)
-                rsAges.MoveNext
-            Wend
-            rsAges.Close
-        End With
         'Φύλο
         With .Combos.Add("GenderDescription")
             While Not rsGenders.EOF
@@ -2589,6 +2573,23 @@ Private Function AddColumnsAndCombosToCrewGrid()
             Wend
             rsGenders.Close
         End With
+        'Ιθαγένεια
+        With .Combos.Add("Nationality")
+            While Not rsNationalities.EOF
+                .AddItem sItemText:=rsNationalities!NationalityDescription, vItemValue:=CLng(rsNationalities!NationalityID)
+                rsNationalities.MoveNext
+            Wend
+            rsNationalities.Close
+        End With
+        'Ιδιότητα
+        With .Combos.Add("OccupantDescription")
+            While Not rsShipsOccupants.EOF
+                .AddItem sItemText:=rsShipsOccupants!ShipOccupantDescription, vItemValue:=CLng(rsShipsOccupants!ShipOccupantID)
+                rsShipsOccupants.MoveNext
+            Wend
+            rsShipsOccupants.Close
+        End With
+        
         With .AddCol(sKey:="ID", sHeader:="ID", lWidth:=175, eHdrTextFlags:=igTextCenter)
             .eTextFlags = igTextCenter
         End With
@@ -2598,17 +2599,21 @@ Private Function AddColumnsAndCombosToCrewGrid()
         With .AddCol(sKey:="FirstName", sHeader:="Ονομα", lWidth:=75, eHdrTextFlags:=igTextCenter)
             .eTextFlags = igTextLeft
         End With
-        With .AddCol(sKey:="PropertyDescription", sHeader:="Ιδιότητα", lWidth:=32, lMinWidth:=24, eHdrTextFlags:=igTextCenter)
-           .eType = igCellCombo
-           .sCtrlKey = "PropertyDescription"
-        End With
         With .AddCol(sKey:="GenderDescription", sHeader:="Φύλο", lWidth:=32, lMinWidth:=24, eHdrTextFlags:=igTextCenter)
            .eType = igCellCombo
            .sCtrlKey = "GenderDescription"
         End With
-        With .AddCol(sKey:="AgeDescription", sHeader:="Ηλικία", lWidth:=32, lMinWidth:=24, eHdrTextFlags:=igTextCenter)
+        With .AddCol(sKey:="NationalityDescription", sHeader:="Ιθαγένεια", lWidth:=32, lMinWidth:=24, eHdrTextFlags:=igTextCenter)
            .eType = igCellCombo
-           .sCtrlKey = "AgeDescription"
+           .sCtrlKey = "Nationality"
+        End With
+        With .AddCol(sKey:="OccupantDescription", sHeader:="Ιδιότητα", lWidth:=32, lMinWidth:=24, eHdrTextFlags:=igTextCenter)
+           .eType = igCellCombo
+           .sCtrlKey = "OccupantDescription"
+        End With
+        With .AddCol(sKey:="DOB", sHeader:="Ημερομηνία γέννησης", lWidth:=75, eHdrTextFlags:=igTextCenter)
+            .eTextFlags = igTextCenter
+            .sFmtString = "dd/mm/yyyy"
         End With
         With .AddCol(sKey:="Status", sHeader:="", lWidth:=202, eHdrTextFlags:=igTextCenter) 'Blank = Edit, Blue = New
             .eTextFlags = igTextCenter
@@ -2639,7 +2644,7 @@ End Function
 
 Private Function SaveCrew(shipID As Integer)
 
-    On Error GoTo ErrTrap
+    'On Error GoTo ErrTrap
     
     Dim lngID As Long
     Dim lngRow As Long
@@ -2648,7 +2653,7 @@ Private Function SaveCrew(shipID As Integer)
         For lngRow = 1 To .RowCount
         '    'Add Record when Status = Blue and Deleted = Blank
             If (.CellIcon(lngRow, "Status") = 1) And (.CellIcon(lngRow, "Deleted") = -1) Then
-                lngID = MainSaveRecord("CommonDB", "ShipsCrew", True, strApplicationName, "ID", 0, Trim(Left(.CellValue(lngRow, "LastName"), 30)), Trim(Left(.CellValue(lngRow, "FirstName"), 10)), .CellValue(lngRow, "PropertyDescription"), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "AgeDescription"), txtShipID.text, txtShipID.text, strCurrentUser)
+                lngID = MainSaveRecord("CommonDB", "ShipsCrew", True, strApplicationName, "ID", 0, Trim(Left(.CellValue(lngRow, "LastName"), 40)), Trim(Left(.CellValue(lngRow, "FirstName"), 40)), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "NationalityDescription"), .CellValue(lngRow, "OccupantDescription"), .CellValue(lngRow, "DOB"), txtShipID.text, txtShipID.text, strCurrentUser)
             End If
         '    'Delete Existing Record when Status = Blank and Deleted = Red
             If (.CellIcon(lngRow, "Status") = -1) And (.CellIcon(lngRow, "Deleted") = 2) Then
@@ -2656,7 +2661,7 @@ Private Function SaveCrew(shipID As Integer)
             End If
         '    'Update Existing Record when Status = Blank and Deleted = Blank
             If (.CellIcon(lngRow, "Status") = -1) And (.CellIcon(lngRow, "Deleted") = -1) Then
-                lngID = MainSaveRecord("CommonDB", "ShipsCrew", False, strApplicationName, "ID", .CellValue(lngRow, "ID"), Trim(Left(.CellValue(lngRow, "LastName"), 30)), Trim(Left(.CellValue(lngRow, "FirstName"), 10)), .CellValue(lngRow, "PropertyDescription"), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "AgeDescription"), txtShipID.text, txtShipID.text, strCurrentUser)
+                lngID = MainSaveRecord("CommonDB", "ShipsCrew", False, strApplicationName, "ID", .CellValue(lngRow, "ID"), Trim(Left(.CellValue(lngRow, "LastName"), 30)), Trim(Left(.CellValue(lngRow, "FirstName"), 10)), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "NationalityDescription"), .CellValue(lngRow, "OccupantDescription"), .CellValue(lngRow, "DOB"), txtShipID.text, txtShipID.text, strCurrentUser)
             End If
         Next lngRow
     End With

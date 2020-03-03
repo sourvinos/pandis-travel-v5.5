@@ -1229,8 +1229,6 @@ Dim lngRowCount As Long
 Dim blnError As Boolean
 Dim blnProcessing As Boolean
 
-
-
 Private Function CheckForCorrectField(inputField, expectedField, errorMessage)
 
     If Trim(inputField) = Trim(expectedField) Then
@@ -1261,7 +1259,6 @@ Private Function CreateFile()
                 & .CellText(lngRow, "LastName") & " " & Space(40 - Len(.CellText(lngRow, "LastName"))) _
                 & .CellText(lngRow, "FirstName") & " " & Space(40 - Len(.CellText(lngRow, "FirstName"))) _
                 & .CellText(lngRow, "GenderID") & " " & Space(5 - Len(.CellText(lngRow, "GenderID"))) _
-                & .CellText(lngRow, "AgeID") & " " & Space(5 - Len(.CellText(lngRow, "AgeID"))) _
                 & .CellText(lngRow, "Care") & " " & Space(40 - Len(.CellText(lngRow, "Care"))) _
                 & .CellText(lngRow, "Remarks") & " " & Space(40 - Len(.CellText(lngRow, "Remarks"))) _
                 & .CellText(lngRow, "ShowInList") & " " & Space(5 - Len(.CellText(lngRow, "ShowInList"))) _
@@ -1687,11 +1684,10 @@ Private Function RefreshList()
     End With
     
     'Κυρίως διαδικασία
-    strSQL = "SELECT TripID, TripDate, TripLastName, TripFirstName, TripCare, TripRemarks, TripRouteID, TripDestinationID, TripShipID, TripOccupantDescriptionID, TripGenderID, TripAgeID, Manifest.ShowInList, Manifest.User, OccupantDescriptionDescription, GenderDescription, AgeDescription, NationalityAbbreviation, TripDOB, TripPhone " _
-        & "FROM ((((Manifest " _
+    strSQL = "SELECT TripID, TripDate, TripLastName, TripFirstName, TripCare, TripRemarks, ShipOccupantDescription, GenderDescription,  NationalityAbbreviation, TripDOB, TripPhone, TripRouteID, TripDestinationID, TripShipID " _
+        & "FROM (((Manifest " _
         & "INNER JOIN Genders ON Manifest.TripGenderID = Genders.GenderID) " _
-        & "INNER JOIN OccupantsDescriptions ON Manifest.TripOccupantDescriptionID = OccupantsDescriptions.OccupantDescriptionID) " _
-        & "INNER JOIN Ages ON Manifest.TripAgeID = Ages.AgeID) " _
+        & "INNER JOIN ShipsOccupants ON Manifest.TripOccupantDescriptionID = ShipsOccupants.ShipOccupantID) " _
         & "LEFT JOIN Nationalities ON Manifest.TripNationalityID = Nationalities.NationalityID) "
     
     'Ημέρα
@@ -1722,7 +1718,7 @@ Private Function RefreshList()
     End If
     
     'Ταξινόμηση
-    strOrder = " ORDER BY OccupantDescriptionDescription DESC, TripLastName, TripFirstName"
+    strOrder = " ORDER BY ShipOccupantDescription DESC, TripLastName, TripFirstName"
     
     Set TempQuery = CommonDB.CreateQueryDef("")
     
@@ -1769,11 +1765,14 @@ Private Function RefreshList()
             grdShipsRouteReport.CellValue(lngRow, "FirstName") = !TripFirstName
             grdShipsRouteReport.CellValue(lngRow, "Remarks") = !TripRemarks
             grdShipsRouteReport.CellValue(lngRow, "Care") = !TripCare
-            grdShipsRouteReport.CellValue(lngRow, "OccupantDescription") = !OccupantDescriptionDescription
+            grdShipsRouteReport.CellValue(lngRow, "OccupantDescription") = !ShipOccupantDescription
             grdShipsRouteReport.CellValue(lngRow, "Gender") = !GenderDescription
             grdShipsRouteReport.CellValue(lngRow, "NationalityAbbreviation") = !nationalityabbreviation
             grdShipsRouteReport.CellValue(lngRow, "DOB") = !TripDOB
             grdShipsRouteReport.CellValue(lngRow, "Phone") = !TripPhone
+            grdShipsRouteReport.CellValue(lngRow, "RouteID") = !TripRouteID
+            grdShipsRouteReport.CellValue(lngRow, "DestinationID") = !TripDestinationID
+            grdShipsRouteReport.CellValue(lngRow, "ShipID") = !TripShipID
             rstRecordset.MoveNext
             DoEvents
             If Not blnProcessing Then Exit Do
@@ -1852,8 +1851,8 @@ Private Sub Form_Activate()
     If Me.Tag = "True" Then
         Me.Tag = "False"
         AddColumnsToGrid grdShipsRouteReport, False, 44, GetSetting(strApplicationName, "Layout Strings", "grdShipsRouteReport"), _
-            "05NRNID,05NRNAA,10NCDDate,40NLNLastName,10NLNFirstName,40NLNRemarks,40NLNCare,40NLNOccupantDescription,40NLNGender,05NLNNationalityAbbreviation,05NCNXDOB,05NLNPhone,05NCNSelected", _
-            "ID,Α/Α,Ημερομηνία,Επώνυμο,Ονομα,Παρατηρήσεις,Ειδική φροντίδα,Ιδιότητα,Φύλο,Ιθαγένεια,Ημερομηνία γέννησης,Phone,Ε"
+            "05NRNID,05NRNAA,10NCDDate,40NLNLastName,10NLNFirstName,40NLNRemarks,40NLNCare,40NLNOccupantDescription,40NLNGender,05NLNNationalityAbbreviation,05NCNXDOB,05NLNPhone,05NCNRouteID,05NCNDestinationID,05NCNShipID,05NCNSelected", _
+            "ID,Α/Α,Ημερομηνία,Επώνυμο,Ονομα,Παρατηρήσεις,Ειδική φροντίδα,Ιδιότητα,Φύλο,Ιθαγένεια,Ημερομηνία γέννησης,Τηλέφωνο,RouteID,DestinationID,ShipID,Ε"
         Me.Refresh
         frmCriteria(0).Visible = True
         mskDate.SetFocus
@@ -2033,7 +2032,6 @@ Private Sub mskDate_LostFocus()
 
 End Sub
 
-
 Private Sub mskDate_Validate(Cancel As Boolean)
 
     If mskDate.text <> "" Then
@@ -2043,7 +2041,6 @@ Private Sub mskDate_Validate(Cancel As Boolean)
     End If
 
 End Sub
-
 
 Private Sub txtRoute_Change()
 
@@ -2121,7 +2118,18 @@ Private Function ImportCrew(shipID As Integer)
         With tmpRecordset
             If .RecordCount > 0 Then
                 While Not .EOF
-                    strResult = MainSaveRecord("CommonDB", "Manifest", True, strApplicationName, "TripID", "", mskDate.text, Val(txtRouteID.text), grdShipsRouteReport.CellValue(1, "DestinationID"), Val(txtShipID.text), !CrewPropertyID, !CrewLastName, !CrewFirstName, !CrewGenderID, !CrewAgeID, "", "", "1", strCurrentUser)
+                    strResult = MainSaveRecord("CommonDB", "Manifest", True, strApplicationName, "TripID", "", _
+                        mskDate.text, _
+                        Val(txtRouteID.text), _
+                        grdShipsRouteReport.CellValue(1, "DestinationID"), _
+                        Val(txtShipID.text), _
+                        !CrewOccupantID, _
+                        !CrewLastName, _
+                        !CrewFirstName, _
+                        !CrewGenderID, _
+                        !CrewNationalityID, _
+                        !CrewDOB, _
+                        "", "", "", "1", strCurrentUser)
                     .MoveNext
                 Wend
             End If
