@@ -1431,7 +1431,7 @@ Private Function AddCurrentLineForExpensesToGrid(rstTransactions As Recordset)
     With grdSuppliersLedger
         .AddRow
         .CellValue(.RowCount, "TrnID") = rstTransactions!InvoiceTrnID
-        .CellValue(.RowCount, "Date") = rstTransactions!InvoiceDateRefersTo
+        .CellValue(.RowCount, "Date") = rstTransactions!InvoiceDateValue
         .CellValue(.RowCount, "InvoiceDetails") = FullInvoice(rstTransactions!CodeShortDescriptionB, rstTransactions!CodeBatch, rstTransactions!InvoiceNo)
         .CellValue(.RowCount, "ExpenseDescription") = IIf(IsNull(rstTransactions!ExpenseCategoryDescription), rstTransactions!CodeDescription, rstTransactions!ExpenseCategoryDescription)
         .CellValue(.RowCount, "Debit") = curTotalDebitLine
@@ -1451,7 +1451,7 @@ Private Function AddCurrentLineForSalesToGrid(rstTransactions As Recordset)
     With grdCustomersLedger
         .AddRow
         .CellValue(.RowCount, "TrnID") = rstTransactions!InvoiceTrnID
-        .CellValue(.RowCount, "Date") = rstTransactions!InvoiceDateRefersTo
+        .CellValue(.RowCount, "Date") = rstTransactions!InvoiceDateValue
         .CellValue(.RowCount, "InvoiceDetails") = FullInvoice(rstTransactions!CodeShortDescriptionB, rstTransactions!CodeBatch, rstTransactions!InvoiceNo)
         .CellValue(.RowCount, "Destination") = IIf(IsNull(rstTransactions!DestinationDescription), rstTransactions!CodeDescription, rstTransactions!DestinationDescription)
         .CellValue(.RowCount, "Adults") = lngAdultsLine
@@ -1579,8 +1579,8 @@ End Function
 
 Private Function CalculatePeriodTotals(rstTransactions As Recordset)
 
-    If rstTransactions!InvoiceMasterRefersTo = "1" Or rstTransactions!InvoiceMasterRefersTo = "3" Then CalculatePeriodTotalsForExpenses rstTransactions 'Expenses
-    If rstTransactions!InvoiceMasterRefersTo = "2" Or rstTransactions!InvoiceMasterRefersTo = "4" Then CalculatePeriodTotalsForSales rstTransactions 'Sales
+    If rstTransactions!InvoiceMasterRefersTo = "1" Or rstTransactions!InvoiceMasterRefersTo = "3" Then CalculatePeriodTotalsForExpenses rstTransactions
+    If rstTransactions!InvoiceMasterRefersTo = "2" Or rstTransactions!InvoiceMasterRefersTo = "4" Then CalculatePeriodTotalsForSales rstTransactions, mskDateTo(0).text
 
 End Function
 
@@ -1633,7 +1633,6 @@ Private Function CalculateSoFarTotalsForExpenses(rstTransactions As Recordset)
             curTotals = CalculateFields(rstTransactions, !CodeSuppliers, "InvoiceInAmount")
             'Ποσό
             curCreditSoFar = curCreditSoFar + IIf(!CodeSuppliers = "+", !InvoiceInAmount, -!InvoiceInAmount)
-            'curCreditSoFar = curCreditSoFar + !InvoiceInAmount
             'Αν η κίνηση είναι μετρητοίς βάζω το ποσό και στη χρέωση
             curDebitSoFar = IIf(!PaymentTermCreditID = 0, curDebitSoFar + Abs(curTotals), curDebitSoFar)
         End If
@@ -1728,7 +1727,7 @@ Private Function CalculateGrandTotals()
     
 End Function
 
-Private Function CalculatePeriodTotalsForSales(rstTransactions As Recordset)
+Private Function CalculatePeriodTotalsForSales(rstTransactions As Recordset, dateTo As Date)
 
     Dim curTotals As Currency
     
@@ -1750,11 +1749,9 @@ Private Function CalculatePeriodTotalsForSales(rstTransactions As Recordset)
             'Αν η κίνηση είναι μετρητοίς βάζω το ποσό και στην πίστωση
             curCreditPeriod = IIf(!PaymentTermCreditID = 0, curCreditPeriod + curTotals, curCreditPeriod)
         End If
-    
         If !InvoiceMasterRefersTo = "4" Then
             curCreditPeriod = curCreditPeriod + curTotalCreditLine
         End If
-    
     End With
     
     curBalancePeriod = curBalancePeriod + curAdultsAmountLine + curKidsAmountLine + curDirectAmountLine - curTotalCreditLine
@@ -1781,16 +1778,11 @@ Private Function CalculateSoFarTotals(fromDate As String, rstTransactions As Rec
     
     CalculateSoFarTotals = False
     
-    Dim dateField As String
-    dateField = "InvoiceOutTripDate"
-    
     With rstTransactions
         While Not .EOF
             If Not blnProcessing Then Exit Function
-            If rstTransactions!InvoiceDateRefersTo < CDate(fromDate) Then
-                'Εξοδο (Χρεωστικό ή πιστωτικό) - Στήλη πίστωσης
+            If rstTransactions!InvoiceDateValue < CDate(fromDate) Then
                 If txtInvoiceMasterRefersTo.text = "1" Then CalculateSoFarTotalsForExpenses rstTransactions
-                'Πώληση (Χρεωστική ή πιστωτική) - Στήλη χρέωσης
                 If txtInvoiceMasterRefersTo.text = "2" Then CalculateSoFarTotalsForSales rstTransactions
                 'Εχω εγγραφές!
                 CalculateSoFarTotals = True
@@ -2386,9 +2378,9 @@ Headers:
     
 End Function
 
-Private Sub cmdButton_Click(Index As Integer)
+Private Sub cmdButton_Click(index As Integer)
 
-    Select Case Index
+    Select Case index
         Case 0
             'Μία καρτέλα
             If txtBatchReport.text = "No" Then FindRecordsAndPopulateGrid
@@ -2764,9 +2756,9 @@ Private Function RefreshList(personID As String, fromDate As String, toDate As S
     GoSub UpdateSQLString
     arrQuery(intIndex) = Trim(Str(Val(txtInvoiceMasterRefersTo.text) + 2))
     
-    'Αφορά Εως
-    strThisParameter = "datToDate Date"
-    strThisQuery = "Invoices.InvoiceDateRefersTo <= datToDate"
+    'Εως την ημερομηνία ισχύος
+    strThisParameter = "datToDateIssue Date"
+    strThisQuery = "Invoices.InvoiceDateValue <= datToDateIssue"
     strLogic = " AND "
     GoSub UpdateSQLString
     arrQuery(intIndex) = toDate
@@ -2790,7 +2782,7 @@ Private Function RefreshList(personID As String, fromDate As String, toDate As S
     End If
     
     'Ταξινόμηση
-    strOrder = " ORDER BY InvoiceDateRefersTo, InvoiceNo, InvoiceID"
+    strOrder = " ORDER BY InvoiceDateValue,  InvoiceNo, InvoiceID"
     
     Set TempQuery = CommonDB.CreateQueryDef("")
     
@@ -2890,13 +2882,13 @@ ErrTrap:
     DisplayErrorMessage True, Err.Description
     
 End Function
-Private Sub cmdIndex_Click(Index As Integer)
+Private Sub cmdIndex_Click(index As Integer)
 
     'Local variables
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
     
-    Select Case Index
+    Select Case index
         Case 0
             'Customers - F2
             Set tmpRecordset = CheckForMatch("CommonDB", txtCustomersOrSuppliers.text, "Description", "String", txtPersonDescription.text)
@@ -3125,24 +3117,24 @@ Private Sub mnuΑποθήκευσηΠλάτουςΣτηλών_Click()
 
 End Sub
 
-Private Sub txtDestinationDescription_Change(Index As Integer)
+Private Sub txtDestinationDescription_Change(index As Integer)
 
-    If txtDestinationDescription(Index).text = "" Then txtDestinationID.text = ""
-
-End Sub
-
-Private Sub txtDestinationDescription_KeyDown(KeyCode As Integer, Shift As Integer, Index As Integer)
-
-    If KeyCode = vbKeyF2 And Index = 0 Then cmdIndex_Click 1
-    If KeyCode = vbKeyF2 And Index = 1 Then cmdIndex_Click 2
+    If txtDestinationDescription(index).text = "" Then txtDestinationID.text = ""
 
 End Sub
 
+Private Sub txtDestinationDescription_KeyDown(KeyCode As Integer, Shift As Integer, index As Integer)
 
-Private Sub txtDestinationDescription_Validate(Index As Integer, Cancel As Boolean)
+    If KeyCode = vbKeyF2 And index = 0 Then cmdIndex_Click 1
+    If KeyCode = vbKeyF2 And index = 1 Then cmdIndex_Click 2
 
-    If txtDestinationID.text = "" And Index = 0 And txtDestinationDescription(Index).text <> "" Then cmdIndex_Click 1: If txtDestinationID.text = "" Then Cancel = True
-    If txtDestinationID.text = "" And Index = 1 And txtDestinationDescription(Index).text <> "" Then cmdIndex_Click 2: If txtDestinationID.text = "" Then Cancel = True
+End Sub
+
+
+Private Sub txtDestinationDescription_Validate(index As Integer, Cancel As Boolean)
+
+    If txtDestinationID.text = "" And index = 0 And txtDestinationDescription(index).text <> "" Then cmdIndex_Click 1: If txtDestinationID.text = "" Then Cancel = True
+    If txtDestinationID.text = "" And index = 1 And txtDestinationDescription(index).text <> "" Then cmdIndex_Click 2: If txtDestinationID.text = "" Then Cancel = True
 
 End Sub
 

@@ -2420,7 +2420,19 @@ Private Function SaveInvoice()
 
     If blnStatus Then txtInvoiceTrnID.text = AddOneToTheLastRecord("Invoices")
     
-    If MainSaveRecord("CommonDB", "Invoices", blnStatus, strApplicationName, "InvoiceID", txtInvoiceID.text, txtInvoiceTrnID.text, txtInvoiceMasterRefersTo.text, txtInvoiceSecondaryRefersTo.text, mskDateIssue.text, mskDateRefersTo, txtInvoiceDateIn.text, txtInvoiceCodeID.text, txtInvoiceNo.text, txtInvoicePersonID.text, strCurrentUser) <> 0 Then
+    If MainSaveRecord("CommonDB", "Invoices", blnStatus, strApplicationName, "InvoiceID", _
+            txtInvoiceID.text, _
+            txtInvoiceTrnID.text, _
+            txtInvoiceMasterRefersTo.text, _
+            txtInvoiceSecondaryRefersTo.text, _
+            mskDateIssue.text, _
+            txtInvoiceDateIn.text, _
+            mskDateRefersTo.text, _
+            mskDateIssue.text, _
+            txtInvoiceCodeID.text, _
+            txtInvoiceNo.text, _
+            txtInvoicePersonID.text, _
+            strCurrentUser) <> 0 Then
         IsError = False
     Else
         IsError = True
@@ -2573,9 +2585,9 @@ Private Function ValidateFields()
 
 End Function
 
-Private Sub cmdButton_Click(Index As Integer)
+Private Sub cmdButton_Click(index As Integer)
 
-    Select Case Index
+    Select Case index
         Case 0
             NewRecord
         Case 1
@@ -2603,12 +2615,12 @@ Private Function FindRecords()
 
 End Function
 
-Private Sub cmdIndex_Click(Index As Integer)
+Private Sub cmdIndex_Click(index As Integer)
 
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
     
-    Select Case Index
+    Select Case index
         Case 0
             'Κατηγορία εξόδου - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "ExpensesCategories", "ExpenseCategoryDescription", "String", txtExpenseDescription.text)

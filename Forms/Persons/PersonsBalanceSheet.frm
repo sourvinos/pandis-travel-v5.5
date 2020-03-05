@@ -476,7 +476,7 @@ Begin VB.Form PersonsBalanceSheet
          TabIndex        =   6
          Top             =   6075
          Width           =   7440
-         Begin UserControls.newDate mskInvoiceDateRefersToFrom 
+         Begin UserControls.newDate mskDateFrom 
             Height          =   465
             Left            =   1575
             TabIndex        =   1
@@ -497,7 +497,7 @@ Begin VB.Form PersonsBalanceSheet
                Strikethrough   =   0   'False
             EndProperty
          End
-         Begin UserControls.newDate mskInvoiceDateRefersTo 
+         Begin UserControls.newDate mskDateTo 
             Height          =   465
             Left            =   3075
             TabIndex        =   2
@@ -1054,7 +1054,7 @@ Private Function CalculateSoFarTotalsForSuppliers(rstTransactions As Recordset)
     Dim curTotals As Currency
     
     With rstTransactions
-        Do Until !InvoiceDateRefersTo >= CDate(mskInvoiceDateRefersToFrom.text)
+        While !InvoiceDateValue < CDate(mskDateFrom.text)
             'Εξοδο (Χρεωστικό ή πιστωτικό) - Στήλη πίστωσης
             If !InvoiceMasterRefersTo = "1" Then
                 'Helper
@@ -1082,8 +1082,8 @@ Private Function CalculateSoFarTotalsForSuppliers(rstTransactions As Recordset)
             rstTransactions.MoveNext
             'Async!
             DoEvents
-            If rstTransactions.EOF Then Exit Do
-        Loop
+            If rstTransactions.EOF Then Exit Function
+        Wend
     End With
 
 End Function
@@ -1091,16 +1091,16 @@ End Function
 Private Function CalculateSoFarTotals(rstTransactions As Recordset, fieldIndex As Long)
 
     If txtInvoiceMasterRefersTo.text = "1" Then CalculateSoFarTotalsForSuppliers rstTransactions
-    If txtInvoiceMasterRefersTo.text = "2" Then CalculateSoFarTotalsForCustomers rstTransactions, fieldIndex
+    If txtInvoiceMasterRefersTo.text = "2" Then CalculateSoFarTotalsForCustomers rstTransactions
 
 End Function
-Private Function CalculateSoFarTotalsForCustomers(rstTransactions As Recordset, fieldIndex As Long)
+Private Function CalculateSoFarTotalsForCustomers(rstTransactions As Recordset)
 
     'Helper
     Dim curTotals As Currency
     
     With rstTransactions
-        Do Until .Fields(fieldIndex) >= CDate(mskInvoiceDateRefersToFrom.text)
+        While !InvoiceDateValue < CDate(mskDateFrom.text)
             'Πώληση (Χρεωστική ή πιστωτική) - Στήλη χρέωσης
             If !InvoiceMasterRefersTo = "2" Then
                 'Helper
@@ -1124,8 +1124,8 @@ Private Function CalculateSoFarTotalsForCustomers(rstTransactions As Recordset, 
             rstTransactions.MoveNext
             'Async!
             DoEvents
-            If rstTransactions.EOF Then Exit Do
-        Loop
+            If rstTransactions.EOF Then Exit Function
+        Wend
     End With
 
 End Function
@@ -1141,10 +1141,10 @@ Private Function EditRecord()
         .frmCriteria(1).Visible = False
         .txtInvoicePersonID.text = grdPersonsBalanceSheet.CellValue(grdPersonsBalanceSheet.CurRow, "ID")
         .txtPersonDescription.text = grdPersonsBalanceSheet.CellValue(grdPersonsBalanceSheet.CurRow, "Description")
-        .mskDateFrom(0).text = mskInvoiceDateRefersToFrom.text
-        .mskDateFrom(1).text = mskInvoiceDateRefersToFrom.text
-        .mskDateTo(0).text = mskInvoiceDateRefersTo.text
-        .mskDateTo(1).text = mskInvoiceDateRefersTo.text
+        .mskDateFrom(0).text = mskDateFrom.text
+        .mskDateFrom(1).text = mskDateFrom.text
+        .mskDateTo(0).text = mskDateTo.text
+        .mskDateTo(1).text = mskDateTo.text
         .Tag = "True"
         .Show 1, Me
     End With
@@ -1156,7 +1156,7 @@ Private Function FindRecordsAndPopulateGrid()
     If ValidateFields Then
         If RefreshList > 0 Then
             UpdateRecordCount lblRecordCount, lngRowCount
-            UpdateCriteriaLabels mskInvoiceDateRefersToFrom.text, mskInvoiceDateRefersTo.text, txtFilterDescription.text
+            UpdateCriteriaLabels mskDateFrom.text, mskDateTo.text, txtFilterDescription.text
             EnableGrid grdPersonsBalanceSheet, False
             HighlightRow grdPersonsBalanceSheet, 1, 1, "", True
             UpdateButtons Me, 6, 0, 1, 1, 1, 1, 1, 0
@@ -1175,27 +1175,27 @@ Private Function FindRecordsAndPopulateGrid()
             blnError = False
             blnProcessing = False
             frmCriteria(0).Visible = True
-            mskInvoiceDateRefersToFrom.SetFocus
+            mskDateFrom.SetFocus
         End If
     End If
 
 End Function
 
-Private Function UpdateCriteriaLabels(InvoiceDateRefersToFrom, InvoiceDateRefersTo, FilterDescription)
+Private Function UpdateCriteriaLabels(dateFrom, dateTo, FilterDescription)
 
     Dim strCriteriaA As String
 
-    strCriteriaA = IIf(InvoiceDateRefersToFrom = "", "Από [ ΟΛΑ ] ", "Από [ " & InvoiceDateRefersTo & " ] ")
-    strCriteriaA = strCriteriaA & IIf(InvoiceDateRefersToFrom = "", "Εως [ ΟΛΑ ] ", "Εως [ " & InvoiceDateRefersTo & " ] ")
+    strCriteriaA = IIf(dateFrom = "", "Από [ ΟΛΑ ] ", "Από [ " & dateFrom & " ] ")
+    strCriteriaA = strCriteriaA & IIf(dateTo = "", "Εως [ ΟΛΑ ] ", "Εως [ " & dateTo & " ] ")
     strCriteriaA = strCriteriaA & "Εγγραφές [ " & FilterDescription & " ]"
     
     lblCriteria.Caption = strCriteriaA
     
 End Function
 
-Private Sub cmdButton_Click(Index As Integer)
+Private Sub cmdButton_Click(index As Integer)
 
-    Select Case Index
+    Select Case index
         Case 0
             FindRecordsAndPopulateGrid
         Case 1
@@ -1291,7 +1291,7 @@ Private Function DoReport(action As String)
         If Not SelectPrinter("PrinterPrintsReports") Then Exit Function
         If Not PrinterExists(strPrinterName) Then Exit Function
         
-        CreateUnicodeFile ConvertToSpecialUpperCase(lblTitle.Caption), " από " & mskInvoiceDateRefersToFrom.text & " έως " & mskInvoiceDateRefersTo.text, intPrinterReportDetailLines - 15
+        CreateUnicodeFile ConvertToSpecialUpperCase(lblTitle.Caption), " από " & mskDateFrom.text & " έως " & mskDateTo.text, intPrinterReportDetailLines - 15
         
         With rptOneLiner
             If intPreviewReports = 1 Then
@@ -1310,8 +1310,8 @@ Private Function DoReport(action As String)
     End If
     
     If action = "CreatePDF" Then
-        CreateUnicodeFile lblTitle.Caption, " από " & mskInvoiceDateRefersToFrom.text & " έως " & mskInvoiceDateRefersTo.text, GetSetting(strApplicationName, "Settings", "Export Report Height") - 4
-        CreateUnisexPDF lblTitle.Caption & " από " & mskInvoiceDateRefersToFrom.text & " έως " & mskInvoiceDateRefersTo.text, rptOneLiner, 7
+        CreateUnicodeFile lblTitle.Caption, " από " & mskDateFrom.text & " έως " & mskDateTo.text, GetSetting(strApplicationName, "Settings", "Export Report Height") - 4
+        CreateUnisexPDF lblTitle.Caption & " από " & mskDateFrom.text & " έως " & mskDateTo.text, rptOneLiner, 7
         If MyMsgBox(1, strApplicationName, strStandardMessages(8), 1) Then
         End If
     End If
@@ -1429,27 +1429,27 @@ Private Function ValidateFields()
     ValidateFields = False
     
     'Από
-    If mskInvoiceDateRefersToFrom.text = "" Then
+    If mskDateFrom.text = "" Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
         End If
-        mskInvoiceDateRefersToFrom.SetFocus
+        mskDateFrom.SetFocus
         Exit Function
     End If
     
     'Εως
-    If mskInvoiceDateRefersTo.text = "" Then
+    If mskDateTo.text = "" Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
         End If
-        mskInvoiceDateRefersTo.SetFocus
+        mskDateTo.SetFocus
         Exit Function
     End If
     
     'Σωστό διάστημα
-    If IsDate(mskInvoiceDateRefersToFrom.text) And IsDate(mskInvoiceDateRefersTo.text) Then
-        If CDate(mskInvoiceDateRefersToFrom.text) > CDate(mskInvoiceDateRefersTo.text) Then
+    If IsDate(mskDateFrom.text) And IsDate(mskDateTo.text) Then
+        If CDate(mskDateFrom.text) > CDate(mskDateTo.text) Then
             If MyMsgBox(4, strApplicationName, strStandardMessages(10), 1) Then
             End If
-            mskInvoiceDateRefersToFrom.SetFocus
+            mskDateFrom.SetFocus
             Exit Function
         End If
     End If
@@ -1474,7 +1474,7 @@ Private Function AbortProcedure(blnStatus)
         ClearFields lblSelectedGridTotals, lblSelectedGridLines, lblCriteria, lblRecordCount
         ClearFields grdPersonsBalanceSheet
         frmCriteria(0).Visible = True
-        mskInvoiceDateRefersToFrom.SetFocus
+        mskDateFrom.SetFocus
         UpdateButtons Me, 6, 1, 0, 0, 0, 0, 0, 1
     End If
     
@@ -1523,8 +1523,8 @@ Private Function RefreshList()
     With grdPersonsBalanceSheet
         .Clear
         .TabStop = False
-        .ColHeaderText("BalanceSoFar") = "Υπόλοιπο " & Chr(13) & " έως " & format(CDate(mskInvoiceDateRefersToFrom.text) - 1, "dd/mm/yyyy")
-        .ColHeaderText("Balance") = "Υπόλοιπο " & Chr(13) & " έως " & format(CDate(mskInvoiceDateRefersTo.text), "dd/mm/yyyy")
+        .ColHeaderText("BalanceSoFar") = "Υπόλοιπο " & Chr(13) & " έως " & format(CDate(mskDateFrom.text) - 1, "dd/mm/yyyy")
+        .ColHeaderText("Balance") = "Υπόλοιπο " & Chr(13) & " έως " & format(CDate(mskDateTo.text), "dd/mm/yyyy")
         .ColHeaderTextFlags(8) = 32789
         .Redraw = False
     End With
@@ -1572,15 +1572,15 @@ Private Function RefreshList()
         GoSub UpdateSQLString
         arrQuery(intIndex) = rstPersons!ID
         'Εως
-        If IsDate(mskInvoiceDateRefersTo.text) Then
+        If IsDate(mskDateTo.text) Then
             strThisParameter = "datTo Date"
-            strThisQuery = "Invoices.InvoiceDateRefersTo <= datTo "
+            strThisQuery = "Invoices.InvoiceDateValue <= datTo "
             strLogic = " AND "
             GoSub UpdateSQLString
-            arrQuery(intIndex) = CDate(mskInvoiceDateRefersTo.text)
+            arrQuery(intIndex) = CDate(mskDateTo.text)
         End If
         'Ταξινόμηση
-        strOrder = " ORDER BY Invoices.InvoiceDateRefersTo "
+        strOrder = " ORDER BY Invoices.InvoiceDateValue "
         'Ελέγχω αν έχω κριτήρια
         strParameters = "PARAMETERS " & strParameters & "; "
         strParFields = " WHERE " & strParFields
@@ -1647,12 +1647,12 @@ ErrTrap:
     
 End Function
 
-Private Sub cmdIndex_Click(Index As Integer)
+Private Sub cmdIndex_Click(index As Integer)
 
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
     
-    Select Case Index
+    Select Case index
         Case 0
             'Εγγραφές - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Options", "OptionDescription", "String", txtFilterDescription.text)
@@ -1674,7 +1674,7 @@ Private Sub Form_Activate()
             "ID, Επωνυμία,Χρέωση προηγούμενης περιόδου,Πίστωση προηγούμενης περιόδου,Υπόλοιπο προηγούμενης περιόδου,Χρέωση ζητούμενης περιόδου,Πίστωση ζητούμενης περιόδου,Υπόλοιπο,E"
         Me.Refresh
         frmCriteria(0).Visible = True
-        mskInvoiceDateRefersToFrom.SetFocus
+        mskDateFrom.SetFocus
     End If
             
     'AddDummyLines grdPersonsBalanceSheet, "99999", "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA", "-9999999", "-99999999", "-99999999", "-99999999", "-99999999", "-99999999"
@@ -1724,9 +1724,9 @@ Private Sub Form_Load()
     ColorizeControls Me, True
     ClearFields lblSelectedGridTotals, lblSelectedGridLines, lblCriteria, lblRecordCount
     ClearFields txtFilterID
-    ClearFields mskInvoiceDateRefersToFrom, mskInvoiceDateRefersTo, txtFilterDescription
+    ClearFields mskDateFrom, mskDateTo, txtFilterDescription
     ClearFields grdPersonsBalanceSheet
-    EnableFields mskInvoiceDateRefersToFrom, mskInvoiceDateRefersTo, txtFilterDescription
+    EnableFields mskDateFrom, mskDateTo, txtFilterDescription
     UpdateButtons Me, 6, 1, 0, 0, 0, 0, 0, 1
     
 End Sub

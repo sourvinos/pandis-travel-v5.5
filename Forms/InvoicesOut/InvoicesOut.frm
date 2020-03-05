@@ -208,9 +208,9 @@ Begin VB.Form InvoicesOut
       Enabled         =   0   'False
       ForeColor       =   &H80000008&
       Height          =   6465
-      Left            =   15300
+      Left            =   12525
       TabIndex        =   52
-      Top             =   2250
+      Top             =   675
       Width           =   4515
       Begin VB.TextBox Text11 
          Appearance      =   0  'Flat
@@ -2908,6 +2908,7 @@ Private Function SaveInvoice()
             mskDateIssue.text, _
             txtInvoiceDateIn.text, _
             mskDateRefersTo.text, _
+            mskDateIssue.text, _
             txtInvoiceCodeID.text, _
             txtInvoiceNo.text, _
             txtInvoicePersonID.text, _
@@ -2987,7 +2988,7 @@ Private Function UpdateCodes()
     If blnStatus And chkCodeHandID.Value = 0 Then
         Set rsCodes = CommonDB.OpenRecordset("Codes")
         With rsCodes
-            .Index = "CodeID"
+            .index = "CodeID"
             .Seek "=", txtInvoiceCodeID.text
             If Not .NoMatch Then
                 .Edit
@@ -3106,15 +3107,13 @@ Private Function ValidateFields()
         Exit Function
     End If
     
-    'Ημερομηνία εκδρομής
+    'Ημερομηνία αναφοράς
     If Not CheckDate(mskDateRefersTo.text, strApplicationName) Then
         mskDateRefersTo.SetFocus
         Exit Function
     End If
     
     'Καταχώρηση σε προηγούμενη ημερομηνία και όχι χειρόγραφο
-    'Temp use only!
-    'If IsDate(txtCodeLastDate.text) And chkCodeHandID.Value = 0 Then
     If (IsDate(txtCodeLastDate.text) And chkCodeHandID.Value = 0) And blnStatus Then
         If CDate(txtCodeLastDate.text) > CDate(mskDateIssue.text) Then
             If MyMsgBox(4, strApplicationName, strAppMessages(4) & txtCodeLastDate.text & ".", 1) Then
@@ -3129,6 +3128,14 @@ Private Function ValidateFields()
         If MyMsgBox(4, strApplicationName, strAppMessages(5), 1) Then
         End If
         mskDateIssue.SetFocus
+        Exit Function
+    End If
+    
+    'Ημερομηνία αναφοράς μεγαλύτερη από σήμερα
+    If CDate(mskDateRefersTo.text) > Date Then
+        If MyMsgBox(4, strApplicationName, strAppMessages(5), 1) Then
+        End If
+        mskDateRefersTo.SetFocus
         Exit Function
     End If
     
@@ -3468,11 +3475,11 @@ Private Sub chkAgreement_KeyPress(KeyAscii As Integer)
 
 End Sub
 
-Private Sub cmdButton_Click(Index As Integer)
+Private Sub cmdButton_Click(index As Integer)
 
     Dim arrDummy()
     
-    Select Case Index
+    Select Case index
         Case 0
             NewRecord
         Case 1
@@ -3502,12 +3509,12 @@ Private Function FindRecords()
 
 End Function
 
-Private Sub cmdIndex_Click(Index As Integer)
+Private Sub cmdIndex_Click(index As Integer)
 
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
     
-    Select Case Index
+    Select Case index
         Case 0
             'Παραστατικό - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Codes", "CodeShortDescriptionA, CodeMasterRefersTo", "String, String", txtCodeShortDescriptionA.text, txtInvoiceMasterRefersTo.text)

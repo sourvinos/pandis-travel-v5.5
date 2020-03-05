@@ -1947,6 +1947,7 @@ Private Function SaveInvoice()
             mskDateIssue.text, _
             txtInvoiceDateIn.text, _
             mskDateRefersTo.text, _
+            mskDateRefersTo.text, _
             txtInvoiceCodeID.text, _
             txtInvoiceNo.text, _
             txtInvoicePersonID.text, _
@@ -1967,7 +1968,7 @@ Private Function UpdateCodes()
     If blnStatus And chkCodeHandID.Value = 0 Then
         Set rsCodes = CommonDB.OpenRecordset("Codes")
         With rsCodes
-            .Index = "CodeID"
+            .index = "CodeID"
             .Seek "=", txtInvoiceCodeID.text
             If Not .NoMatch Then
                 .Edit
@@ -2067,6 +2068,20 @@ Private Function ValidateFields()
         Exit Function
     End If
     
+    'Ημερομηνία αναφοράς
+    If Not CheckDate(mskDateRefersTo.text, strApplicationName) Then
+        mskDateRefersTo.SetFocus
+        Exit Function
+    End If
+    
+    'Ημερομηνία αναφοράς μεγαλύτερη από σήμερα
+    If CDate(mskDateRefersTo.text) > Date Then
+        If MyMsgBox(4, strApplicationName, strAppMessages(5), 1) Then
+        End If
+        mskDateRefersTo.SetFocus
+        Exit Function
+    End If
+    
     'Παραστατικό
     If txtInvoiceCodeID.text = "" Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
@@ -2148,11 +2163,11 @@ Private Function ValidateFields()
 
 End Function
 
-Private Sub cmdButton_Click(Index As Integer)
+Private Sub cmdButton_Click(index As Integer)
 
     Dim arrDummy()
 
-    Select Case Index
+    Select Case index
         Case 0
             NewRecord
         Case 1
@@ -2225,13 +2240,13 @@ Private Function PrintThisReceipt(blnPreview As Boolean, blnExportPDF As Boolean
 
 End Function
 
-Private Sub cmdIndex_Click(Index As Integer)
+Private Sub cmdIndex_Click(index As Integer)
 
     'Local variables
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
     
-    Select Case Index
+    Select Case index
         Case 0
             'Παραστατικό - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Codes", "CodeShortDescriptionA, CodeMasterRefersTo", "String, String", txtCodeShortDescriptionA.text, txtInvoiceMasterRefersTo.text)

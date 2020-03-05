@@ -69,7 +69,7 @@ Function CreateSELECTStatement(InvoiceMasterRefersTo As String)
     'Εξοδα
     If InvoiceMasterRefersTo = "1" Then
         strSQL = "SELECT " _
-            & "InvoiceID, InvoiceMasterRefersTo, InvoiceSecondaryRefersTo, InvoiceDateIssue, InvoiceDateRefersTo, InvoiceTrnID, InvoiceNo, " _
+            & "InvoiceID, InvoiceMasterRefersTo, InvoiceSecondaryRefersTo, InvoiceDateValue, InvoiceTrnID, InvoiceNo, " _
             & "Description, " _
             & "CodeShortDescriptionB, CodeBatch, CodeSuppliers, CodeDescription, CodeCustomers, CodeDescription, " _
             & "InvoiceInAmount, " _
@@ -88,7 +88,7 @@ Function CreateSELECTStatement(InvoiceMasterRefersTo As String)
     'Εσοδα
     If InvoiceMasterRefersTo = "2" Then
         strSQL = "SELECT " _
-            & "InvoiceID, InvoiceMasterRefersTo, InvoiceSecondaryRefersTo, InvoiceDateIssue, InvoiceDateRefersTo, InvoiceTrnID, InvoiceNo, " _
+            & "InvoiceID, InvoiceMasterRefersTo, InvoiceSecondaryRefersTo, InvoiceDateValue, InvoiceTrnID, InvoiceNo, " _
             & "Description, " _
             & "CodeShortDescriptionB, CodeBatch, CodeCustomers, CodeDescription, " _
             & "InvoiceOutAdultsWithTransfer, InvoiceOutKidsWithTransfer, InvoiceOutFreeWithTransfer, InvoiceOutAdultsWithoutTransfer, InvoiceOutKidsWithoutTransfer, InvoiceOutFreeWithoutTransfer, InvoiceOutAdultsAmountWithTransfer, InvoiceOutAdultsAmountWithoutTransfer, InvoiceOutKidsAmountWithTransfer, InvoiceOutKidsAmountWithoutTransfer, InvoiceOutDirectAmount, " _
