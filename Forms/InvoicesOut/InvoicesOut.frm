@@ -3047,6 +3047,7 @@ Private Function UpdateInvoiceFieldsWithData(rstRecordset As Recordset)
         .lblRemarks.Caption = rstRecordset!InvoiceOutReason
         .lblDestination.Caption = rstRecordset!DestinationDescription
         .lblShip.Caption = rstRecordset!ShipDescription
+        .lblTripDate.Caption = rstRecordset!InvoiceDateRefersTo
         
         .lblAdultsWithTransfer.Caption = IIf(rstRecordset!InvoiceOutAdultsWithTransfer <> 0, format(rstRecordset!InvoiceOutAdultsWithTransfer, "#,##0"), "")
         .lblAdultAmountWithTransfer.Caption = IIf(rstRecordset!InvoiceOutAdultsAmountWithTransfer <> 0, format(rstRecordset!InvoiceOutAdultsAmountWithTransfer / rstRecordset!InvoiceOutAdultsWithTransfer, "#,##0.00"), "")
