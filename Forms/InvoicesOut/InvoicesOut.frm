@@ -2826,7 +2826,7 @@ Private Function PopulateFields(rstRecordset As Recordset)
         txtInvoiceOutShipID.text = !InvoiceOutShipID
         txtInvoiceOutPaymentTermID.text = !InvoiceOutPaymentTermID
         txtCodeLastNo.text = !CodeLastNo
-        txtCodeLastDate.text = !CodeLastDate
+        txtCodeLastDate.text = !codeLastDate
         txtCodePersonsPlusOrMinus.text = !CodeCustomers
         chkCodeHandID.Value = !CodeHandID
         txtShipRegistryNo.text = !ShipRegistryNo
@@ -2993,7 +2993,7 @@ Private Function UpdateCodes()
             If Not .NoMatch Then
                 .Edit
                 !CodeLastNo = Int(txtInvoiceNo.text)
-                !CodeLastDate = mskDateIssue.text
+                !codeLastDate = mskDateIssue.text
                 .Update
             End If
         End With
@@ -3172,11 +3172,23 @@ Private Function ValidateFields()
         Exit Function
     End If
     
+    'Μηχανογραφικό στοιχείο. Το έτος έκδοσης πρέπει να είναι ίσο με το έτος του τελευταίου παραστατικού
+    If blnStatus Then
+        If chkCodeHandID.Value = 0 Then
+            If Not CheckForValidYear(txtCodeLastDate.text, mskDateIssue.text) Then
+                If MyMsgBox(4, strApplicationName, strStandardMessages(22), 1) Then
+                End If
+                txtCodeShortDescriptionA.SetFocus
+                Exit Function
+            End If
+        End If
+    End If
+    
     'Μηχανογραφικό στοιχείο ήδη καταχωρημένο: Ελέγχω αν το νούμερο του στοιχείου υπάρχει ήδη στην χρήση
     'Temp use only!
     If blnStatus Then
         If chkCodeHandID.Value = 0 Then
-            If CheckForDuplicateInvoice(mskDateIssue.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
+            If Not CheckForDuplicateInvoice(mskDateIssue.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
                 If MyMsgBox(4, strApplicationName, strStandardMessages(22), 1) Then
                 End If
                 txtCodeShortDescriptionA.SetFocus

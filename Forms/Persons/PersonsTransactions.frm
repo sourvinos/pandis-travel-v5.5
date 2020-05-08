@@ -1973,7 +1973,7 @@ Private Function UpdateCodes()
             If Not .NoMatch Then
                 .Edit
                 !CodeLastNo = Int(txtInvoiceNo.text)
-                !CodeLastDate = mskDateIssue.text
+                !codeLastDate = mskDateIssue.text
                 .Update
             End If
         End With
@@ -2101,7 +2101,7 @@ Private Function ValidateFields()
     'Σε νέα εγγραφή, μηχανογραφικό στοιχείο ήδη καταχωρημένο: Ελέγχω αν το νούμερο του στοιχείου υπάρχει ήδη στην χρήση
     If blnStatus Then
         If chkCodeHandID.Value = 0 Then
-            If CheckForDuplicateInvoice(mskDateIssue.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
+            If Not CheckForDuplicateInvoice(mskDateIssue.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
                 If MyMsgBox(4, strApplicationName, strStandardMessages(22), 1) Then
                 End If
                 'txtCodeShortDescriptionA.SetFocus
@@ -2537,7 +2537,7 @@ Private Function PopulateFields(rstRecordset As Recordset)
         txtPaymentPaymentWayID.text = !PaymentWayID
         txtPaymentBankID.text = IIf(IsNull(!BankID), "", !BankID)
         txtCodeLastNo.text = !CodeLastNo
-        txtCodeLastDate.text = !CodeLastDate
+        txtCodeLastDate.text = !codeLastDate
         chkCodeHandID.Value = !CodeHandID
         
         mskDateIssue.text = format(!InvoiceDateIssue, "dd/mm/yyyy")

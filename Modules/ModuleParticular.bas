@@ -62,6 +62,26 @@ Function AddNumberFormats(sheet As Object, grid As iGrid, format As String, rowO
 
 End Function
 
+Function CheckForValidYear(codeLastDate As Date, issueDate As Date)
+
+    On Error GoTo ErrTrap
+    
+    'Ελέγχω αν το έτος έκδοσης είναι ίσο με το έτος του τελευταίου παραστατικού που εκδόθηκε. Πρέπει κάθε χρόνο να γίνεται μηδενισμός της αρίθμησης
+    If Year(codeLastDate) <> Year(issueDate) Then
+        CheckForValidYear = False
+    Else
+        CheckForValidYear = True
+    End If
+    
+    Exit Function
+    
+ErrTrap:
+    blnErrors = True
+    DisplayErrorMessage True, Err.Description
+
+
+End Function
+
 Function CreateSELECTStatement(InvoiceMasterRefersTo As String)
 
     Dim strSQL As String
@@ -231,7 +251,7 @@ Function CheckForDuplicateInvoice(myDate, myCodeID, myInvoiceNo)
     With rstTrips
         If Not .EOF Then
             rstTrips.MoveLast
-            CheckForDuplicateInvoice = True
+            CheckForDuplicateInvoice = False
             Exit Function
         End If
     End With
@@ -282,9 +302,9 @@ Function CheckForDuplicateInvoice(myDate, myCodeID, myInvoiceNo)
     With rstTrips
         If .RecordCount > 0 Then
             .MoveLast
-            If rstTrips!InvoiceNo + 1 <> Int(myInvoiceNo) Then CheckForDuplicateInvoice = True
+            If rstTrips!InvoiceNo + 1 <> Int(myInvoiceNo) Then CheckForDuplicateInvoice = False
         Else
-            CheckForDuplicateInvoice = False
+            CheckForDuplicateInvoice = True
         End If
         .Close
     End With

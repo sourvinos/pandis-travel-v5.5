@@ -2557,7 +2557,7 @@ Private Function ValidateFields()
     
     'Μόνο σε νέα εγγραφή: Στοιχείο ήδη καταχωρημένο: Ελέγχω αν το νούμερο του στοιχείου υπάρχει ήδη στην χρήση
     If blnStatus Then
-        If CheckForDuplicateInvoiceIn(mskDateIssue.text, txtInvoicePersonID.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
+        If Not CheckForDuplicateInvoiceIn(mskDateIssue.text, txtInvoicePersonID.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
             If MyMsgBox(4, strApplicationName, strStandardMessages(28), 1) Then
             End If
             txtSupplierDescription.SetFocus
@@ -3088,7 +3088,7 @@ Private Function PopulateFields(rstRecordset As Recordset)
         txtInvoiceInExpenseCategoryID.text = !ExpenseCategoryID
         txtInvoiceInPaymentTermID.text = !PaymentTermID
         txtCodeLastNo.text = !CodeLastNo
-        txtCodeLastDate.text = !CodeLastDate
+        txtCodeLastDate.text = !codeLastDate
         chkCodeHandID.Value = !CodeHandID
         
         mskDateIssue.text = format(!InvoiceDateIssue, "dd/mm/yyyy")
