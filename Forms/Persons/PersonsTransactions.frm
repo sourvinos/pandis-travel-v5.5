@@ -28,11 +28,54 @@ Begin VB.Form PersonsTransactions
       BorderStyle     =   0  'None
       Enabled         =   0   'False
       ForeColor       =   &H80000008&
-      Height          =   5715
-      Left            =   13050
+      Height          =   6090
+      Left            =   10425
       TabIndex        =   15
-      Top             =   1050
+      Top             =   825
       Width           =   4515
+      Begin VB.TextBox Text1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFC0&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   78
+         TabStop         =   0   'False
+         Text            =   "Invoices.InvoiceIsActiveID"
+         Top             =   2700
+         Width           =   3540
+      End
+      Begin VB.TextBox txtInvoiceIsActiveID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFC0&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   77
+         TabStop         =   0   'False
+         Top             =   2700
+         Width           =   780
+      End
       Begin VB.TextBox Text13 
          Appearance      =   0  'Flat
          BackColor       =   &H00C0E0FF&
@@ -52,7 +95,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   62
          TabStop         =   0   'False
          Text            =   "CustomersOrSuppliers"
-         Top             =   5325
+         Top             =   5700
          Width           =   3540
       End
       Begin VB.TextBox txtCustomersOrSuppliers 
@@ -74,7 +117,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   61
          TabStop         =   0   'False
          Text            =   "1"
-         Top             =   5325
+         Top             =   5700
          Width           =   780
       End
       Begin VB.TextBox Text4 
@@ -96,7 +139,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   60
          TabStop         =   0   'False
          Text            =   "PaymentInOrPaymentOut"
-         Top             =   4950
+         Top             =   5325
          Width           =   3540
       End
       Begin VB.TextBox txtPaymentInOrPaymentOut 
@@ -118,7 +161,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   59
          TabStop         =   0   'False
          Text            =   "1"
-         Top             =   4950
+         Top             =   5325
          Width           =   780
       End
       Begin VB.TextBox txtInvoicePersonID 
@@ -360,7 +403,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   48
          TabStop         =   0   'False
          Text            =   "Codes.CodeHandID"
-         Top             =   4575
+         Top             =   4950
          Width           =   3540
       End
       Begin VB.TextBox Text6 
@@ -382,7 +425,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   47
          TabStop         =   0   'False
          Text            =   "Codes.CodeLastDate"
-         Top             =   3825
+         Top             =   4200
          Width           =   3540
       End
       Begin VB.TextBox Text3 
@@ -404,7 +447,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   46
          TabStop         =   0   'False
          Text            =   "Codes.CodeLastNo"
-         Top             =   3450
+         Top             =   3825
          Width           =   3540
       End
       Begin VB.TextBox Text2 
@@ -426,7 +469,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   45
          TabStop         =   0   'False
          Text            =   "Codes.CodeCustomers"
-         Top             =   4200
+         Top             =   4575
          Width           =   3540
       End
       Begin VB.TextBox txtCodePersonsPlusOrMinus 
@@ -448,7 +491,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   44
          TabStop         =   0   'False
          Text            =   "12"
-         Top             =   4200
+         Top             =   4575
          Width           =   780
       End
       Begin VB.TextBox txtCodeLastNo 
@@ -470,7 +513,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   43
          TabStop         =   0   'False
          Text            =   "10"
-         Top             =   3450
+         Top             =   3825
          Width           =   780
       End
       Begin VB.TextBox txtCodeLastDate 
@@ -492,7 +535,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   42
          TabStop         =   0   'False
          Text            =   "11"
-         Top             =   3825
+         Top             =   4200
          Width           =   780
       End
       Begin VB.CheckBox chkCodeHandID 
@@ -512,7 +555,7 @@ Begin VB.Form PersonsTransactions
          Left            =   3675
          TabIndex        =   41
          TabStop         =   0   'False
-         Top             =   4575
+         Top             =   4950
          Width           =   780
       End
       Begin VB.TextBox txtInvoiceMasterRefersTo 
@@ -622,7 +665,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   32
          TabStop         =   0   'False
          Text            =   "9"
-         Top             =   3075
+         Top             =   3450
          Width           =   780
       End
       Begin VB.TextBox Text9 
@@ -644,7 +687,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   31
          TabStop         =   0   'False
          Text            =   "Payments.PaymentBankID"
-         Top             =   3075
+         Top             =   3450
          Width           =   3540
       End
       Begin VB.TextBox txtPaymentPaymentWayID 
@@ -666,7 +709,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   30
          TabStop         =   0   'False
          Text            =   "8"
-         Top             =   2700
+         Top             =   3075
          Width           =   780
       End
       Begin VB.TextBox Text8 
@@ -688,7 +731,7 @@ Begin VB.Form PersonsTransactions
          TabIndex        =   29
          TabStop         =   0   'False
          Text            =   "Payments.PaymentWayID"
-         Top             =   2700
+         Top             =   3075
          Width           =   3540
       End
    End
@@ -698,7 +741,7 @@ Begin VB.Form PersonsTransactions
       Height          =   690
       Left            =   0
       TabIndex        =   63
-      Top             =   7275
+      Top             =   7800
       Width           =   11790
       Begin Dacara_dcButton.dcButton cmdButton 
          Height          =   690
@@ -1366,6 +1409,76 @@ Begin VB.Form PersonsTransactions
          Strikethrough   =   0   'False
       EndProperty
    End
+   Begin UserControls.newText txtInvoiceIsActiveDescription 
+      Height          =   465
+      Left            =   2175
+      TabIndex        =   75
+      Top             =   6900
+      Width           =   615
+      _ExtentX        =   1085
+      _ExtentY        =   820
+      Alignment       =   2
+      ForeColor       =   0
+      Text            =   "ΝΑΙ"
+      BackColor       =   4210688
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Ubuntu Condensed"
+         Size            =   11.25
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin Dacara_dcButton.dcButton cmdIndex 
+      Height          =   465
+      Index           =   8
+      Left            =   2850
+      TabIndex        =   79
+      TabStop         =   0   'False
+      Top             =   6900
+      Width           =   390
+      _ExtentX        =   688
+      _ExtentY        =   820
+      BackColor       =   14742518
+      ButtonShape     =   3
+      ButtonStyle     =   8
+      Caption         =   ""
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Ubuntu Condensed"
+         Size            =   9.75
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   0
+      PicNormal       =   "PersonsTransactions.frx":3112
+      PicSizeH        =   16
+      PicSizeW        =   16
+   End
+   Begin VB.Label lblLabel 
+      BackColor       =   &H000080FF&
+      Caption         =   "Ενεργή εγγραφή"
+      BeginProperty Font 
+         Name            =   "Ubuntu Condensed"
+         Size            =   9.75
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   315
+      Index           =   11
+      Left            =   450
+      TabIndex        =   76
+      Top             =   6975
+      Width           =   1290
+   End
    Begin VB.Label lblLabel 
       BackColor       =   &H000080FF&
       Caption         =   "Αφορά"
@@ -1628,7 +1741,7 @@ Begin VB.Form PersonsTransactions
       BorderStyle     =   0  'Transparent
       Height          =   465
       Left            =   1050
-      Top             =   8025
+      Top             =   8550
       Visible         =   0   'False
       Width           =   840
    End
@@ -1638,7 +1751,7 @@ Begin VB.Form PersonsTransactions
       BorderStyle     =   0  'Transparent
       Height          =   840
       Left            =   11775
-      Top             =   7125
+      Top             =   7650
       Visible         =   0   'False
       Width           =   465
    End
@@ -1650,7 +1763,7 @@ Begin VB.Form PersonsTransactions
       Height          =   540
       Index           =   1
       Left            =   2775
-      Top             =   6825
+      Top             =   7350
       Visible         =   0   'False
       Width           =   465
    End
@@ -1803,9 +1916,9 @@ Private Function AbortProcedure(blnStatus)
             blnStatus = False
             ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtPaymentPaymentWayID, txtPaymentBankID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID
             ClearFields lblCodeDescription, lblCodeBatch, lblCodeHand
-            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
             UpdateButtons Me, 7, 1, 0, 0, 0, 0, 1, 0, 1
         End If
         Exit Function
@@ -1826,9 +1939,9 @@ Private Function DeleteRecord()
             CommitTrans
             ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtPaymentPaymentWayID, txtPaymentBankID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID
             ClearFields lblCodeDescription, lblCodeBatch, lblCodeHand
-            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
             UpdateButtons Me, 7, 1, 0, 0, 0, 0, 1, 0, 1
         Else
             Rollback
@@ -1857,9 +1970,9 @@ Private Function NewRecord()
     blnStatus = True
     ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtPaymentPaymentWayID, txtPaymentBankID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID
     ClearFields lblCodeDescription, lblCodeBatch, lblCodeHand
-    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, mskAmount
-    EnableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-    EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, mskAmount, txtInvoiceIsActiveDescription
+    EnableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+    EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
     UpdateButtons Me, 7, 0, 1, 0, 0, 0, 0, 1, 0
     mskDateIssue.SetFocus
     
@@ -1867,6 +1980,9 @@ Private Function NewRecord()
     
     mskDateIssue.text = format(Date, "dd/mm/yyyy")
     txtInvoiceDateIn.text = Date
+    
+    txtInvoiceIsActiveID.text = "1"
+    txtInvoiceIsActiveDescription.text = "ΝΑΙ"
     
 End Function
 
@@ -1915,9 +2031,9 @@ Private Function SaveRecord()
         AskToPrintReceipt
         ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtPaymentPaymentWayID, txtPaymentBankID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID
         ClearFields lblCodeDescription, lblCodeBatch, lblCodeHand
-        ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-        DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+        ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+        DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
         UpdateButtons Me, 7, 1, 0, 0, 0, 0, IIf(CheckForLoadedForm("InvoicesOutIndex"), 0, 1), 0, 1
     End If
 
@@ -1951,6 +2067,7 @@ Private Function SaveInvoice()
             txtInvoiceCodeID.text, _
             txtInvoiceNo.text, _
             txtInvoicePersonID.text, _
+            txtInvoiceIsActiveID.text, _
             strCurrentUser) <> 0 Then
         IsError = False
     Else
@@ -1998,18 +2115,20 @@ Public Function SeekRecord(lngTrnID, strPaymentInOrPaymentOut, strCustomersOrSup
     Dim rstRecordset As Recordset
     
     strSQL = "SELECT " _
-        & "Invoices.InvoiceID, Invoices.InvoiceTrnID, Invoices.InvoiceMasterRefersTo, Invoices.InvoiceSecondaryRefersTo, Invoices.InvoiceDateIssue, Invoices.InvoiceDateIn, Invoices.InvoiceDateRefersTo, Invoices.InvoiceCodeID, Invoices.InvoiceNo, Invoices.InvoicePersonID, Invoices.InvoiceDateIssue, Invoices.InvoiceNo, " _
+        & "Invoices.InvoiceID, Invoices.InvoiceTrnID, Invoices.InvoiceMasterRefersTo, Invoices.InvoiceSecondaryRefersTo, Invoices.InvoiceDateIssue, Invoices.InvoiceDateIn, Invoices.InvoiceDateRefersTo, Invoices.InvoiceCodeID, Invoices.InvoiceNo, Invoices.InvoicePersonID, Invoices.InvoiceDateIssue, Invoices.InvoiceNo, Invoices.InvoiceIsActiveID, " _
         & strPaymentInOrPaymentOut & ".Reason, " & strPaymentInOrPaymentOut & ".PaymentWayID, " & strPaymentInOrPaymentOut & ".BankID, " & strPaymentInOrPaymentOut & ".Amount, " & strPaymentInOrPaymentOut & ".CheckNo, " & strPaymentInOrPaymentOut & ".CheckExpireDate, " _
         & "PaymentWays.PaymentWayDescription, " _
         & "Codes.CodeShortDescriptionA, Codes.CodeDescription, Codes.CodeBatch, Codes.CodeHandID, Codes.Code" & strCustomersOrSuppliers & " , Codes.CodeLastNo, Codes.CodeLastDate, " _
         & strCustomersOrSuppliers & ".Description, " _
-        & "Banks.BankDescription " _
-        & "FROM (((((Invoices " _
+        & "Banks.BankDescription, " _
+        & "YesOrNo.YesOrNoDescription " _
+        & "FROM ((((((Invoices " _
         & "INNER JOIN " & strPaymentInOrPaymentOut & " ON Invoices.InvoiceTrnID = " & strPaymentInOrPaymentOut & ".TrnID) " _
         & "INNER JOIN Codes ON Invoices.InvoiceCodeID = Codes.CodeID) " _
         & "INNER JOIN " & strCustomersOrSuppliers & " ON Invoices.InvoicePersonID = " & strCustomersOrSuppliers & ".ID) " _
         & "INNER JOIN PaymentWays ON " & strPaymentInOrPaymentOut & ".PaymentWayID = PaymentWays.PaymentWayID) " _
-        & "LEFT JOIN Banks ON " & strPaymentInOrPaymentOut & ".BankID = Banks.BankID) "
+        & "LEFT JOIN Banks ON " & strPaymentInOrPaymentOut & ".BankID = Banks.BankID) " _
+        & "INNER JOIN YesOrNo ON Invoices.InvoiceIsActiveID = YesOrNo.YesOrNoID)"
         
     'InvoiceTrnID
     strThisParameter = "lngInvoiceTrnID long"
@@ -2156,6 +2275,14 @@ Private Function ValidateFields()
         If MyMsgBox(4, strApplicationName, strStandardMessages(2), 1) Then
         End If
         mskAmount.SetFocus
+        Exit Function
+    End If
+    
+    'Ενεργή εγγραφή
+    If Len(txtInvoiceIsActiveID.text) = 0 Then
+        If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+        End If
+        txtInvoiceIsActiveDescription.SetFocus
         Exit Function
     End If
     
@@ -2313,6 +2440,14 @@ Private Sub cmdIndex_Click(index As Integer)
                 .Tag = "True"
                 .Show 1, Me
             End With
+        Case 8
+            'Ενεργή εγγραφή - F2
+            Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoDescription", "String", txtInvoiceIsActiveDescription.text)
+            If tmpRecordset.RecordCount > 0 Then
+                tmpTableData = DisplayIndex(tmpRecordset, 2, True, 3, 0, 1, 2, "ID", "Περιγραφή", "Πίστωση", 0, 40, 0, 1, 0, 0)
+                txtInvoiceIsActiveID.text = tmpTableData.strCode
+                txtInvoiceIsActiveDescription.text = tmpTableData.strFirstField
+            End If
     End Select
 
 End Sub
@@ -2367,9 +2502,9 @@ Private Sub Form_Load()
     ColorizeControls Me, False, False
     ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtPaymentPaymentWayID, txtPaymentBankID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID
     ClearFields lblCodeDescription, lblCodeBatch, lblCodeHand
-    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-    DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+    DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
     UpdateButtons Me, 7, 1, 0, 0, 0, 0, 1, 0, 1
 
 End Sub
@@ -2418,6 +2553,27 @@ Private Sub txtCodeShortDescriptionA_KeyDown(KeyCode As Integer, Shift As Intege
     If KeyCode = vbKeyF2 Then cmdIndex_Click 0
     If KeyCode = vbKeyF5 Then cmdIndex_Click 1
 
+End Sub
+
+Private Sub txtInvoiceIsActiveDescription_Change()
+
+    If txtInvoiceIsActiveDescription.text = "" Then
+        ClearFields txtInvoiceIsActiveID
+    End If
+
+End Sub
+
+Private Sub txtInvoiceIsActiveDescription_KeyDown(KeyCode As Integer, Shift As Integer)
+
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 8
+    
+End Sub
+
+
+Private Sub txtInvoiceIsActiveDescription_Validate(Cancel As Boolean)
+
+    If txtInvoiceIsActiveID.text = "" And txtInvoiceIsActiveDescription.text <> "" Then cmdIndex_Click 8: If txtInvoiceIsActiveID.text = "" Then Cancel = True
+    
 End Sub
 
 Private Sub txtPersonDescription_Change()
@@ -2474,7 +2630,7 @@ End Sub
 
 Public Function DoPostFoundJobs(rstRecordset As Recordset, strPaymentInOrPaymentOut, strCustomersOrSuppliers)
 
-    On Error GoTo ErrTrap
+    'On Error GoTo ErrTrap
 
     blnStatus = False
     
@@ -2503,11 +2659,11 @@ End Function
 Private Function EnableOrDisableFields()
 
     If chkCodeHandID.Value = 1 Then
-        EnableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-        EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+        EnableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+        EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
     Else
-        EnableFields mskDateRefersTo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount
-        EnableFields cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7)
+        EnableFields mskDateRefersTo, txtPersonDescription, txtReason, txtPaymentWayDescription, txtBankDescription, txtCheckNo, mskCheckExpireDate, mskAmount, txtInvoiceIsActiveDescription
+        EnableFields cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8)
     End If
 
 End Function
@@ -2539,6 +2695,7 @@ Private Function PopulateFields(rstRecordset As Recordset)
         txtCodeLastNo.text = !CodeLastNo
         txtCodeLastDate.text = !codeLastDate
         chkCodeHandID.Value = !CodeHandID
+        txtInvoiceIsActiveID.text = !InvoiceIsActiveID
         
         mskDateIssue.text = format(!InvoiceDateIssue, "dd/mm/yyyy")
         mskDateRefersTo.text = format(!InvoiceDateRefersTo, "dd/mm/yyyy")
@@ -2552,6 +2709,7 @@ Private Function PopulateFields(rstRecordset As Recordset)
         txtPaymentWayDescription.text = !PaymentWayDescription
         txtBankDescription.text = IIf(IsNull(!BankDescription), "", !BankDescription)
         mskAmount.text = format(!Amount, "#,##0.00")
+        txtInvoiceIsActiveDescription.text = !YesOrNoDescription
         
         txtCheckNo.text = IIf(IsNull(!CheckNo), "", !CheckNo)
         mskCheckExpireDate.text = IIf(IsNull(!CheckExpireDate), "", format(!CheckExpireDate, "dd/mm/yyyy"))

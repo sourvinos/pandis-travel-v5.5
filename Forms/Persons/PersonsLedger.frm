@@ -1580,7 +1580,7 @@ End Function
 Private Function CalculatePeriodTotals(rstTransactions As Recordset)
 
     If rstTransactions!InvoiceMasterRefersTo = "1" Or rstTransactions!InvoiceMasterRefersTo = "3" Then CalculatePeriodTotalsForExpenses rstTransactions
-    If rstTransactions!InvoiceMasterRefersTo = "2" Or rstTransactions!InvoiceMasterRefersTo = "4" Then CalculatePeriodTotalsForSales rstTransactions, mskDateTo(0).text
+    If rstTransactions!InvoiceMasterRefersTo = "2" Or rstTransactions!InvoiceMasterRefersTo = "4" Then CalculatePeriodTotalsForSales rstTransactions, IIf(txtBatchReport.text = "No", mskDateTo(0).text, mskDateTo(1).text)
 
 End Function
 
@@ -2781,6 +2781,13 @@ Private Function RefreshList(personID As String, fromDate As String, toDate As S
         End If
     End If
     
+    'Μόνο ενεργές εγγραφές
+    strThisParameter = "intInvoiceIsActiveID Integer"
+    strThisQuery = "Invoices.InvoiceIsActiveID = intInvoiceIsActiveID"
+    strLogic = " AND "
+    GoSub UpdateSQLString
+    arrQuery(intIndex) = 1
+        
     'Ταξινόμηση
     strOrder = " ORDER BY InvoiceDateValue,  InvoiceNo, InvoiceID"
     

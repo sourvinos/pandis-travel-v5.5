@@ -5,7 +5,7 @@ Begin VB.Form InvoicesOut
    Appearance      =   0  'Flat
    BackColor       =   &H00E0E0E0&
    BorderStyle     =   0  'None
-   ClientHeight    =   10770
+   ClientHeight    =   11550
    ClientLeft      =   0
    ClientTop       =   0
    ClientWidth     =   18105
@@ -14,22 +14,22 @@ Begin VB.Form InvoicesOut
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   10770
+   ScaleHeight     =   11550
    ScaleWidth      =   18105
    ShowInTaskbar   =   0   'False
    Begin VB.Frame frmButtonFrame 
       BackColor       =   &H00FF8080&
       BorderStyle     =   0  'None
       Height          =   690
-      Left            =   150
-      TabIndex        =   97
-      Top             =   9600
+      Left            =   0
+      TabIndex        =   98
+      Top             =   10125
       Width           =   10365
       Begin Dacara_dcButton.dcButton cmdButton 
          Height          =   690
          Index           =   0
          Left            =   225
-         TabIndex        =   98
+         TabIndex        =   99
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -54,7 +54,7 @@ Begin VB.Form InvoicesOut
          Height          =   690
          Index           =   6
          Left            =   8775
-         TabIndex        =   99
+         TabIndex        =   100
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -79,7 +79,7 @@ Begin VB.Form InvoicesOut
          Height          =   690
          Index           =   1
          Left            =   1650
-         TabIndex        =   100
+         TabIndex        =   101
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -104,7 +104,7 @@ Begin VB.Form InvoicesOut
          Height          =   690
          Index           =   3
          Left            =   4500
-         TabIndex        =   101
+         TabIndex        =   102
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -129,7 +129,7 @@ Begin VB.Form InvoicesOut
          Height          =   690
          Index           =   4
          Left            =   5925
-         TabIndex        =   102
+         TabIndex        =   103
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -154,7 +154,7 @@ Begin VB.Form InvoicesOut
          Height          =   690
          Index           =   5
          Left            =   7350
-         TabIndex        =   103
+         TabIndex        =   104
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -179,7 +179,7 @@ Begin VB.Form InvoicesOut
          Height          =   690
          Index           =   2
          Left            =   3075
-         TabIndex        =   104
+         TabIndex        =   105
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -207,11 +207,54 @@ Begin VB.Form InvoicesOut
       BorderStyle     =   0  'None
       Enabled         =   0   'False
       ForeColor       =   &H80000008&
-      Height          =   6465
+      Height          =   6840
       Left            =   12525
-      TabIndex        =   52
+      TabIndex        =   53
       Top             =   675
       Width           =   4515
+      Begin VB.TextBox txtInvoiceIsActiveID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFC0&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   110
+         TabStop         =   0   'False
+         Top             =   3075
+         Width           =   780
+      End
+      Begin VB.TextBox Text10 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00FFFFC0&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   109
+         TabStop         =   0   'False
+         Text            =   "Invoices.InvoiceIsActiveID"
+         Top             =   3075
+         Width           =   3540
+      End
       Begin VB.TextBox Text11 
          Appearance      =   0  'Flat
          BackColor       =   &H00FFFFC0&
@@ -228,7 +271,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   96
+         TabIndex        =   97
          TabStop         =   0   'False
          Text            =   "Invoices.InvoiceTrnID"
          Top             =   1575
@@ -250,7 +293,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   95
+         TabIndex        =   96
          TabStop         =   0   'False
          Top             =   1575
          Width           =   780
@@ -271,7 +314,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   94
+         TabIndex        =   95
          TabStop         =   0   'False
          Text            =   "Invoices.InvoiceDateIn"
          Top             =   2700
@@ -293,7 +336,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   93
+         TabIndex        =   94
          TabStop         =   0   'False
          Top             =   2700
          Width           =   780
@@ -314,7 +357,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   92
+         TabIndex        =   93
          TabStop         =   0   'False
          Top             =   75
          Width           =   780
@@ -335,7 +378,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   91
+         TabIndex        =   92
          TabStop         =   0   'False
          Text            =   "Invoices.InvoiceMasterRefersTo"
          Top             =   75
@@ -357,7 +400,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   90
+         TabIndex        =   91
          TabStop         =   0   'False
          Text            =   "Invoices.InvoiceSecondaryRefersTo"
          Top             =   450
@@ -379,7 +422,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   89
+         TabIndex        =   90
          TabStop         =   0   'False
          Top             =   450
          Width           =   780
@@ -400,9 +443,9 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   78
+         TabIndex        =   79
          TabStop         =   0   'False
-         Top             =   5700
+         Top             =   6075
          Width           =   780
       End
       Begin VB.CheckBox chkCodeHandID 
@@ -420,12 +463,33 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   77
+         TabIndex        =   78
          TabStop         =   0   'False
-         Top             =   5325
+         Top             =   5700
          Width           =   780
       End
       Begin VB.TextBox txtCodeLastDate 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   77
+         TabStop         =   0   'False
+         Top             =   4950
+         Width           =   780
+      End
+      Begin VB.TextBox txtCodeLastNo 
          Appearance      =   0  'Flat
          BackColor       =   &H00C0C0FF&
          BorderStyle     =   0  'None
@@ -446,27 +510,6 @@ Begin VB.Form InvoicesOut
          Top             =   4575
          Width           =   780
       End
-      Begin VB.TextBox txtCodeLastNo 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   3675
-         TabIndex        =   75
-         TabStop         =   0   'False
-         Top             =   4200
-         Width           =   780
-      End
       Begin VB.CheckBox chkPaymentTermCreditID 
          Appearance      =   0  'Flat
          BackColor       =   &H00E0E0E0&
@@ -482,9 +525,9 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   74
+         TabIndex        =   75
          TabStop         =   0   'False
-         Top             =   6075
+         Top             =   6450
          Width           =   780
       End
       Begin VB.TextBox txtInvoiceCodeID 
@@ -503,7 +546,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   73
+         TabIndex        =   74
          TabStop         =   0   'False
          Top             =   1950
          Width           =   780
@@ -524,7 +567,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   72
+         TabIndex        =   73
          TabStop         =   0   'False
          Top             =   825
          Width           =   780
@@ -545,7 +588,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   71
+         TabIndex        =   72
          TabStop         =   0   'False
          Top             =   1200
          Width           =   780
@@ -566,9 +609,9 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   70
+         TabIndex        =   71
          TabStop         =   0   'False
-         Top             =   4950
+         Top             =   5325
          Width           =   780
       End
       Begin VB.TextBox Text1 
@@ -587,10 +630,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   69
+         TabIndex        =   70
          TabStop         =   0   'False
          Text            =   "Codes.CodeCustomers"
-         Top             =   4950
+         Top             =   5325
          Width           =   3540
       End
       Begin VB.TextBox Text2 
@@ -609,7 +652,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   68
+         TabIndex        =   69
          TabStop         =   0   'False
          Text            =   "Invoices.InvoiceID"
          Top             =   1200
@@ -631,7 +674,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   67
+         TabIndex        =   68
          TabStop         =   0   'False
          Text            =   "Settings.VAT"
          Top             =   825
@@ -653,7 +696,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   66
+         TabIndex        =   67
          TabStop         =   0   'False
          Text            =   "Invoices.InvoiceCodeID"
          Top             =   1950
@@ -675,10 +718,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   65
+         TabIndex        =   66
          TabStop         =   0   'False
          Text            =   "Codes.CodeLastNo"
-         Top             =   4200
+         Top             =   4575
          Width           =   3540
       End
       Begin VB.TextBox Text6 
@@ -697,10 +740,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   64
+         TabIndex        =   65
          TabStop         =   0   'False
          Text            =   "Codes.CodeLastDate"
-         Top             =   4575
+         Top             =   4950
          Width           =   3540
       End
       Begin VB.TextBox Text7 
@@ -719,10 +762,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   63
+         TabIndex        =   64
          TabStop         =   0   'False
          Text            =   "Ships.ShipRegistryNo"
-         Top             =   5700
+         Top             =   6075
          Width           =   3540
       End
       Begin VB.TextBox Text14 
@@ -741,10 +784,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   62
+         TabIndex        =   63
          TabStop         =   0   'False
          Text            =   "Codes.CodeHandID"
-         Top             =   5325
+         Top             =   5700
          Width           =   3540
       End
       Begin VB.TextBox Text15 
@@ -763,10 +806,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   61
+         TabIndex        =   62
          TabStop         =   0   'False
          Text            =   "PaymentTerms.PaymentTermCredit"
-         Top             =   6075
+         Top             =   6450
          Width           =   3540
       End
       Begin VB.TextBox Text16 
@@ -785,7 +828,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   60
+         TabIndex        =   61
          TabStop         =   0   'False
          Text            =   "Invoices.InvoicePersonID"
          Top             =   2325
@@ -807,7 +850,7 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   59
+         TabIndex        =   60
          TabStop         =   0   'False
          Top             =   2325
          Width           =   780
@@ -828,10 +871,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   58
+         TabIndex        =   59
          TabStop         =   0   'False
          Text            =   "InvoicesOut.InvoiceOutDestinationID"
-         Top             =   3075
+         Top             =   3450
          Width           =   3540
       End
       Begin VB.TextBox txtInvoiceOutDestinationID 
@@ -850,9 +893,9 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   57
+         TabIndex        =   58
          TabStop         =   0   'False
-         Top             =   3075
+         Top             =   3450
          Width           =   780
       End
       Begin VB.TextBox Text21 
@@ -871,10 +914,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   56
+         TabIndex        =   57
          TabStop         =   0   'False
          Text            =   "InvoicesOut.InvoiceOutShipID"
-         Top             =   3450
+         Top             =   3825
          Width           =   3540
       End
       Begin VB.TextBox txtInvoiceOutShipID 
@@ -893,9 +936,9 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   55
+         TabIndex        =   56
          TabStop         =   0   'False
-         Top             =   3450
+         Top             =   3825
          Width           =   780
       End
       Begin VB.TextBox Text22 
@@ -914,10 +957,10 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   75
-         TabIndex        =   54
+         TabIndex        =   55
          TabStop         =   0   'False
          Text            =   "InvoicesOut.InvoiceOutPaymentTermID"
-         Top             =   3825
+         Top             =   4200
          Width           =   3540
       End
       Begin VB.TextBox txtInvoiceOutPaymentTermID 
@@ -936,9 +979,9 @@ Begin VB.Form InvoicesOut
          ForeColor       =   &H00000000&
          Height          =   315
          Left            =   3675
-         TabIndex        =   53
+         TabIndex        =   54
          TabStop         =   0   'False
-         Top             =   3825
+         Top             =   4200
          Width           =   780
       End
    End
@@ -957,7 +1000,7 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H00808000&
       Height          =   2640
       Left            =   11175
-      TabIndex        =   51
+      TabIndex        =   52
       Tag             =   "SameColorAsBackground"
       Top             =   5250
       Width           =   2115
@@ -1024,7 +1067,7 @@ Begin VB.Form InvoicesOut
       Height          =   2640
       Index           =   0
       Left            =   2175
-      TabIndex        =   41
+      TabIndex        =   42
       Tag             =   "SameColorAsBackground"
       Top             =   5250
       Width           =   2940
@@ -1100,7 +1143,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newInteger mskTotalPersonsWithTransfer 
          Height          =   465
          Left            =   450
-         TabIndex        =   42
+         TabIndex        =   43
          TabStop         =   0   'False
          Top             =   1950
          Width           =   765
@@ -1169,7 +1212,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newFloat mskTotalAmountWithTransfer 
          Height          =   465
          Left            =   1275
-         TabIndex        =   43
+         TabIndex        =   44
          TabStop         =   0   'False
          Top             =   1950
          Width           =   1215
@@ -1230,7 +1273,7 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H00808000&
       Height          =   2640
       Left            =   5175
-      TabIndex        =   38
+      TabIndex        =   39
       Tag             =   "SameColorAsBackground"
       Top             =   5250
       Width           =   2940
@@ -1306,7 +1349,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newInteger mskTotalPersonsWithoutTransfer 
          Height          =   465
          Left            =   450
-         TabIndex        =   39
+         TabIndex        =   40
          TabStop         =   0   'False
          Top             =   1950
          Width           =   765
@@ -1375,7 +1418,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newFloat mskTotalAmountWithoutTransfer 
          Height          =   465
          Left            =   1275
-         TabIndex        =   40
+         TabIndex        =   41
          TabStop         =   0   'False
          Top             =   1950
          Width           =   1215
@@ -1456,14 +1499,14 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H00808000&
       Height          =   2640
       Left            =   8175
-      TabIndex        =   30
+      TabIndex        =   31
       Tag             =   "SameColorAsBackground"
       Top             =   5250
       Width           =   2940
       Begin UserControls.newInteger mskTotalAdults 
          Height          =   465
          Left            =   450
-         TabIndex        =   31
+         TabIndex        =   32
          Top             =   375
          Width           =   765
          _ExtentX        =   1349
@@ -1487,7 +1530,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newInteger mskTotalKids 
          Height          =   465
          Left            =   450
-         TabIndex        =   32
+         TabIndex        =   33
          Top             =   900
          Width           =   765
          _ExtentX        =   1349
@@ -1511,7 +1554,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newInteger mskTotalFree 
          Height          =   465
          Left            =   450
-         TabIndex        =   33
+         TabIndex        =   34
          Top             =   1425
          Width           =   765
          _ExtentX        =   1349
@@ -1535,7 +1578,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newInteger mskTotalPersons 
          Height          =   465
          Left            =   450
-         TabIndex        =   34
+         TabIndex        =   35
          TabStop         =   0   'False
          Top             =   1950
          Width           =   765
@@ -1560,7 +1603,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newFloat mskAdultsAmountTotal 
          Height          =   465
          Left            =   1275
-         TabIndex        =   35
+         TabIndex        =   36
          Top             =   375
          Width           =   1215
          _ExtentX        =   2143
@@ -1583,7 +1626,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newFloat mskKidsAmountTotal 
          Height          =   465
          Left            =   1275
-         TabIndex        =   36
+         TabIndex        =   37
          Top             =   900
          Width           =   1215
          _ExtentX        =   2143
@@ -1606,7 +1649,7 @@ Begin VB.Form InvoicesOut
       Begin UserControls.newFloat mskTotalAmount 
          Height          =   465
          Left            =   1275
-         TabIndex        =   37
+         TabIndex        =   38
          TabStop         =   0   'False
          Top             =   1950
          Width           =   1215
@@ -1810,7 +1853,7 @@ Begin VB.Form InvoicesOut
       Height          =   465
       Index           =   0
       Left            =   2925
-      TabIndex        =   79
+      TabIndex        =   80
       TabStop         =   0   'False
       Top             =   2175
       Width           =   390
@@ -1836,9 +1879,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   5
+      Index           =   1
       Left            =   3375
-      TabIndex        =   80
+      TabIndex        =   81
       TabStop         =   0   'False
       Top             =   2175
       Width           =   390
@@ -1864,9 +1907,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   1
+      Index           =   2
       Left            =   7200
-      TabIndex        =   81
+      TabIndex        =   82
       TabStop         =   0   'False
       Top             =   3225
       Width           =   390
@@ -1892,9 +1935,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   2
+      Index           =   4
       Left            =   7200
-      TabIndex        =   82
+      TabIndex        =   83
       TabStop         =   0   'False
       Top             =   3750
       Width           =   390
@@ -1920,9 +1963,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   3
+      Index           =   6
       Left            =   7200
-      TabIndex        =   83
+      TabIndex        =   84
       TabStop         =   0   'False
       Top             =   4275
       Width           =   390
@@ -1948,9 +1991,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   4
+      Index           =   8
       Left            =   7200
-      TabIndex        =   84
+      TabIndex        =   85
       TabStop         =   0   'False
       Top             =   8625
       Width           =   390
@@ -1976,9 +2019,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   6
+      Index           =   3
       Left            =   7650
-      TabIndex        =   85
+      TabIndex        =   86
       TabStop         =   0   'False
       Top             =   3225
       Width           =   390
@@ -2004,9 +2047,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   7
+      Index           =   5
       Left            =   7650
-      TabIndex        =   86
+      TabIndex        =   87
       TabStop         =   0   'False
       Top             =   3750
       Width           =   390
@@ -2032,9 +2075,9 @@ Begin VB.Form InvoicesOut
    End
    Begin Dacara_dcButton.dcButton cmdIndex 
       Height          =   465
-      Index           =   8
+      Index           =   7
       Left            =   7650
-      TabIndex        =   87
+      TabIndex        =   88
       TabStop         =   0   'False
       Top             =   4275
       Width           =   390
@@ -2062,7 +2105,7 @@ Begin VB.Form InvoicesOut
       Height          =   465
       Index           =   9
       Left            =   7650
-      TabIndex        =   88
+      TabIndex        =   89
       TabStop         =   0   'False
       Top             =   8625
       Width           =   390
@@ -2130,6 +2173,76 @@ Begin VB.Form InvoicesOut
          Strikethrough   =   0   'False
       EndProperty
    End
+   Begin UserControls.newText txtInvoiceIsActiveDescription 
+      Height          =   465
+      Left            =   2175
+      TabIndex        =   21
+      Top             =   9150
+      Width           =   615
+      _ExtentX        =   1085
+      _ExtentY        =   820
+      Alignment       =   2
+      ForeColor       =   0
+      Text            =   "ΝΑΙ"
+      BackColor       =   4210688
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Ubuntu Condensed"
+         Size            =   11.25
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+   End
+   Begin Dacara_dcButton.dcButton cmdIndex 
+      Height          =   465
+      Index           =   10
+      Left            =   2850
+      TabIndex        =   107
+      TabStop         =   0   'False
+      Top             =   9150
+      Width           =   390
+      _ExtentX        =   688
+      _ExtentY        =   820
+      BackColor       =   14742518
+      ButtonShape     =   3
+      ButtonStyle     =   8
+      Caption         =   ""
+      BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+         Name            =   "Ubuntu Condensed"
+         Size            =   9.75
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   0
+      PicNormal       =   "InvoicesOut.frx":3804
+      PicSizeH        =   16
+      PicSizeW        =   16
+   End
+   Begin VB.Label lblLabel 
+      BackColor       =   &H000080FF&
+      Caption         =   "Ενεργή εγγραφή"
+      BeginProperty Font 
+         Name            =   "Ubuntu Condensed"
+         Size            =   9.75
+         Charset         =   161
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   315
+      Index           =   9
+      Left            =   450
+      TabIndex        =   108
+      Top             =   9225
+      Width           =   1290
+   End
    Begin VB.Label lblLabel 
       BackColor       =   &H000080FF&
       Caption         =   "Αφορά"
@@ -2146,7 +2259,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   8
       Left            =   450
-      TabIndex        =   105
+      TabIndex        =   106
       Top             =   1725
       Width           =   1290
    End
@@ -2167,8 +2280,8 @@ Begin VB.Form InvoicesOut
       BackStyle       =   1  'Opaque
       BorderStyle     =   0  'Transparent
       Height          =   540
-      Left            =   4125
-      Top             =   9075
+      Left            =   2100
+      Top             =   9600
       Visible         =   0   'False
       Width           =   840
    End
@@ -2189,8 +2302,8 @@ Begin VB.Form InvoicesOut
       BackStyle       =   1  'Opaque
       BorderStyle     =   0  'Transparent
       Height          =   390
-      Left            =   4950
-      Top             =   10275
+      Left            =   4800
+      Top             =   10800
       Visible         =   0   'False
       Width           =   840
    End
@@ -2245,7 +2358,7 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H00800080&
       Height          =   255
       Left            =   3825
-      TabIndex        =   50
+      TabIndex        =   51
       Top             =   2400
       Width           =   1350
    End
@@ -2266,7 +2379,7 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H00800080&
       Height          =   255
       Left            =   5250
-      TabIndex        =   49
+      TabIndex        =   50
       Top             =   2400
       Width           =   585
    End
@@ -2287,7 +2400,7 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H00800080&
       Height          =   255
       Left            =   3825
-      TabIndex        =   48
+      TabIndex        =   49
       Top             =   2175
       Width           =   4200
    End
@@ -2307,7 +2420,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   13
       Left            =   450
-      TabIndex        =   47
+      TabIndex        =   48
       Top             =   7275
       Width           =   1290
    End
@@ -2327,7 +2440,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   12
       Left            =   450
-      TabIndex        =   46
+      TabIndex        =   47
       Top             =   6750
       Width           =   1290
    End
@@ -2347,7 +2460,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   11
       Left            =   450
-      TabIndex        =   45
+      TabIndex        =   46
       Top             =   6225
       Width           =   1290
    End
@@ -2367,7 +2480,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   0
       Left            =   450
-      TabIndex        =   44
+      TabIndex        =   45
       Top             =   5700
       Width           =   1290
    End
@@ -2388,7 +2501,7 @@ Begin VB.Form InvoicesOut
       ForeColor       =   &H000080FF&
       Height          =   720
       Left            =   225
-      TabIndex        =   29
+      TabIndex        =   30
       Top             =   75
       Width           =   2250
    End
@@ -2408,7 +2521,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   1
       Left            =   450
-      TabIndex        =   28
+      TabIndex        =   29
       Top             =   2250
       Width           =   1290
    End
@@ -2428,7 +2541,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   3
       Left            =   450
-      TabIndex        =   27
+      TabIndex        =   28
       Top             =   2775
       Width           =   1290
    End
@@ -2448,7 +2561,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   4
       Left            =   450
-      TabIndex        =   26
+      TabIndex        =   27
       Top             =   3825
       Width           =   1290
    End
@@ -2468,7 +2581,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   5
       Left            =   450
-      TabIndex        =   25
+      TabIndex        =   26
       Top             =   4350
       Width           =   1290
    End
@@ -2488,7 +2601,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   6
       Left            =   450
-      TabIndex        =   24
+      TabIndex        =   25
       Top             =   8175
       Width           =   1290
    End
@@ -2509,7 +2622,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   7
       Left            =   450
-      TabIndex        =   23
+      TabIndex        =   24
       Top             =   8700
       Width           =   1290
    End
@@ -2529,7 +2642,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   10
       Left            =   450
-      TabIndex        =   22
+      TabIndex        =   23
       Top             =   3300
       Width           =   1290
    End
@@ -2549,7 +2662,7 @@ Begin VB.Form InvoicesOut
       Height          =   315
       Index           =   2
       Left            =   450
-      TabIndex        =   21
+      TabIndex        =   22
       Top             =   1200
       Width           =   1290
    End
@@ -2655,11 +2768,11 @@ Private Sub AbortProcedure(blnStatus)
             blnStatus = False
             blnCancel = True
             
-            ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID
-            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
+            ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID, txtInvoiceIsActiveID
+            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
             
-            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
-            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
             
             UpdateButtons Me, 6, 1, 0, 0, 0, IIf(CheckForLoadedForm("InvoicesOutIndex"), 0, 1), 0, 1
         End If
@@ -2713,10 +2826,10 @@ Private Sub DeleteRecord()
         If MainDeleteRecord("CommonDB", "InvoicesOut", strApplicationName, "InvoiceOutTrnID", txtInvoiceTrnID.text, False) Then
             CommitTrans
             blnCancel = True
-            ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID
-            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, , mskDirectAmount, txtRemarks, txtPaymentTermDescription
-            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
-            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+            ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID, txtInvoiceIsActiveID
+            ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, , mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+            DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
             UpdateButtons Me, 6, 1, 0, 0, 0, IIf(CheckForLoadedForm("InvoicesOutIndex"), 0, 1), 0, 1
         Else
             Rollback
@@ -2738,9 +2851,9 @@ Public Function DoPostFoundJobs(rstRecordset As Recordset)
         mskAdultsWithTransfer, mskAdultsAmountWithTransfer, mskKidsWithTransfer, mskKidsAmountWithTransfer, mskFreeWithTransfer, _
         mskAdultsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsWithoutTransfer, mskKidsAmountWithoutTransfer, mskFreeWithoutTransfer, _
         mskDirectAmount, _
-        txtRemarks, txtPaymentTermDescription
+        txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
     blnCancel = False
-    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
     PopulateFields rstRecordset
     AddAmounts
     AddPersons
@@ -2764,7 +2877,7 @@ Private Sub NewRecord()
     blnCancel = False
     
     ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID
-    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
+    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
     
     EnableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtCodeLastNo, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, _
         mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, _
@@ -2772,7 +2885,8 @@ Private Sub NewRecord()
         mskDirectAmount, _
         txtRemarks, _
         txtPaymentTermDescription, _
-        cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+        txtInvoiceIsActiveDescription, _
+        cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
     
     InitializeFields mskDateIssue, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount
     
@@ -2788,6 +2902,9 @@ Private Sub NewRecord()
         txtInvoiceOutPaymentTermID.text = tmpRecordset.Fields(0)
         txtPaymentTermDescription.text = tmpRecordset.Fields(1)
     End If
+    
+    txtInvoiceIsActiveID.text = "1"
+    txtInvoiceIsActiveDescription.text = "ΝΑΙ"
     
     UpdateButtons Me, 6, 0, 1, 0, 0, 0, 1, 0
     
@@ -2822,6 +2939,7 @@ Private Function PopulateFields(rstRecordset As Recordset)
         txtInvoiceCodeID.text = !InvoiceCodeID
         txtInvoicePersonID.text = !InvoicePersonID
         txtInvoiceDateIn.text = !InvoiceDateIn
+        txtInvoiceIsActiveID.text = !InvoiceIsActiveID
         txtInvoiceOutDestinationID.text = !InvoiceOutDestinationID
         txtInvoiceOutShipID.text = !InvoiceOutShipID
         txtInvoiceOutPaymentTermID.text = !InvoiceOutPaymentTermID
@@ -2861,6 +2979,9 @@ Private Function PopulateFields(rstRecordset As Recordset)
         
         txtRemarks.text = !InvoiceOutReason
         txtPaymentTermDescription.text = !PaymentTermDescription
+        
+        txtInvoiceIsActiveID.text = !InvoiceIsActiveID
+        txtInvoiceIsActiveDescription.text = !YesOrNoDescription
         
     End With
 
@@ -2912,6 +3033,7 @@ Private Function SaveInvoice()
             txtInvoiceCodeID.text, _
             txtInvoiceNo.text, _
             txtInvoicePersonID.text, _
+            txtInvoiceIsActiveID.text, _
             strCurrentUser) <> 0 Then
         IsError = False
     Else
@@ -2970,10 +3092,10 @@ Private Function SaveRecord()
         CommitTrans
         blnCancel = True
         AskToPrintInvoice
-        ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID
-        ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
-        DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
-        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+        ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID, txtInvoiceIsActiveID
+        ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+        DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
         UpdateButtons Me, 6, 1, 0, 0, 0, IIf(CheckForLoadedForm("InvoicesOutIndex"), 0, 1), 0, 1
     End If
     
@@ -3246,6 +3368,14 @@ Private Function ValidateFields()
         If MyMsgBox(4, strApplicationName, strStandardMessages(2), 1) Then
         End If
         mskDirectAmount.SetFocus
+        Exit Function
+    End If
+    
+    'Ενεργή εγγραφή
+    If Len(txtInvoiceIsActiveID.text) = 0 Then
+        If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+        End If
+        txtInvoiceIsActiveDescription.SetFocus
         Exit Function
     End If
     
@@ -3545,7 +3675,7 @@ Private Sub cmdIndex_Click(index As Integer)
                 txtCodeLastDate.text = format(tmpTableData.strSeventhField, "dd/mm/yyyy")
                 If txtInvoiceCodeID.text <> "" And chkCodeHandID.Value = 0 Then txtInvoiceNo.text = Val(txtCodeLastNo.text) + 1
             End If
-        Case 5
+        Case 1
             'Παραστατικό - F5
             With TablesCodes
                 .Tag = "True"
@@ -3553,21 +3683,21 @@ Private Sub cmdIndex_Click(index As Integer)
                 .txtCodeSecondaryRefersTo.text = "0"
                 .Show 1, Me
             End With
-        Case 1
+        Case 2
             'Πελάτης - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Customers", "Description", "String", txtCustomerDescription.text)
             If tmpRecordset.RecordCount > 0 Then
-                tmpTableData = DisplayIndex(tmpRecordset, 2, True, 3, 0, 1, 7, "ID", "Επωνυμία", "Α.Φ.Μ.", 0, 40, 15, 1, 0, 1)
+                tmpTableData = DisplayIndex(tmpRecordset, 2, True, 3, 0, 1, 10, "ID", "Επωνυμία", "Α.Φ.Μ.", 0, 40, 15, 1, 0, 1)
                 txtInvoicePersonID.text = tmpTableData.strCode
                 txtCustomerDescription.text = tmpTableData.strFirstField
             End If
-        Case 6
+        Case 3
             'Πελάτης - F5
             With Persons
                 .Tag = "True"
                 .Show 1, Me
             End With
-        Case 2
+        Case 4
             'Προορισμός - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Destinations", "DestinationDescription, ShowInList", "String, Numeric", txtDestinationDescription.text, txtInvoiceSecondaryRefersTo.text)
             If tmpRecordset.RecordCount > 0 Then
@@ -3575,14 +3705,14 @@ Private Sub cmdIndex_Click(index As Integer)
                 txtInvoiceOutDestinationID.text = tmpTableData.strCode
                 txtDestinationDescription.text = tmpTableData.strFirstField
             End If
-        Case 7
+        Case 5
             'Προορισμός - F5
             With TablesDestinations
                 .Tag = "True"
                 .txtShowInList.text = txtInvoiceSecondaryRefersTo.text
                 .Show 1, Me
             End With
-        Case 3
+        Case 6
             'Πλοίο - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Ships", "ShipDescription", "String", txtShipDescription.text)
             If tmpRecordset.RecordCount > 0 Then
@@ -3591,13 +3721,13 @@ Private Sub cmdIndex_Click(index As Integer)
                 txtShipDescription.text = tmpTableData.strFirstField
                 txtShipRegistryNo.text = tmpTableData.strSecondField
             End If
-        Case 8
+        Case 7
             'Πλοίο - F5
             With TablesShips
                 .Tag = "True"
                 .Show 1, Me
             End With
-        Case 4
+        Case 8
             'Όρος πληρωμής - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "PaymentTerms", "PaymentTermDescription", "String", txtPaymentTermDescription.text)
             If tmpRecordset.RecordCount > 0 Then
@@ -3612,6 +3742,14 @@ Private Sub cmdIndex_Click(index As Integer)
                 .Tag = "True"
                 .Show 1, Me
             End With
+        Case 10
+            'Ενεργή εγγραφή - F2
+            Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoDescription", "String", txtInvoiceIsActiveDescription.text)
+            If tmpRecordset.RecordCount > 0 Then
+                tmpTableData = DisplayIndex(tmpRecordset, 2, True, 3, 0, 1, 2, "ID", "Περιγραφή", "Πίστωση", 0, 40, 0, 1, 0, 0)
+                txtInvoiceIsActiveID.text = tmpTableData.strCode
+                txtInvoiceIsActiveDescription.text = tmpTableData.strFirstField
+            End If
     End Select
 
 End Sub
@@ -3647,22 +3785,24 @@ Public Function SeekRecord(lngTrnID)
     Dim rstRecordset As Recordset
     
     strSQL = "SELECT " _
-        & "Invoices.InvoiceID, Invoices.InvoiceTrnID, Invoices.InvoiceMasterRefersTo, Invoices.InvoiceSecondaryRefersTo, Invoices.InvoiceDateIssue, Invoices.InvoiceDateIn, Invoices.InvoiceDateRefersTo, Invoices.InvoiceCodeID, Invoices.InvoiceNo, Invoices.InvoicePersonID, " _
+        & "Invoices.InvoiceID, Invoices.InvoiceTrnID, Invoices.InvoiceMasterRefersTo, Invoices.InvoiceSecondaryRefersTo, Invoices.InvoiceDateIssue, Invoices.InvoiceDateIn, Invoices.InvoiceDateRefersTo, Invoices.InvoiceCodeID, Invoices.InvoiceNo, Invoices.InvoicePersonID, Invoices.InvoiceIsActiveID, " _
         & "InvoicesOut.InvoiceOutAgreement, InvoicesOut.InvoiceOutAdultsWithTransfer, InvoicesOut.InvoiceOutKidsWithTransfer, InvoicesOut.InvoiceOutFreeWithTransfer, InvoicesOut.InvoiceOutAdultsWithoutTransfer, InvoicesOut.InvoiceOutKidsWithoutTransfer, InvoicesOut.InvoiceOutFreeWithoutTransfer, InvoicesOut.InvoiceOutAdultsAmountWithTransfer, InvoicesOut.InvoiceOutKidsAmountWithTransfer, InvoicesOut.InvoiceOutAdultsAmountWithoutTransfer, InvoicesOut.InvoiceOutKidsAmountWithoutTransfer, InvoicesOut.InvoiceOutDirectAmount, InvoicesOut.InvoiceOutVATPercent, InvoicesOut.InvoiceOutReason, InvoicesOut.InvoiceOutDestinationID, InvoicesOut.InvoiceOutShipID, InvoicesOut.InvoiceOutPaymentTermID, " _
         & "Codes.CodeShortDescriptionA, Codes.CodeDescription, Codes.CodeBatch, Codes.CodeHandID, Codes.CodeCustomers, Codes.CodeLastNo, Codes.CodeLastDate, " _
         & "Customers.Description, Customers.Profession, Customers.Address, Customers.TaxNo, " _
         & "Ships.ShipDescription, Ships.ShipRegistryNo, " _
         & "PaymentTerms.PaymentTermCreditID, PaymentTerms.PaymentTermDescription, " _
         & "Destinations.DestinationDescription, " _
-        & "TaxOffices.TaxOfficeDescription " _
-        & "FROM (((((((Invoices " _
+        & "TaxOffices.TaxOfficeDescription, " _
+        & "YesOrNo.YesOrNoDescription " _
+        & "FROM ((((((((Invoices " _
         & "INNER JOIN InvoicesOut ON Invoices.InvoiceTrnID = InvoicesOut.InvoiceOutTrnID) " _
         & "INNER JOIN Codes ON Invoices.InvoiceCodeID = Codes.CodeID) " _
         & "INNER JOIN Customers ON Invoices.InvoicePersonID = Customers.ID) " _
         & "INNER JOIN Ships ON InvoicesOut.InvoiceOutShipID = Ships.ShipID) " _
         & "INNER JOIN PaymentTerms ON InvoicesOut.InvoiceOutPaymentTermID = PaymentTerms.PaymentTermID) " _
         & "INNER JOIN Destinations ON InvoicesOut.InvoiceOutDestinationID = Destinations.DestinationID) " _
-        & "INNER JOIN TaxOffices ON Customers.TaxOfficeID = TaxOffices.TaxOfficeID) "
+        & "INNER JOIN TaxOffices ON Customers.TaxOfficeID = TaxOffices.TaxOfficeID) " _
+        & "INNER JOIN YesOrNo ON Invoices.InvoiceIsActiveID = YesOrNo.YesOrNoID)"
         
     'InvoiceTrnID
     strThisParameter = "lngInvoiceTrnID long"
@@ -3733,10 +3873,10 @@ Private Sub Form_Load()
     PositionControls Me, False
     ColorizeControls Me, False, False
     blnCancel = True
-    ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID
-    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
-    DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription
-    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+    ClearFields txtInvoiceID, txtInvoiceTrnID, txtInvoiceCodeID, txtInvoicePersonID, txtInvoiceDateIn, txtInvoiceOutDestinationID, txtInvoiceOutShipID, txtInvoiceOutPaymentTermID, txtCodeLastNo, txtCodeLastDate, txtCodePersonsPlusOrMinus, chkCodeHandID, txtShipRegistryNo, chkPaymentTermCreditID, txtInvoiceIsActiveID
+    ClearFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, lblCodeDescription, lblCodeBatch, lblHand, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+    DisableFields mskDateIssue, mskDateRefersTo, txtCodeShortDescriptionA, txtInvoiceNo, txtCustomerDescription, txtDestinationDescription, txtShipDescription, chkAgreement, mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskTotalPersonsWithTransfer, mskAdultsAmountWithTransfer, mskKidsAmountWithTransfer, mskTotalAmountWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer, mskTotalPersonsWithoutTransfer, mskAdultsAmountWithoutTransfer, mskKidsAmountWithoutTransfer, mskTotalAmountWithoutTransfer, mskTotalAdults, mskTotalKids, mskTotalFree, mskTotalPersons, mskAdultsAmountTotal, mskKidsAmountTotal, mskTotalPersons, mskTotalAmount, mskDirectAmount, txtRemarks, txtPaymentTermDescription, txtInvoiceIsActiveDescription
+    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
     UpdateButtons Me, 6, 1, 0, 0, 0, IIf(CheckForLoadedForm("InvoicesOutIndex"), 0, 1), 0, 1
 
 End Sub
@@ -3866,7 +4006,7 @@ End Sub
 Private Sub txtCodeShortDescriptionA_KeyDown(KeyCode As Integer, Shift As Integer)
 
     If KeyCode = vbKeyF2 Then cmdIndex_Click 0
-    If KeyCode = vbKeyF5 Then cmdIndex_Click 5
+    If KeyCode = vbKeyF5 Then cmdIndex_Click 1
 
 End Sub
 
@@ -3874,6 +4014,27 @@ Private Sub txtCodeShortDescriptionA_Validate(Cancel As Boolean)
 
     If txtInvoiceCodeID.text = "" And txtCodeShortDescriptionA.text <> "" Then cmdIndex_Click 0: If txtInvoiceCodeID.text = "" Then Cancel = True
 
+End Sub
+
+Private Sub txtInvoiceIsActiveDescription_Change()
+
+    If txtInvoiceIsActiveDescription.text = "" Then
+        ClearFields txtInvoiceIsActiveID
+    End If
+
+End Sub
+
+Private Sub txtInvoiceIsActiveDescription_KeyDown(KeyCode As Integer, Shift As Integer)
+
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 10
+
+End Sub
+
+
+Private Sub txtInvoiceIsActiveDescription_Validate(Cancel As Boolean)
+
+    If txtInvoiceIsActiveID.text = "" And txtInvoiceIsActiveDescription.text <> "" Then cmdIndex_Click 10: If txtInvoiceIsActiveID.text = "" Then Cancel = True
+    
 End Sub
 
 Private Sub txtPaymentTermDescription_Change()
@@ -3886,14 +4047,14 @@ End Sub
 
 Private Sub txtPaymentTermDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
-    If KeyCode = vbKeyF2 Then cmdIndex_Click 4
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 8
     If KeyCode = vbKeyF5 Then cmdIndex_Click 9
 
 End Sub
 
 Private Sub txtPaymentTermDescription_Validate(Cancel As Boolean)
 
-    If txtInvoiceOutPaymentTermID.text = "" And txtPaymentTermDescription.text <> "" Then cmdIndex_Click 4: If txtInvoiceOutPaymentTermID.text = "" Then Cancel = True
+    If txtInvoiceOutPaymentTermID.text = "" And txtPaymentTermDescription.text <> "" Then cmdIndex_Click 8: If txtInvoiceOutPaymentTermID.text = "" Then Cancel = True
 
 End Sub
 
@@ -3908,14 +4069,14 @@ End Sub
 
 Private Sub txtShipDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
-    If KeyCode = vbKeyF2 Then cmdIndex_Click 3
-    If KeyCode = vbKeyF5 Then cmdIndex_Click 8
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 6
+    If KeyCode = vbKeyF5 Then cmdIndex_Click 7
 
 End Sub
 
 Private Sub txtShipDescription_Validate(Cancel As Boolean)
 
-    If txtInvoiceOutShipID.text = "0" And txtShipDescription.text <> "" Then cmdIndex_Click 3: If txtInvoiceOutShipID.text = "0" Then Cancel = True
+    If txtInvoiceOutShipID.text = "0" And txtShipDescription.text <> "" Then cmdIndex_Click 6: If txtInvoiceOutShipID.text = "0" Then Cancel = True
     
 End Sub
 
@@ -3929,8 +4090,8 @@ End Sub
 
 Private Sub txtCustomerDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
-    If KeyCode = vbKeyF2 Then cmdIndex_Click 1
-    If KeyCode = vbKeyF5 Then cmdIndex_Click 6
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 2
+    If KeyCode = vbKeyF5 Then cmdIndex_Click 3
     
     If Not blnCancel Then
         If chkAgreement.Value = 0 Then
@@ -3946,7 +4107,7 @@ End Sub
 
 Private Sub txtCustomerDescription_Validate(Cancel As Boolean)
 
-    If txtInvoicePersonID.text = "" And txtCustomerDescription.text <> "" Then cmdIndex_Click 1: If txtInvoicePersonID.text = "" Then Cancel = True
+    If txtInvoicePersonID.text = "" And txtCustomerDescription.text <> "" Then cmdIndex_Click 2: If txtInvoicePersonID.text = "" Then Cancel = True
     
     If Not blnCancel Then
         If chkAgreement.Value = 0 Then
@@ -3970,8 +4131,8 @@ End Sub
 
 Private Sub txtDestinationDescription_KeyDown(KeyCode As Integer, Shift As Integer)
 
-    If KeyCode = vbKeyF2 Then cmdIndex_Click 2
-    If KeyCode = vbKeyF5 Then cmdIndex_Click 7
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 4
+    If KeyCode = vbKeyF5 Then cmdIndex_Click 5
     
     If Not blnCancel Then
         If chkAgreement.Value = 0 Then
@@ -3987,7 +4148,7 @@ End Sub
 
 Private Sub txtDestinationDescription_Validate(Cancel As Boolean)
 
-    If txtInvoiceOutDestinationID.text = "" And txtDestinationDescription.text <> "" Then cmdIndex_Click 2: If txtInvoiceOutDestinationID.text = "" Then Cancel = True
+    If txtInvoiceOutDestinationID.text = "" And txtDestinationDescription.text <> "" Then cmdIndex_Click 4: If txtInvoiceOutDestinationID.text = "" Then Cancel = True
     
     If Not blnCancel Then
         If chkAgreement.Value = 0 Then
@@ -4009,7 +4170,8 @@ Private Function EnableOrDisableFields()
             mskDirectAmount, _
             txtRemarks, _
             txtPaymentTermDescription, _
-            cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9)
+            txtInvoiceIsActiveDescription, _
+            cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3), cmdIndex(4), cmdIndex(5), cmdIndex(6), cmdIndex(7), cmdIndex(8), cmdIndex(9), cmdIndex(10)
         If chkAgreement.Value = 1 Then EnableFields mskAdultsWithTransfer, mskKidsWithTransfer, mskFreeWithTransfer, mskAdultsWithoutTransfer, mskKidsWithoutTransfer, mskFreeWithoutTransfer
     'End If
 

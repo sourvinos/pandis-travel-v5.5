@@ -1128,6 +1128,13 @@ Private Function RefreshList()
         arrQuery(intIndex) = Val(txtBankID.text)
     End If
     
+    'Μόνο ενεργές εγγραφές
+    strThisParameter = "intInvoiceIsActiveID Integer"
+    strThisQuery = "Invoices.InvoiceIsActiveID = intInvoiceIsActiveID"
+    strLogic = " AND "
+    GoSub UpdateSQLString
+    arrQuery(intIndex) = 1
+    
     'Ταξινόμηση
     strOrder = " ORDER BY BankDescription, CheckExpireDate"
     

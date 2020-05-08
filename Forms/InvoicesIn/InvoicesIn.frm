@@ -2432,6 +2432,7 @@ Private Function SaveInvoice()
             txtInvoiceCodeID.text, _
             txtInvoiceNo.text, _
             txtInvoicePersonID.text, _
+            1, _
             strCurrentUser) <> 0 Then
         IsError = False
     Else
