@@ -1059,7 +1059,7 @@ Function CaptureNumbers(strString, tmpRow, tmpCol, tmpKeyAscii, blnDecimals)
 
 End Function
 
-Function SimpleSeek(Table, Index, ParamArray Indexes() As Variant)
+Function SimpleSeek(Table, index, ParamArray Indexes() As Variant)
 
     On Error GoTo ErrTrap
     
@@ -1076,7 +1076,7 @@ Function SimpleSeek(Table, Index, ParamArray Indexes() As Variant)
     Set rsTable = CommonDB.OpenRecordset(Table)
 
     With rsTable
-        .Index = Index
+        .index = index
         If UBound(Indexes) = 0 Then .Seek "=", Indexes(0)
         If UBound(Indexes) = 1 Then .Seek "=", Indexes(0), Indexes(1)
         If .NoMatch Then SimpleSeek = True 'Αν η εγγραφή δεν βρεθεί, μπορώ να την διαγράψω
@@ -1250,7 +1250,7 @@ Function MainDeleteRecord(SelectedDB, Table, FormTitle, IndexField, CodeToSeek, 
     End Select
 
     With rsTable
-        .Index = IndexField
+        .index = IndexField
         .Seek "=", CodeToSeek
         If Not .NoMatch Then
             If AskConfirmation = False Then
@@ -1302,7 +1302,7 @@ Function MainSeekRecord(SelectedDB, Table, IndexField, CodeToSeek, DisplayNotFou
     MainSeekRecord = True
     
     With rsTable
-        .Index = IndexField
+        .index = IndexField
         .Seek "=", CodeToSeek
         If Not .NoMatch Then
             For bytLoop = 0 To UBound(Fields)
@@ -1475,7 +1475,7 @@ Function MainSaveRecord(SelectedDB, Table, Status, FormTitle, IndexField, CodeTo
     End Select
     
     With rsTable
-        .Index = IndexField
+        .index = IndexField
         If Status Then
             .AddNew
         Else
@@ -1712,6 +1712,7 @@ Sub LoadMessages()
     strAppMessages(11) = Chr(13) & "Μα καλά, δουλεύετε ακόμα και"
     strAppMessages(12) = "Η διαδικασία θα δημιουργήσει" & Chr(13) & "εγγραφές με το πλήρωμα του πλοίου." & Chr(13) & "Θέλετε να συνεχίσετε;"
     strAppMessages(13) = Chr(13) & "Ο έλεγχος δεν βρήκε σφάλματα."
+    strAppMessages(14) = Chr(13) & "Μπορείτε να δημιουργήσετε μέχρι 10 εγγραφές."
     
 End Sub
 

@@ -20,7 +20,6 @@ Option Explicit
 Dim intReceiptCount As Integer
 Dim strCustomersOrSuppliers As String
 
-
 Private Sub ActiveReport_DataInitialize()
 
     intReceiptCount = 0

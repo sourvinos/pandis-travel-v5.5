@@ -302,7 +302,11 @@ Function CheckForDuplicateInvoice(myDate, myCodeID, myInvoiceNo)
     With rstTrips
         If .RecordCount > 0 Then
             .MoveLast
-            If rstTrips!InvoiceNo + 1 <> Int(myInvoiceNo) Then CheckForDuplicateInvoice = False
+            If rstTrips!InvoiceNo + 1 <> Int(myInvoiceNo) Then
+                CheckForDuplicateInvoice = False
+            Else
+                CheckForDuplicateInvoice = True
+            End If
         Else
             CheckForDuplicateInvoice = True
         End If
