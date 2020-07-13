@@ -122,10 +122,10 @@ Begin VB.Form Transfers
          EndProperty
          ForeColor       =   &H80000008&
          Height          =   4515
-         Left            =   15450
+         Left            =   675
          TabIndex        =   28
-         Top             =   1050
-         Width           =   4515
+         Top             =   600
+         Width           =   16215
          Begin VB.TextBox txtPortIDForPassengers 
             Appearance      =   0  'Flat
             BackColor       =   &H0000FF00&
@@ -387,6 +387,18 @@ Begin VB.Form Transfers
             Version         =   131072
             KeyCount        =   8
             Keys            =   "ÿÿÿÿÿÿÿ"
+         End
+         Begin iGrid300_10Tec.iGrid grdSelectedCoachesReport 
+            Height          =   3990
+            Left            =   4500
+            TabIndex        =   105
+            TabStop         =   0   'False
+            Top             =   75
+            Width           =   11640
+            _ExtentX        =   20532
+            _ExtentY        =   7038
+            Appearance      =   0
+            ForeColor       =   -2147483631
          End
       End
       Begin VB.Frame frmCriteria 
@@ -3712,6 +3724,35 @@ Private Function ToggleCheckBox(grid As iGrid, initialValue)
 
 End Function
 
+Private Function UpdateSelectedCoachesReport()
+
+    Dim lngRow As Long
+    Dim lngCol As Long
+    
+    grdSelectedCoachesReport.Clear
+    
+    If Val(lblSelectedGridLines.Caption) = 0 Then
+        For lngRow = 1 To grdCoachesReport.RowCount
+            grdSelectedCoachesReport.AddRow
+            For lngCol = 1 To grdCoachesReport.colCount
+                grdSelectedCoachesReport.CellValue(grdSelectedCoachesReport.RowCount, lngCol) = grdCoachesReport.CellValue(lngRow, lngCol)
+            Next lngCol
+        Next lngRow
+    End If
+    
+    If Val(lblSelectedGridLines.Caption) > 0 Then
+        For lngRow = 1 To grdCoachesReport.RowCount
+            If grdCoachesReport.CellIcon(lngRow, "Selected") <> 0 Then
+                grdSelectedCoachesReport.AddRow
+                For lngCol = 1 To grdCoachesReport.colCount
+                    grdSelectedCoachesReport.CellValue(grdSelectedCoachesReport.RowCount, lngCol) = grdCoachesReport.CellValue(lngRow, lngCol)
+                Next lngCol
+            End If
+        Next lngRow
+    End If
+
+End Function
+
 Private Sub chkAllCustomers_Click()
 
     Dim lngRow As Long
@@ -3808,8 +3849,10 @@ Private Sub cmdButton_Click(index As Integer)
         Case 6
             DisplayAssignPortToPassengersDialog
         Case 7
+            UpdateSelectedCoachesReport
             DoReport "Print"
         Case 8
+            UpdateSelectedCoachesReport
             DoReport "CreatePDF"
         Case 9
             AbortProcedure False
@@ -3826,10 +3869,6 @@ Private Sub cmdButton_Click(index As Integer)
     End Select
 
 End Sub
-
-
-
-
 
 
 Private Function NewRecord()
@@ -4224,25 +4263,14 @@ Private Sub Form_Activate()
     
         Me.Tag = "False"
         
-        AddColumnsToGrid grdCoachesReport, True, 44, GetSetting(strApplicationName, "Layout Strings", grdCoachesReport.Tag), _
-            "05NCNTransferID,12NCDTransferDate,40NLNCustomerDescription,40NCNDestinationShortDescription,40NLNDestinationDescription,50NCNRouteShortDescription,50NLNRouteDescription,40NLNPickupPointHotelDescription,10NLNPickUpPointExactPoint,10NCTPickupPointTime,10NRITransferAdults,10NRITransferKids,10NRITransferFree,10NLNTransferRemarks,10NLNDriverDescription,10NRITransferTotal,10NLNPortDescription,04NCNSelected", _
-            "ID,Ημερομηνία,Πελάτης,Π,Προορισμός,Δρομολόγιο,Δρομολόγιο,Σημείο παραλαβής,Ακριβές σημείο,Ωρα,Ε,Π,Δ,Παρατηρήσεις,Οδηγός,Σύνολο,Λ,Ε"
+        AddColumnsToGrid grdCoachesReport, True, 44, GetSetting(strApplicationName, "Layout Strings", grdCoachesReport.Tag), "05NCNTransferID,12NCDTransferDate,40NLNCustomerDescription,40NCNDestinationShortDescription,40NLNDestinationDescription,50NCNRouteShortDescription,50NLNRouteDescription,40NLNPickupPointHotelDescription,10NLNPickUpPointExactPoint,10NCTPickupPointTime,10NRITransferAdults,10NRITransferKids,10NRITransferFree,10NLNTransferRemarks,10NLNDriverDescription,10NRITransferTotal,10NLNPortDescription,04NCNSelected", "ID,Ημερομηνία,Πελάτης,Π,Προορισμός,Δρομολόγιο,Δρομολόγιο,Σημείο παραλαβής,Ακριβές σημείο,Ωρα,Ε,Π,Δ,Παρατηρήσεις,Οδηγός,Σύνολο,Λ,Ε"
+        AddColumnsToGrid grdSummaryPerPort, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerPort"), "04NCNSelected,05NCNPortID,40NLNPortDescription,10NRITotalPersons", "E,DestinationID,Λιμάνι,Ατομα"
+        AddColumnsToGrid grdSummaryPerDestination, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerDestination"), "04NCNSelected,05NCNDestinationID,40NLNDestinationDescription,10NRITotalPersons", "E,DestinationID,Προορισμός,Ατομα"
+        AddColumnsToGrid grdSummaryPerCustomer, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerCustomer"), "04NCNSelected,05NCNCustomerID,40NLNCustomerDescription,10NRITotalPersons", "E,CustomerID,Πελάτης,Ατομα"
+        AddColumnsToGrid grdSummaryPerRoute, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerRoute"), "04NCNSelected,05NCNRouteID,40NLNRouteShortDescription,10NRITotalPersons", "E,RouteID,Δρομολόγιο,Ατομα"
+        AddColumnsToGrid grdSummaryPerDriver, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerDriver"), "04NCNSelected,05NCNDriverID,40NLNDriverDescription,10NRITotalPersons", "E,DriverID,Οδηγός,Ατομα"
         
-        AddColumnsToGrid grdSummaryPerPort, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerPort"), _
-            "04NCNSelected,05NCNPortID,40NLNPortDescription,10NRITotalPersons", _
-            "E,DestinationID,Λιμάνι,Ατομα"
-        AddColumnsToGrid grdSummaryPerDestination, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerDestination"), _
-            "04NCNSelected,05NCNDestinationID,40NLNDestinationDescription,10NRITotalPersons", _
-            "E,DestinationID,Προορισμός,Ατομα"
-        AddColumnsToGrid grdSummaryPerCustomer, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerCustomer"), _
-            "04NCNSelected,05NCNCustomerID,40NLNCustomerDescription,10NRITotalPersons", _
-            "E,CustomerID,Πελάτης,Ατομα"
-        AddColumnsToGrid grdSummaryPerRoute, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerRoute"), _
-            "04NCNSelected,05NCNRouteID,40NLNRouteShortDescription,10NRITotalPersons", _
-            "E,RouteID,Δρομολόγιο,Ατομα"
-        AddColumnsToGrid grdSummaryPerDriver, True, 24, GetSetting(strApplicationName, "Layout Strings", "grdCoachesReportSummaryPerDriver"), _
-            "04NCNSelected,05NCNDriverID,40NLNDriverDescription,10NRITotalPersons", _
-            "E,DriverID,Οδηγός,Ατομα"
+        AddColumnsToGrid grdSelectedCoachesReport, True, 44, GetSetting(strApplicationName, "Layout Strings", grdCoachesReport.Tag), "05NCNTransferID,12NCDTransferDate,40NLNCustomerDescription,40NCNDestinationShortDescription,40NLNDestinationDescription,50NCNRouteShortDescription,50NLNRouteDescription,40NLNPickupPointHotelDescription,10NLNPickUpPointExactPoint,10NCTPickupPointTime,10NRITransferAdults,10NRITransferKids,10NRITransferFree,10NLNTransferRemarks,10NLNDriverDescription,10NRITransferTotal,10NLNPortDescription,04NCNSelected", "ID,Ημερομηνία,Πελάτης,Π,Προορισμός,Δρομολόγιο,Δρομολόγιο,Σημείο παραλαβής,Ακριβές σημείο,Ωρα,Ε,Π,Δ,Παρατηρήσεις,Οδηγός,Σύνολο,Λ,Ε"
         
         Me.Refresh
         mskDate.SetFocus
@@ -4830,7 +4858,7 @@ Private Function CreateUnicodeFile(strReportTitle, strReportSubTitle1, intReport
     intPickupPointCount = 0
     
     'Πλέγμα εγγραφών
-    With grdCoachesReport
+    With grdSelectedCoachesReport
         For lngRow = 1 To .RowCount
             'Αν ο οδηγός είναι ο ίδιος με αυτόν του πλέγματος των συνόλων
             If .CellValue(lngRow, "DriverDescription") = grdSummaryPerDriver.CellValue(lngDriverRow, "DriverDescription") Then
