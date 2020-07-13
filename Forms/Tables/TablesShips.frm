@@ -2081,7 +2081,9 @@ Private Function ValidateFields()
     
     'Πλήρωμα
     For lngRow = 1 To grdCrew.RowCount
+        
         'Αν δεν έχω επιλέξει τη γραμμή για διαγραφή
+        
         If grdCrew.CellIcon(lngRow, "Deleted") <> 2 Then
             'Επίθετο
             If Len(grdCrew.CellValue(lngRow, "LastName")) = 0 Then
@@ -2119,7 +2121,14 @@ Private Function ValidateFields()
                 grdCrew.SetFocus
                 Exit Function
             End If
+            If Not CheckDate(grdCrew.CellText(lngRow, "DOB"), strApplicationName) Then
+                btnPanel_Click 1
+                grdCrew.SetCurCell lngRow, "DOB"
+                grdCrew.SetFocus
+                Exit Function
+            End If
         End If
+            
     Next lngRow
     
     ValidateFields = True
@@ -2644,8 +2653,6 @@ End Function
 
 Private Function SaveCrew(shipID As Integer)
 
-    'On Error GoTo ErrTrap
-    
     Dim lngID As Long
     Dim lngRow As Long
     
@@ -2653,7 +2660,7 @@ Private Function SaveCrew(shipID As Integer)
         For lngRow = 1 To .RowCount
         '    'Add Record when Status = Blue and Deleted = Blank
             If (.CellIcon(lngRow, "Status") = 1) And (.CellIcon(lngRow, "Deleted") = -1) Then
-                lngID = MainSaveRecord("CommonDB", "ShipsCrew", True, strApplicationName, "ID", 0, Trim(Left(.CellValue(lngRow, "LastName"), 40)), Trim(Left(.CellValue(lngRow, "FirstName"), 40)), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "NationalityDescription"), .CellValue(lngRow, "OccupantDescription"), .CellValue(lngRow, "DOB"), txtShipID.text, txtShipID.text, strCurrentUser)
+                lngID = MainSaveRecord("CommonDB", "ShipsCrew", True, strApplicationName, "ID", 0, Trim(Left(.CellValue(lngRow, "LastName"), 40)), Trim(Left(.CellValue(lngRow, "FirstName"), 40)), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "NationalityDescription"), .CellValue(lngRow, "OccupantDescription"), .CellText(lngRow, "DOB"), txtShipID.text, txtShipID.text, strCurrentUser)
             End If
         '    'Delete Existing Record when Status = Blank and Deleted = Red
             If (.CellIcon(lngRow, "Status") = -1) And (.CellIcon(lngRow, "Deleted") = 2) Then
@@ -2661,18 +2668,12 @@ Private Function SaveCrew(shipID As Integer)
             End If
         '    'Update Existing Record when Status = Blank and Deleted = Blank
             If (.CellIcon(lngRow, "Status") = -1) And (.CellIcon(lngRow, "Deleted") = -1) Then
-                lngID = MainSaveRecord("CommonDB", "ShipsCrew", False, strApplicationName, "ID", .CellValue(lngRow, "ID"), Trim(Left(.CellValue(lngRow, "LastName"), 30)), Trim(Left(.CellValue(lngRow, "FirstName"), 10)), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "NationalityDescription"), .CellValue(lngRow, "OccupantDescription"), .CellValue(lngRow, "DOB"), txtShipID.text, txtShipID.text, strCurrentUser)
+                lngID = MainSaveRecord("CommonDB", "ShipsCrew", False, strApplicationName, "ID", .CellValue(lngRow, "ID"), Trim(Left(.CellValue(lngRow, "LastName"), 40)), Trim(Left(.CellValue(lngRow, "FirstName"), 40)), .CellValue(lngRow, "GenderDescription"), .CellValue(lngRow, "NationalityDescription"), .CellValue(lngRow, "OccupantDescription"), .CellText(lngRow, "DOB"), txtShipID.text, txtShipID.text, strCurrentUser)
             End If
         Next lngRow
     End With
     
     SaveCrew = shipID
-    
-    Exit Function
-
-ErrTrap:
-    SaveCrew = shipID
-    DisplayErrorMessage True, Err.Description
 
 End Function
 

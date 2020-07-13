@@ -1899,7 +1899,6 @@ Private Function CheckForDuplicateInvoiceIn(myDate, mySupplierID, myCodeID, myIn
         If .RecordCount > 0 Then
             CheckForDuplicateInvoiceIn = True
         End If
-        .Close
     End With
     
     Exit Function
@@ -2558,7 +2557,7 @@ Private Function ValidateFields()
     
     'Μόνο σε νέα εγγραφή: Στοιχείο ήδη καταχωρημένο: Ελέγχω αν το νούμερο του στοιχείου υπάρχει ήδη στην χρήση
     If blnStatus Then
-        If Not CheckForDuplicateInvoiceIn(mskDateIssue.text, txtInvoicePersonID.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
+        If CheckForDuplicateInvoiceIn(mskDateIssue.text, txtInvoicePersonID.text, txtInvoiceCodeID.text, txtInvoiceNo.text) Then
             If MyMsgBox(4, strApplicationName, strStandardMessages(28), 1) Then
             End If
             txtSupplierDescription.SetFocus
