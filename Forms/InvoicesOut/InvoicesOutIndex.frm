@@ -1735,7 +1735,7 @@ Private Function RefreshList()
     'Εκδρομή Από
     If mskInvoiceDateTripFrom.text <> "" Then
         strThisParameter = "datTripFromDate Date"
-        strThisQuery = "InvoiceOutTripDate >= datTripFromDate"
+        strThisQuery = "InvoiceDateRefersTo >= datTripFromDate"
         strLogic = " AND "
         GoSub UpdateSQLString
         arrQuery(intIndex) = mskInvoiceDateTripFrom.text
@@ -1744,7 +1744,7 @@ Private Function RefreshList()
     'Εκδρομή Εως
     If mskInvoiceDateTripTo.text <> "" Then
         strThisParameter = "datTripToDate Date"
-        strThisQuery = "InvoiceOutTripDate <= datTripToDate"
+        strThisQuery = "InvoiceDateRefersTo <= datTripToDate"
         strLogic = " AND "
         GoSub UpdateSQLString
         arrQuery(intIndex) = mskInvoiceDateTripTo.text
@@ -1995,9 +1995,9 @@ ErrTrap:
 
 End Function
 
-Private Sub cmdButton_Click(Index As Integer)
+Private Sub cmdButton_Click(index As Integer)
 
-    Select Case Index
+    Select Case index
         Case 0
             FindRecordsAndPopulateGrid
         Case 1
@@ -2043,18 +2043,18 @@ Private Function ValidateFields()
 
 End Function
 
-Private Sub cmdButton_KeyDown(Index As Integer, KeyCode As Integer, Shift As Integer)
+Private Sub cmdButton_KeyDown(index As Integer, KeyCode As Integer, Shift As Integer)
 
     CheckForArrows (KeyCode)
 
 End Sub
 
-Private Sub cmdIndex_Click(Index As Integer)
+Private Sub cmdIndex_Click(index As Integer)
     
     Dim tmpTableData As typTableData
     Dim tmpRecordset As Recordset
     
-    Select Case Index
+    Select Case index
         Case 0
             'Παραστατικό - F2
             Set tmpRecordset = CheckForMatch("CommonDB", "Codes", "CodeShortDescriptionA, CodeMasterRefersTo", "String, String", txtCodeShortDescriptionA.text, txtInvoiceMasterRefersTo.text)
