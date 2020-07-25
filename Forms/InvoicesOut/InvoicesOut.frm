@@ -1,6 +1,7 @@
 VERSION 5.00
 Object = "{158C2A77-1CCD-44C8-AF42-AA199C5DCC6C}#1.0#0"; "dcButton.ocx"
 Object = "{FFE4AEB4-0D55-4004-ADF2-3C1C84D17A72}#1.0#0"; "userControls.ocx"
+Object = "{89D94A1E-DB65-4469-AFB5-D54C6F6B7639}#1.1#0"; "QRCodeAX.ocx"
 Begin VB.Form InvoicesOut 
    Appearance      =   0  'Flat
    BackColor       =   &H00E0E0E0&
@@ -2223,6 +2224,16 @@ Begin VB.Form InvoicesOut
       PicSizeH        =   16
       PicSizeW        =   16
    End
+   Begin QRCodeAX.QR imgQRCode 
+      Height          =   1815
+      Left            =   10725
+      TabIndex        =   111
+      Top             =   8175
+      Width           =   1815
+      _ExtentX        =   3201
+      _ExtentY        =   3201
+      DataString      =   "iosadfi3i2fhsdahlkhsaklfsdiosadfi3i2fhsdahlkhsaklfsd"
+   End
    Begin VB.Label lblLabel 
       BackColor       =   &H000080FF&
       Caption         =   "Ενεργή εγγραφή"
@@ -2818,6 +2829,12 @@ Private Function ClearInvoiceFields()
 
 End Function
 
+Private Function CreateQRCode()
+
+    imgQRCode.DataString = strQRCodeDescription
+
+End Function
+
 Private Sub DeleteRecord()
     
     BeginTrans
@@ -2866,6 +2883,19 @@ Public Function DoPostFoundJobs(rstRecordset As Recordset)
     
 ErrTrap:
     DisplayErrorMessage True, Err.Description
+
+End Function
+
+Private Function HideQRCode()
+
+    rptInvoice.shpQRCode.Visible = False
+    rptInvoice.imgQRCode.Visible = False
+
+End Function
+
+Private Function InsertQRCode()
+
+    Set rptInvoice.imgQRCode = LoadPicture(strReportsPathName & "QRCode.bmp")
 
 End Function
 
@@ -3071,6 +3101,12 @@ Private Function SaveInvoiceOut()
 
 End Function
 
+Private Function SaveQRCode()
+
+    SavePicture imgQRCode.Picture, strReportsPathName & "QRCode.bmp"
+
+End Function
+
 Private Function SaveRecord()
     
     If Not ValidateFields Then Exit Function
@@ -3148,7 +3184,7 @@ Private Function UpdateInvoiceFieldsWithData(rstRecordset As Recordset)
     curNet = (rstRecordset!InvoiceOutAdultsAmountWithTransfer + rstRecordset!InvoiceOutAdultsAmountWithoutTransfer + rstRecordset!InvoiceOutKidsAmountWithTransfer + rstRecordset!InvoiceOutKidsAmountWithoutTransfer + rstRecordset!InvoiceOutDirectAmount) / Val(strVAT)
     curGross = rstRecordset!InvoiceOutAdultsAmountWithTransfer + rstRecordset!InvoiceOutAdultsAmountWithoutTransfer + rstRecordset!InvoiceOutKidsAmountWithTransfer + rstRecordset!InvoiceOutKidsAmountWithoutTransfer + rstRecordset!InvoiceOutDirectAmount
     curVAT = curGross - curNet
-        
+    
     With rptInvoice
     
         .Restart
@@ -3206,6 +3242,15 @@ Private Function UpdateInvoiceFieldsWithData(rstRecordset As Recordset)
         .lblTotal.Caption = format(CCur(.lblGrandTotalNet.Caption) + CCur(.lblGrandTotalVAT.Caption), "#,##0.00")
         
         .lblPaymentTerm.Caption = rstRecordset!PaymentTermDescription
+        
+        'QR Code
+        If intPrintQRCodeID = 1 Then
+            CreateQRCode
+            SaveQRCode
+            InsertQRCode
+        Else
+            HideQRCode
+        End If
 
     End With
     
@@ -3219,7 +3264,6 @@ ErrTrap:
     End If
 
 End Function
-
 Private Function ValidateFields()
 
     ValidateFields = False

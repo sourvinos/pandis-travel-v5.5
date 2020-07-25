@@ -1059,7 +1059,7 @@ Function CaptureNumbers(strString, tmpRow, tmpCol, tmpKeyAscii, blnDecimals)
 
 End Function
 
-Function SimpleSeek(Table, index, ParamArray Indexes() As Variant)
+Function SimpleSeek(Table, Index, ParamArray Indexes() As Variant)
 
     On Error GoTo ErrTrap
     
@@ -1076,7 +1076,7 @@ Function SimpleSeek(Table, index, ParamArray Indexes() As Variant)
     Set rsTable = CommonDB.OpenRecordset(Table)
 
     With rsTable
-        .index = index
+        .Index = Index
         If UBound(Indexes) = 0 Then .Seek "=", Indexes(0)
         If UBound(Indexes) = 1 Then .Seek "=", Indexes(0), Indexes(1)
         If .NoMatch Then SimpleSeek = True 'Αν η εγγραφή δεν βρεθεί, μπορώ να την διαγράψω
@@ -1250,7 +1250,7 @@ Function MainDeleteRecord(SelectedDB, Table, FormTitle, IndexField, CodeToSeek, 
     End Select
 
     With rsTable
-        .index = IndexField
+        .Index = IndexField
         .Seek "=", CodeToSeek
         If Not .NoMatch Then
             If AskConfirmation = False Then
@@ -1302,7 +1302,7 @@ Function MainSeekRecord(SelectedDB, Table, IndexField, CodeToSeek, DisplayNotFou
     MainSeekRecord = True
     
     With rsTable
-        .index = IndexField
+        .Index = IndexField
         .Seek "=", CodeToSeek
         If Not .NoMatch Then
             For bytLoop = 0 To UBound(Fields)
@@ -1458,7 +1458,7 @@ End Function
 
 Function MainSaveRecord(SelectedDB, Table, Status, FormTitle, IndexField, CodeToSeek, ParamArray Fields() As Variant)
 
-    'On Error GoTo ErrTrap
+    On Error GoTo ErrTrap
     
     Dim lngFieldNo As Long
     Dim rsTable As Recordset
@@ -1475,7 +1475,7 @@ Function MainSaveRecord(SelectedDB, Table, Status, FormTitle, IndexField, CodeTo
     End Select
     
     With rsTable
-        .index = IndexField
+        .Index = IndexField
         If Status Then
             .AddNew
         Else

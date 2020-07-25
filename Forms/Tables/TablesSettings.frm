@@ -18,13 +18,449 @@ Begin VB.Form TablesSettings
    ScaleWidth      =   17880
    ShowInTaskbar   =   0   'False
    Begin VB.Frame frmFrame 
+      BackColor       =   &H000000C0&
+      BorderStyle     =   0  'None
+      Height          =   6015
+      Index           =   3
+      Left            =   1875
+      TabIndex        =   28
+      Top             =   1125
+      Width           =   9240
+      Begin UserControls.newInteger mskVAT 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   15
+         Top             =   525
+         Width           =   540
+         _ExtentX        =   953
+         _ExtentY        =   820
+         ForeColor       =   0
+         MaxLength       =   2
+         Text            =   "99"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   12
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin UserControls.newInteger mskInvoiceCopies 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   16
+         Top             =   1050
+         Width           =   540
+         _ExtentX        =   953
+         _ExtentY        =   820
+         ForeColor       =   0
+         MaxLength       =   2
+         Text            =   "99"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   12
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin UserControls.newText txtPreviewInvoicesDescription 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   17
+         Top             =   1575
+         Width           =   615
+         _ExtentX        =   1085
+         _ExtentY        =   820
+         Alignment       =   2
+         ForeColor       =   0
+         Text            =   "ΝΑΙ"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   11.25
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin UserControls.newText txtUsualPaymentTermDescription 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   18
+         Top             =   2100
+         Width           =   4965
+         _ExtentX        =   8758
+         _ExtentY        =   820
+         ForeColor       =   0
+         MaxLength       =   40
+         Text            =   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   11.25
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin UserControls.newText txtUsualRemarks 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   19
+         Top             =   2625
+         Width           =   4965
+         _ExtentX        =   8758
+         _ExtentY        =   820
+         ForeColor       =   0
+         MaxLength       =   40
+         Text            =   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   11.25
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin Dacara_dcButton.dcButton cmdIndex 
+         Height          =   465
+         Index           =   0
+         Left            =   4050
+         TabIndex        =   60
+         TabStop         =   0   'False
+         Top             =   1575
+         Width           =   390
+         _ExtentX        =   688
+         _ExtentY        =   820
+         BackColor       =   14742518
+         ButtonShape     =   3
+         ButtonStyle     =   8
+         Caption         =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   0
+         PicNormal       =   "TablesSettings.frx":0000
+         PicSizeH        =   16
+         PicSizeW        =   16
+      End
+      Begin Dacara_dcButton.dcButton cmdIndex 
+         Height          =   465
+         Index           =   1
+         Left            =   8400
+         TabIndex        =   59
+         TabStop         =   0   'False
+         Top             =   2100
+         Width           =   390
+         _ExtentX        =   688
+         _ExtentY        =   820
+         BackColor       =   14742518
+         ButtonShape     =   3
+         ButtonStyle     =   8
+         Caption         =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   0
+         PicNormal       =   "TablesSettings.frx":059A
+         PicSizeH        =   16
+         PicSizeW        =   16
+      End
+      Begin UserControls.newText txtPrintQRCodeDescription 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   20
+         Top             =   3150
+         Width           =   615
+         _ExtentX        =   1085
+         _ExtentY        =   820
+         Alignment       =   2
+         ForeColor       =   0
+         Text            =   "ΝΑΙ"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   11.25
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin Dacara_dcButton.dcButton cmdIndex 
+         Height          =   465
+         Index           =   3
+         Left            =   4050
+         TabIndex        =   72
+         TabStop         =   0   'False
+         Top             =   3150
+         Width           =   390
+         _ExtentX        =   688
+         _ExtentY        =   820
+         BackColor       =   14742518
+         ButtonShape     =   3
+         ButtonStyle     =   8
+         Caption         =   ""
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   0
+         PicNormal       =   "TablesSettings.frx":0B34
+         PicSizeH        =   16
+         PicSizeW        =   16
+      End
+      Begin UserControls.newText txtQRCodeDescription 
+         Height          =   465
+         Left            =   3375
+         TabIndex        =   21
+         Top             =   3675
+         Width           =   4965
+         _ExtentX        =   8758
+         _ExtentY        =   820
+         ForeColor       =   0
+         MaxLength       =   255
+         Text            =   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
+         BackColor       =   4210688
+         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
+            Name            =   "Ubuntu Condensed"
+            Size            =   11.25
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Λεκτικό κωδικού QR"
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   21
+         Left            =   450
+         TabIndex        =   76
+         Top             =   3750
+         Width           =   2490
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Εκτυπώνεται ο κωδικός QR"
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   20
+         Left            =   450
+         TabIndex        =   73
+         Top             =   3225
+         Width           =   2490
+      End
+      Begin VB.Shape shpWedge 
+         BackColor       =   &H0000FFFF&
+         BackStyle       =   1  'Opaque
+         BorderStyle     =   0  'Transparent
+         FillColor       =   &H00008000&
+         Height          =   840
+         Index           =   6
+         Left            =   8775
+         Top             =   1950
+         Visible         =   0   'False
+         Width           =   465
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Συνήθης αιτιολογία"
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   18
+         Left            =   450
+         TabIndex        =   58
+         Top             =   2700
+         Width           =   2490
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Συνήθης όρος πληρωμής"
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   17
+         Left            =   450
+         TabIndex        =   55
+         Top             =   2175
+         Width           =   2490
+      End
+      Begin VB.Shape shpWedge 
+         BackColor       =   &H0000FFFF&
+         BackStyle       =   1  'Opaque
+         BorderStyle     =   0  'Transparent
+         FillColor       =   &H00008000&
+         Height          =   840
+         Index           =   1
+         Left            =   2925
+         Top             =   600
+         Visible         =   0   'False
+         Width           =   465
+      End
+      Begin VB.Shape shpWedge 
+         BackColor       =   &H00C0C0FF&
+         BackStyle       =   1  'Opaque
+         BorderStyle     =   0  'Transparent
+         FillColor       =   &H00008000&
+         Height          =   540
+         Index           =   7
+         Left            =   3375
+         Top             =   0
+         Visible         =   0   'False
+         Width           =   465
+      End
+      Begin VB.Shape shpWedge 
+         BackColor       =   &H00C0C0FF&
+         BackStyle       =   1  'Opaque
+         BorderStyle     =   0  'Transparent
+         FillColor       =   &H00008000&
+         Height          =   540
+         Index           =   5
+         Left            =   0
+         Top             =   450
+         Visible         =   0   'False
+         Width           =   465
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Προεπισκόπηση παραστατικών"
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   12
+         Left            =   450
+         TabIndex        =   41
+         Top             =   1650
+         Width           =   2490
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Πλήθος αντιγράφων παραστατικών"
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   11
+         Left            =   450
+         TabIndex        =   40
+         Top             =   1125
+         Width           =   2490
+      End
+      Begin VB.Label lblLabel 
+         BackColor       =   &H000080FF&
+         Caption         =   "Ποσοστό Φ.Π.Α."
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00FFFFFF&
+         Height          =   315
+         Index           =   10
+         Left            =   450
+         TabIndex        =   39
+         Top             =   600
+         Width           =   2490
+      End
+   End
+   Begin VB.Frame frmFrame 
       BackColor       =   &H00C0FFC0&
       BorderStyle     =   0  'None
       Height          =   4815
       Index           =   1
-      Left            =   14550
-      TabIndex        =   23
-      Top             =   5250
+      Left            =   7875
+      TabIndex        =   25
+      Top             =   2100
       Width           =   9165
       Begin VB.Frame Frame 
          Appearance      =   0  'Flat
@@ -43,7 +479,7 @@ Begin VB.Form TablesSettings
          Height          =   2940
          Index           =   1
          Left            =   450
-         TabIndex        =   24
+         TabIndex        =   26
          Top             =   525
          Width           =   8265
          Begin UserControls.newText txtCompanyData 
@@ -214,7 +650,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   3
             Left            =   450
-            TabIndex        =   30
+            TabIndex        =   32
             Top             =   2175
             Width           =   750
          End
@@ -234,7 +670,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   1
             Left            =   450
-            TabIndex        =   29
+            TabIndex        =   31
             Top             =   1650
             Width           =   750
          End
@@ -254,7 +690,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   0
             Left            =   450
-            TabIndex        =   28
+            TabIndex        =   30
             Top             =   1125
             Width           =   750
          End
@@ -274,7 +710,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   2
             Left            =   450
-            TabIndex        =   27
+            TabIndex        =   29
             Top             =   600
             Width           =   750
          End
@@ -282,7 +718,7 @@ Begin VB.Form TablesSettings
       Begin UserControls.newText txtPreviewReportsDescription 
          Height          =   465
          Left            =   2850
-         TabIndex        =   20
+         TabIndex        =   22
          Top             =   3600
          Width           =   615
          _ExtentX        =   1085
@@ -305,7 +741,7 @@ Begin VB.Form TablesSettings
          Height          =   465
          Index           =   2
          Left            =   3525
-         TabIndex        =   59
+         TabIndex        =   61
          TabStop         =   0   'False
          Top             =   3600
          Width           =   390
@@ -325,7 +761,7 @@ Begin VB.Form TablesSettings
             Strikethrough   =   0   'False
          EndProperty
          ForeColor       =   0
-         PicNormal       =   "TablesSettings.frx":0000
+         PicNormal       =   "TablesSettings.frx":10CE
          PicSizeH        =   16
          PicSizeW        =   16
       End
@@ -369,7 +805,7 @@ Begin VB.Form TablesSettings
          Height          =   315
          Index           =   27
          Left            =   450
-         TabIndex        =   50
+         TabIndex        =   52
          Top             =   3675
          Width           =   1965
       End
@@ -391,9 +827,9 @@ Begin VB.Form TablesSettings
       BorderStyle     =   0  'None
       Height          =   4890
       Index           =   2
-      Left            =   13875
-      TabIndex        =   25
-      Top             =   1425
+      Left            =   9600
+      TabIndex        =   27
+      Top             =   4275
       Width           =   9240
       Begin UserControls.newText txtSalesAccountsCode 
          Height          =   465
@@ -524,7 +960,7 @@ Begin VB.Form TablesSettings
          Height          =   315
          Index           =   19
          Left            =   450
-         TabIndex        =   60
+         TabIndex        =   62
          Top             =   600
          Width           =   1890
       End
@@ -580,7 +1016,7 @@ Begin VB.Form TablesSettings
          Height          =   315
          Index           =   16
          Left            =   450
-         TabIndex        =   43
+         TabIndex        =   45
          Top             =   2175
          Width           =   1890
       End
@@ -600,7 +1036,7 @@ Begin VB.Form TablesSettings
          Height          =   315
          Index           =   15
          Left            =   450
-         TabIndex        =   42
+         TabIndex        =   44
          Top             =   1650
          Width           =   1890
       End
@@ -620,7 +1056,7 @@ Begin VB.Form TablesSettings
          Height          =   315
          Index           =   14
          Left            =   450
-         TabIndex        =   41
+         TabIndex        =   43
          Top             =   2700
          Width           =   1890
       End
@@ -640,7 +1076,7 @@ Begin VB.Form TablesSettings
          Height          =   315
          Index           =   13
          Left            =   450
-         TabIndex        =   40
+         TabIndex        =   42
          Top             =   1125
          Width           =   1890
       End
@@ -660,9 +1096,9 @@ Begin VB.Form TablesSettings
       ForeColor       =   &H00800080&
       Height          =   6090
       Index           =   0
-      Left            =   4275
-      TabIndex        =   21
-      Top             =   4950
+      Left            =   4425
+      TabIndex        =   23
+      Top             =   4125
       Width           =   9165
       Begin VB.Frame Frame 
          Appearance      =   0  'Flat
@@ -681,7 +1117,7 @@ Begin VB.Form TablesSettings
          Height          =   3990
          Index           =   0
          Left            =   450
-         TabIndex        =   22
+         TabIndex        =   24
          Top             =   525
          Width           =   8265
          Begin UserControls.newText txtCompanyData 
@@ -898,7 +1334,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   9
             Left            =   450
-            TabIndex        =   36
+            TabIndex        =   38
             Top             =   3225
             Width           =   750
          End
@@ -918,7 +1354,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   8
             Left            =   450
-            TabIndex        =   35
+            TabIndex        =   37
             Top             =   2700
             Width           =   750
          End
@@ -938,7 +1374,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   7
             Left            =   450
-            TabIndex        =   34
+            TabIndex        =   36
             Top             =   2175
             Width           =   750
          End
@@ -958,7 +1394,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   6
             Left            =   450
-            TabIndex        =   33
+            TabIndex        =   35
             Top             =   1650
             Width           =   750
          End
@@ -978,7 +1414,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   5
             Left            =   450
-            TabIndex        =   32
+            TabIndex        =   34
             Top             =   1125
             Width           =   750
          End
@@ -998,7 +1434,7 @@ Begin VB.Form TablesSettings
             Height          =   315
             Index           =   4
             Left            =   450
-            TabIndex        =   31
+            TabIndex        =   33
             Top             =   600
             Width           =   750
          End
@@ -1040,19 +1476,246 @@ Begin VB.Form TablesSettings
          Width           =   465
       End
    End
+   Begin VB.Frame frmInfo 
+      Appearance      =   0  'Flat
+      BackColor       =   &H8000000D&
+      BorderStyle     =   0  'None
+      Enabled         =   0   'False
+      ForeColor       =   &H80000008&
+      Height          =   2265
+      Left            =   675
+      TabIndex        =   47
+      Top             =   10275
+      Width           =   4515
+      Begin VB.TextBox Text5 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   75
+         TabStop         =   0   'False
+         Text            =   "Settings.PrintQRCodeID"
+         Top             =   1725
+         Width           =   3540
+      End
+      Begin VB.TextBox txtPrintQRCodeID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   74
+         TabStop         =   0   'False
+         Top             =   1725
+         Width           =   780
+      End
+      Begin VB.TextBox txtUsualPaymentTermID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   57
+         TabStop         =   0   'False
+         Top             =   1350
+         Width           =   780
+      End
+      Begin VB.TextBox Text22 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   56
+         TabStop         =   0   'False
+         Text            =   "Settings.UsualPaymentTermID"
+         Top             =   1350
+         Width           =   3540
+      End
+      Begin VB.TextBox txtPreviewReportsID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   54
+         TabStop         =   0   'False
+         Top             =   975
+         Width           =   780
+      End
+      Begin VB.TextBox Text3 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   53
+         TabStop         =   0   'False
+         Text            =   "Settings.PreviewReportsID"
+         Top             =   975
+         Width           =   3540
+      End
+      Begin VB.TextBox txtID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   51
+         TabStop         =   0   'False
+         Top             =   225
+         Width           =   780
+      End
+      Begin VB.TextBox Text2 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   50
+         TabStop         =   0   'False
+         Text            =   "Settings.ID"
+         Top             =   225
+         Width           =   3540
+      End
+      Begin VB.TextBox Text1 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   75
+         TabIndex        =   49
+         TabStop         =   0   'False
+         Text            =   "Settings.PreviewInvoicesID"
+         Top             =   600
+         Width           =   3540
+      End
+      Begin VB.TextBox txtPreviewInvoicesID 
+         Appearance      =   0  'Flat
+         BackColor       =   &H00C0C0FF&
+         BorderStyle     =   0  'None
+         BeginProperty Font 
+            Name            =   "Ubuntu Condensed"
+            Size            =   9.75
+            Charset         =   161
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
+         ForeColor       =   &H00000000&
+         Height          =   315
+         Left            =   3675
+         TabIndex        =   48
+         TabStop         =   0   'False
+         Top             =   600
+         Width           =   780
+      End
+   End
    Begin VB.Frame frmButtonFrame 
       BackColor       =   &H00E0E0E0&
       BorderStyle     =   0  'None
       Height          =   690
       Left            =   75
-      TabIndex        =   61
+      TabIndex        =   63
       Top             =   7650
       Width           =   6090
       Begin Dacara_dcButton.dcButton cmdButton 
          Height          =   690
          Index           =   0
          Left            =   225
-         TabIndex        =   62
+         TabIndex        =   64
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -1077,7 +1740,7 @@ Begin VB.Form TablesSettings
          Height          =   690
          Index           =   3
          Left            =   4500
-         TabIndex        =   63
+         TabIndex        =   65
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -1102,7 +1765,7 @@ Begin VB.Form TablesSettings
          Height          =   690
          Index           =   1
          Left            =   1650
-         TabIndex        =   64
+         TabIndex        =   66
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -1127,7 +1790,7 @@ Begin VB.Form TablesSettings
          Height          =   690
          Index           =   2
          Left            =   3075
-         TabIndex        =   65
+         TabIndex        =   67
          TabStop         =   0   'False
          Top             =   0
          Width           =   1365
@@ -1149,519 +1812,11 @@ Begin VB.Form TablesSettings
          PicOpacity      =   0
       End
    End
-   Begin VB.Frame frmFrame 
-      BackColor       =   &H000000C0&
-      BorderStyle     =   0  'None
-      Height          =   6015
-      Index           =   3
-      Left            =   1875
-      TabIndex        =   26
-      Top             =   1125
-      Width           =   9240
-      Begin UserControls.newInteger mskVAT 
-         Height          =   465
-         Left            =   3375
-         TabIndex        =   15
-         Top             =   525
-         Width           =   540
-         _ExtentX        =   953
-         _ExtentY        =   820
-         ForeColor       =   0
-         MaxLength       =   2
-         Text            =   "99"
-         BackColor       =   4210688
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   12
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin UserControls.newInteger mskInvoiceCopies 
-         Height          =   465
-         Left            =   3375
-         TabIndex        =   16
-         Top             =   1050
-         Width           =   540
-         _ExtentX        =   953
-         _ExtentY        =   820
-         ForeColor       =   0
-         MaxLength       =   2
-         Text            =   "99"
-         BackColor       =   4210688
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   12
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin UserControls.newText txtPreviewInvoicesDescription 
-         Height          =   465
-         Left            =   3375
-         TabIndex        =   17
-         Top             =   1575
-         Width           =   615
-         _ExtentX        =   1085
-         _ExtentY        =   820
-         Alignment       =   2
-         ForeColor       =   0
-         Text            =   "ΝΑΙ"
-         BackColor       =   4210688
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   11.25
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin UserControls.newText txtUsualPaymentTermDescription 
-         Height          =   465
-         Left            =   3375
-         TabIndex        =   18
-         Top             =   2100
-         Width           =   4965
-         _ExtentX        =   8758
-         _ExtentY        =   820
-         ForeColor       =   0
-         MaxLength       =   40
-         Text            =   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-         BackColor       =   4210688
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   11.25
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin UserControls.newText txtUsualRemarks 
-         Height          =   465
-         Left            =   3375
-         TabIndex        =   19
-         Top             =   2625
-         Width           =   4965
-         _ExtentX        =   8758
-         _ExtentY        =   820
-         ForeColor       =   0
-         MaxLength       =   40
-         Text            =   "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA"
-         BackColor       =   4210688
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   11.25
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-      End
-      Begin Dacara_dcButton.dcButton cmdIndex 
-         Height          =   465
-         Index           =   0
-         Left            =   4050
-         TabIndex        =   58
-         TabStop         =   0   'False
-         Top             =   1575
-         Width           =   390
-         _ExtentX        =   688
-         _ExtentY        =   820
-         BackColor       =   14742518
-         ButtonShape     =   3
-         ButtonStyle     =   8
-         Caption         =   ""
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   0
-         PicNormal       =   "TablesSettings.frx":059A
-         PicSizeH        =   16
-         PicSizeW        =   16
-      End
-      Begin Dacara_dcButton.dcButton cmdIndex 
-         Height          =   465
-         Index           =   1
-         Left            =   8400
-         TabIndex        =   57
-         TabStop         =   0   'False
-         Top             =   2100
-         Width           =   390
-         _ExtentX        =   688
-         _ExtentY        =   820
-         BackColor       =   14742518
-         ButtonShape     =   3
-         ButtonStyle     =   8
-         Caption         =   ""
-         BeginProperty Font {0BE35203-8F91-11CE-9DE3-00AA004BB851} 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   0
-         PicNormal       =   "TablesSettings.frx":0B34
-         PicSizeH        =   16
-         PicSizeW        =   16
-      End
-      Begin VB.Shape shpWedge 
-         BackColor       =   &H0000FFFF&
-         BackStyle       =   1  'Opaque
-         BorderStyle     =   0  'Transparent
-         FillColor       =   &H00008000&
-         Height          =   840
-         Index           =   6
-         Left            =   8775
-         Top             =   1950
-         Visible         =   0   'False
-         Width           =   465
-      End
-      Begin VB.Label lblLabel 
-         BackColor       =   &H000080FF&
-         Caption         =   "Συνήθης αιτιολογία"
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   315
-         Index           =   18
-         Left            =   450
-         TabIndex        =   56
-         Top             =   2700
-         Width           =   2490
-      End
-      Begin VB.Label lblLabel 
-         BackColor       =   &H000080FF&
-         Caption         =   "Συνήθης όρος πληρωμής"
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   315
-         Index           =   17
-         Left            =   450
-         TabIndex        =   53
-         Top             =   2175
-         Width           =   2490
-      End
-      Begin VB.Shape shpWedge 
-         BackColor       =   &H0000FFFF&
-         BackStyle       =   1  'Opaque
-         BorderStyle     =   0  'Transparent
-         FillColor       =   &H00008000&
-         Height          =   840
-         Index           =   1
-         Left            =   2925
-         Top             =   600
-         Visible         =   0   'False
-         Width           =   465
-      End
-      Begin VB.Shape shpWedge 
-         BackColor       =   &H00C0C0FF&
-         BackStyle       =   1  'Opaque
-         BorderStyle     =   0  'Transparent
-         FillColor       =   &H00008000&
-         Height          =   540
-         Index           =   7
-         Left            =   3375
-         Top             =   0
-         Visible         =   0   'False
-         Width           =   465
-      End
-      Begin VB.Shape shpWedge 
-         BackColor       =   &H00C0C0FF&
-         BackStyle       =   1  'Opaque
-         BorderStyle     =   0  'Transparent
-         FillColor       =   &H00008000&
-         Height          =   540
-         Index           =   5
-         Left            =   0
-         Top             =   450
-         Visible         =   0   'False
-         Width           =   465
-      End
-      Begin VB.Label lblLabel 
-         BackColor       =   &H000080FF&
-         Caption         =   "Προεπισκόπηση παραστατικών"
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   315
-         Index           =   12
-         Left            =   450
-         TabIndex        =   39
-         Top             =   1650
-         Width           =   2490
-      End
-      Begin VB.Label lblLabel 
-         BackColor       =   &H000080FF&
-         Caption         =   "Πλήθος αντιγράφων παραστατικών"
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   315
-         Index           =   11
-         Left            =   450
-         TabIndex        =   38
-         Top             =   1125
-         Width           =   2490
-      End
-      Begin VB.Label lblLabel 
-         BackColor       =   &H000080FF&
-         Caption         =   "Ποσοστό Φ.Π.Α."
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00FFFFFF&
-         Height          =   315
-         Index           =   10
-         Left            =   450
-         TabIndex        =   37
-         Top             =   600
-         Width           =   2490
-      End
-   End
-   Begin VB.Frame frmInfo 
-      Appearance      =   0  'Flat
-      BackColor       =   &H8000000D&
-      BorderStyle     =   0  'None
-      Enabled         =   0   'False
-      ForeColor       =   &H80000008&
-      Height          =   1890
-      Left            =   225
-      TabIndex        =   45
-      Top             =   9675
-      Width           =   4515
-      Begin VB.TextBox txtUsualPaymentTermID 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   3675
-         TabIndex        =   55
-         TabStop         =   0   'False
-         Top             =   1350
-         Width           =   780
-      End
-      Begin VB.TextBox Text22 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   75
-         TabIndex        =   54
-         TabStop         =   0   'False
-         Text            =   "Settings.UsualPaymentTermID"
-         Top             =   1350
-         Width           =   3540
-      End
-      Begin VB.TextBox txtPreviewReportsID 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   3675
-         TabIndex        =   52
-         TabStop         =   0   'False
-         Top             =   975
-         Width           =   780
-      End
-      Begin VB.TextBox Text3 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   75
-         TabIndex        =   51
-         TabStop         =   0   'False
-         Text            =   "Settings.PreviewReportsID"
-         Top             =   975
-         Width           =   3540
-      End
-      Begin VB.TextBox txtID 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   3675
-         TabIndex        =   49
-         TabStop         =   0   'False
-         Top             =   225
-         Width           =   780
-      End
-      Begin VB.TextBox Text2 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   75
-         TabIndex        =   48
-         TabStop         =   0   'False
-         Text            =   "Settings.ID"
-         Top             =   225
-         Width           =   3540
-      End
-      Begin VB.TextBox Text1 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   75
-         TabIndex        =   47
-         TabStop         =   0   'False
-         Text            =   "Settings.PreviewInvoicesID"
-         Top             =   600
-         Width           =   3540
-      End
-      Begin VB.TextBox txtPreviewInvoicesID 
-         Appearance      =   0  'Flat
-         BackColor       =   &H00C0C0FF&
-         BorderStyle     =   0  'None
-         BeginProperty Font 
-            Name            =   "Ubuntu Condensed"
-            Size            =   9.75
-            Charset         =   161
-            Weight          =   400
-            Underline       =   0   'False
-            Italic          =   0   'False
-            Strikethrough   =   0   'False
-         EndProperty
-         ForeColor       =   &H00000000&
-         Height          =   315
-         Left            =   3675
-         TabIndex        =   46
-         TabStop         =   0   'False
-         Top             =   600
-         Width           =   780
-      End
-   End
    Begin Dacara_dcButton.dcButton btnPanel 
       Height          =   990
       Index           =   0
       Left            =   450
-      TabIndex        =   66
+      TabIndex        =   68
       TabStop         =   0   'False
       Top             =   1125
       Width           =   1290
@@ -1686,7 +1841,7 @@ Begin VB.Form TablesSettings
       Height          =   990
       Index           =   1
       Left            =   450
-      TabIndex        =   67
+      TabIndex        =   69
       TabStop         =   0   'False
       Top             =   2175
       Width           =   1290
@@ -1711,7 +1866,7 @@ Begin VB.Form TablesSettings
       Height          =   990
       Index           =   2
       Left            =   450
-      TabIndex        =   68
+      TabIndex        =   70
       TabStop         =   0   'False
       Top             =   3225
       Width           =   1290
@@ -1736,7 +1891,7 @@ Begin VB.Form TablesSettings
       Height          =   990
       Index           =   3
       Left            =   450
-      TabIndex        =   69
+      TabIndex        =   71
       TabStop         =   0   'False
       Top             =   4275
       Width           =   1290
@@ -1803,7 +1958,7 @@ Begin VB.Form TablesSettings
       AutoSize        =   -1  'True
       BackColor       =   &H00800000&
       BackStyle       =   0  'Transparent
-      Caption         =   "Παραμετροποίηση"
+      Caption         =   "Γενικές παράμετροι"
       BeginProperty Font 
          Name            =   "Ubuntu Condensed"
          Size            =   30
@@ -1816,9 +1971,9 @@ Begin VB.Form TablesSettings
       ForeColor       =   &H000080FF&
       Height          =   720
       Left            =   225
-      TabIndex        =   44
+      TabIndex        =   46
       Top             =   75
-      Width           =   4305
+      Width           =   4530
    End
    Begin VB.Shape shpBridge 
       BackColor       =   &H00E0E0E0&
@@ -1909,6 +2064,19 @@ Private Function ValidateFields()
 
     ValidateFields = False
     
+    'Πλαίσιο Νο1
+    
+    'Προεπισκόπηση αναφορών
+    If txtPreviewReportsID.text = "" Then
+        If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+        End If
+        btnPanel_Click 1
+        txtPreviewReportsDescription.SetFocus
+        Exit Function
+    End If
+    
+    'Πλαίσιο Νο2
+    
     'Ονομα αρχείου πωλήσεων
     If Len(txtFileName.text) = 0 Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
@@ -1917,6 +2085,8 @@ Private Function ValidateFields()
         txtFileName.SetFocus
         Exit Function
     End If
+    
+    'Πλαίσιο Νο3
     
     '% Φ.Π.Α.
     If mskVAT.text = "" Then
@@ -1934,7 +2104,7 @@ Private Function ValidateFields()
         mskVAT.SetFocus
         Exit Function
     End If
-   
+    
     'Πλήθος αντιγράφων παραστατικών
     If mskInvoiceCopies.text = "" Then
         If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
@@ -1943,7 +2113,34 @@ Private Function ValidateFields()
         mskInvoiceCopies.SetFocus
         Exit Function
     End If
-
+    
+    'Προεπισκόπηση παραστατικών
+    If txtPreviewInvoicesID.text = "" Then
+        If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+        End If
+        btnPanel_Click 3
+        txtPreviewInvoicesDescription.SetFocus
+        Exit Function
+    End If
+   
+    'Συνήθης όρος πληρωμής
+    If txtUsualPaymentTermID.text = "" Then
+        If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+        End If
+        btnPanel_Click 3
+        txtUsualPaymentTermDescription.SetFocus
+        Exit Function
+    End If
+   
+    'Εκτυπώνεται ο κωδιός QR
+    If txtPrintQRCodeID.text = "" Then
+        If MyMsgBox(4, strApplicationName, strStandardMessages(1), 1) Then
+        End If
+        btnPanel_Click 3
+        txtPrintQRCodeDescription.SetFocus
+        Exit Function
+    End If
+    
     ValidateFields = True
 
 End Function
@@ -1954,7 +2151,23 @@ Private Function AbortProcedure(blnStatus)
         If MyMsgBox(3, strApplicationName, strStandardMessages(3), 2) Then
             btnPanel_Click 0
             blnStatus = True
-            DisableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtPreviewReportsDescription, txtUsualPaymentTermDescription, txtUsualRemarks, txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesDescription, txtUsualPaymentTermDescription, cmdIndex(0), cmdIndex(1), cmdIndex(2)
+            
+            DisableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), _
+                txtPreviewReportsDescription, _
+                txtUsualPaymentTermDescription, _
+                txtUsualRemarks, _
+                txtCashAccountsCode, _
+                txtSalesAccountsCode, _
+                txtVATAccountsCode, _
+                mskCustomerCodeLength, _
+                txtFileName, _
+                mskVAT, _
+                mskInvoiceCopies, _
+                txtPreviewInvoicesDescription, _
+                txtPrintQRCodeDescription, _
+                txtQRCodeDescription
+            DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3)
+
             UpdateButtons Me, 3, 1, 0, 0, 1
         End If
         Exit Function
@@ -1972,7 +2185,21 @@ Private Function EditRecord()
     
     blnStatus = False
     
-    EnableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtPreviewReportsDescription, txtUsualPaymentTermDescription, txtUsualRemarks, txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesDescription, cmdIndex(0), cmdIndex(1), cmdIndex(2)
+    EnableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), _
+        txtPreviewReportsDescription, _
+        txtUsualPaymentTermDescription, _
+        txtUsualRemarks, _
+        txtCashAccountsCode, _
+        txtSalesAccountsCode, _
+        txtVATAccountsCode, _
+        mskCustomerCodeLength, _
+        txtFileName, _
+        mskVAT, _
+        mskInvoiceCopies, _
+        txtPreviewInvoicesDescription, _
+        txtPrintQRCodeDescription, _
+        txtQRCodeDescription
+    EnableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3)
     
     UpdateButtons Me, 3, 0, 1, 1, 0
     
@@ -1986,10 +2213,26 @@ Private Function SaveRecord()
 
     If Not ValidateFields Then Exit Function
     
-    If MainSaveRecord("CommonDB", "Settings", False, "Settings", "ID", txtID.text, txtCompanyData(1).text, txtCompanyData(2).text, txtCompanyData(3).text, txtCompanyData(4).text, txtCompanyData(5).text, txtCompanyData(6).text, txtCompanyData(7).text, txtCompanyData(8).text, txtCompanyData(9).text, txtCompanyData(10).text, txtPreviewReportsID.text, IIf(txtUsualPaymentTermID.text <> "", txtUsualPaymentTermID.text, "0"), txtUsualRemarks.text, txtCashAccountsCode.text, txtSalesAccountsCode.text, txtVATAccountsCode.text, mskCustomerCodeLength.text, txtFileName.text, mskVAT.text, mskInvoiceCopies.text, txtPreviewInvoicesID.text) <> 0 Then
+    If MainSaveRecord("CommonDB", "Settings", False, "Settings", "ID", txtID.text, txtCompanyData(1).text, txtCompanyData(2).text, txtCompanyData(3).text, txtCompanyData(4).text, txtCompanyData(5).text, txtCompanyData(6).text, txtCompanyData(7).text, txtCompanyData(8).text, txtCompanyData(9).text, txtCompanyData(10).text, txtPreviewReportsID.text, IIf(txtUsualPaymentTermID.text <> "", txtUsualPaymentTermID.text, "0"), txtUsualRemarks.text, txtCashAccountsCode.text, txtSalesAccountsCode.text, txtVATAccountsCode.text, mskCustomerCodeLength.text, txtFileName.text, mskVAT.text, mskInvoiceCopies.text, txtPreviewInvoicesID.text, txtPrintQRCodeID.text, txtQRCodeDescription.text) <> 0 Then
         btnPanel_Click 0
         blnStatus = True
-        DisableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesDescription, txtUsualPaymentTermDescription, txtUsualRemarks, cmdIndex(0), cmdIndex(1), cmdIndex(2)
+        
+        DisableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), _
+            txtPreviewReportsDescription, _
+            txtUsualPaymentTermDescription, _
+            txtUsualRemarks, _
+            txtCashAccountsCode, _
+            txtSalesAccountsCode, _
+            txtVATAccountsCode, _
+            mskCustomerCodeLength, _
+            txtFileName, _
+            mskVAT, _
+            mskInvoiceCopies, _
+            txtPreviewInvoicesDescription, _
+            txtPrintQRCodeDescription, _
+            txtQRCodeDescription
+        DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3)
+        
         UpdateButtons Me, 3, 1, 0, 0, 1
         If MyMsgBox(1, strApplicationName, strStandardMessages(21), 1) Then
         End If
@@ -2084,6 +2327,15 @@ Private Sub cmdIndex_Click(index As Integer)
                 txtPreviewReportsID.text = tmpTableData.strCode
                 txtPreviewReportsDescription.text = tmpTableData.strFirstField
             End If
+        Case 3
+            'Εκτυπώνεται ο κωδικός QR
+            Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoDescription", "String", txtPrintQRCodeDescription.text)
+            If tmpRecordset.RecordCount > 0 Then
+                tmpTableData = DisplayIndex(tmpRecordset, 2, True, 2, 0, 1, "ID", "Περιγραφή", 0, 40, 1, 0)
+                txtPrintQRCodeID.text = tmpTableData.strCode
+                txtPrintQRCodeDescription.text = tmpTableData.strFirstField
+            End If
+    
     End Select
 
 End Sub
@@ -2095,7 +2347,7 @@ Private Sub Form_Activate()
     If Me.Tag = "True" Then
         Me.Tag = "False"
         Me.Refresh
-        If MainSeekRecord("CommonDB", "Settings", "ID", 1, True, txtID, txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtPreviewReportsID, txtUsualPaymentTermID, txtUsualRemarks, txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesID) Then
+        If MainSeekRecord("CommonDB", "Settings", "ID", 1, True, txtID, txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtPreviewReportsID, txtUsualPaymentTermID, txtUsualRemarks, txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesID, txtPrintQRCodeID, txtQRCodeDescription) Then
             'Προεπισκόπηση παραστατικών
             Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoID", "Numeric", txtPreviewInvoicesID.text)
             txtPreviewInvoicesID.text = tmpRecordset.Fields(0)
@@ -2112,6 +2364,10 @@ Private Sub Form_Activate()
             Else
                 ClearFields txtUsualPaymentTermID, txtUsualPaymentTermDescription
             End If
+            'Τυπώνεται ο κωδικός QR
+            Set tmpRecordset = CheckForMatch("CommonDB", "YesOrNo", "YesOrNoID", "Numeric", txtPrintQRCodeID.text)
+            txtPrintQRCodeID.text = tmpRecordset.Fields(0)
+            txtPrintQRCodeDescription.text = tmpRecordset.Fields(1)
             '
             UpdateButtons Me, 3, 1, 0, 0, 1
         End If
@@ -2196,7 +2452,23 @@ Private Sub Form_Load()
     UpdateColors Me, False, , False
     PositionPanels
     ClearFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtPreviewReportsID, txtPreviewReportsDescription, txtUsualPaymentTermID, txtUsualPaymentTermDescription, txtUsualRemarks, txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesDescription
-    DisableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), txtPreviewReportsDescription, txtUsualPaymentTermDescription, txtUsualRemarks, txtCashAccountsCode, txtSalesAccountsCode, txtVATAccountsCode, mskCustomerCodeLength, txtFileName, mskVAT, mskInvoiceCopies, txtPreviewInvoicesDescription, txtUsualPaymentTermDescription, cmdIndex(0), cmdIndex(1), cmdIndex(2)
+    
+    DisableFields txtCompanyData(1), txtCompanyData(2), txtCompanyData(3), txtCompanyData(4), txtCompanyData(5), txtCompanyData(6), txtCompanyData(7), txtCompanyData(8), txtCompanyData(9), txtCompanyData(10), _
+        txtPreviewReportsDescription, _
+        txtUsualPaymentTermDescription, _
+        txtUsualRemarks, _
+        txtCashAccountsCode, _
+        txtSalesAccountsCode, _
+        txtVATAccountsCode, _
+        mskCustomerCodeLength, _
+        txtFileName, _
+        mskVAT, _
+        mskInvoiceCopies, _
+        txtPreviewInvoicesDescription, _
+        txtPrintQRCodeDescription, _
+        txtQRCodeDescription
+    DisableFields cmdIndex(0), cmdIndex(1), cmdIndex(2), cmdIndex(3)
+    
     UpdateButtons Me, 3, 1, 0, 0, 1
     
 End Sub
@@ -2250,6 +2522,28 @@ End Sub
 Private Sub txtPreviewReportsDescription_Validate(Cancel As Boolean)
 
     If txtPreviewReportsID.text = "" And txtPreviewReportsDescription.text <> "" Then cmdIndex_Click 2: If txtPreviewReportsID.text = "" Then Cancel = True
+
+End Sub
+
+Private Sub txtPrintQRCodeDescription_Change()
+
+    If txtPrintQRCodeDescription.text = "" Then
+        ClearFields txtPrintQRCodeID
+    End If
+
+
+End Sub
+
+Private Sub txtPrintQRCodeDescription_KeyDown(KeyCode As Integer, Shift As Integer)
+
+    If KeyCode = vbKeyF2 Then cmdIndex_Click 3
+
+End Sub
+
+
+Private Sub txtPrintQRCodeDescription_Validate(Cancel As Boolean)
+
+    If txtPrintQRCodeID.text = "" And txtPrintQRCodeDescription.text <> "" Then cmdIndex_Click 3: If txtPrintQRCodeID.text = "" Then Cancel = True
 
 End Sub
 

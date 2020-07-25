@@ -4,9 +4,9 @@ Begin {9EB8768B-CDFA-44DF-8F3E-857A8405E1DB} rptInvoice
    ClientHeight    =   15630
    ClientLeft      =   120
    ClientTop       =   450
-   ClientWidth     =   28560
+   ClientWidth     =   15660
    StartUpPosition =   2  'CenterScreen
-   _ExtentX        =   50377
+   _ExtentX        =   27623
    _ExtentY        =   27570
    SectionData     =   "rptInvoice.dsx":0000
 End

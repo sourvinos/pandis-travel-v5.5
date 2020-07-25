@@ -1195,7 +1195,7 @@ Private Function FindRoutesForDestination(DestinationID As String)
     Set rstRecordset = CommonDB.OpenRecordset(strSQL)
     
     'Αν δεν έχω εγγραφές, βγαίνω
-    If rstRecordset.RecordCount = 0 Then blnErrors = False: FindRoutesForDestination = False: Exit Function
+    'If rstRecordset.RecordCount = 0 Then blnErrors = False: FindRoutesForDestination = False: Exit Function
     'If rstRecordset.RecordCount <> 0 Then blnErrors = False: FindRoutesForDestination = False: Exit Function
     
     'Προετοιμάζω τη μπάρα προόδου
@@ -1212,7 +1212,7 @@ Private Function FindRoutesForDestination(DestinationID As String)
             UpdateProgressBar Me
             For lngRow = 1 To grdDestinationsJoinRoutes.RowCount
                 'Σημείο παραλαβής
-                If !RouteID = grdDestinationsJoinRoutes.CellValue(lngRow, "PickupRouteID") And grdDestinationsJoinRoutes.CellValue(lngRow, "PickupPointID") = !PickupPointID Then
+                If !RouteId = grdDestinationsJoinRoutes.CellValue(lngRow, "PickupRouteID") And grdDestinationsJoinRoutes.CellValue(lngRow, "PickupPointID") = !PickupPointID Then
                     grdDestinationsJoinRoutes.CellIcon(lngRow, "SelectedPickupPointID") = lstIconList.ItemIndex(4)
                 End If
             Next lngRow
@@ -1261,7 +1261,7 @@ Private Function AddSelectedRoutesAndPickupPointsForDestination(strDestinationID
         If grdDestinationsJoinRoutes.CellIcon(lngRow, "SelectedPickupPointID") = 3 Then
             rsDestinationsRoutesPickupPoints.AddNew
             rsDestinationsRoutesPickupPoints!DestinationID = Val(strDestinationID)
-            rsDestinationsRoutesPickupPoints!RouteID = Val(grdDestinationsJoinRoutes.CellValue(lngRow, "PickupRouteID"))
+            rsDestinationsRoutesPickupPoints!RouteId = Val(grdDestinationsJoinRoutes.CellValue(lngRow, "PickupRouteID"))
             rsDestinationsRoutesPickupPoints!PickupPointID = Val(grdDestinationsJoinRoutes.CellValue(lngRow, "PickupPointID"))
             rsDestinationsRoutesPickupPoints.Update
         End If

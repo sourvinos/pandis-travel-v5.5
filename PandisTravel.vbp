@@ -69,6 +69,7 @@ Form=Forms\Tables\TablesPersonGroups.frm
 Form=Forms\Tables\TablesLocations.frm
 Form=Forms\Tables\TablesDrivers.frm
 Form=Forms\Tables\TablesPorts.frm
+Object={89D94A1E-DB65-4469-AFB5-D54C6F6B7639}#1.1#0; QRCodeAX.ocx
 IconForm="CommonMain"
 Startup="CommonLogin"
 HelpFile=""

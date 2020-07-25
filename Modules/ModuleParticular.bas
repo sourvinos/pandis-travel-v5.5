@@ -19,6 +19,10 @@ Global intInvoiceCopies As Byte
 'Αναφορές
 Global intPreviewReports As Integer
 
+'QR Code
+Global intPrintQRCodeID As Integer
+Global strQRCodeDescription  As String
+
 Function AddCompanyData(sheet As Object, colCount As Long)
 
     'Excel
@@ -444,6 +448,9 @@ Function LoadParameters()
         blnPreviewInvoices = !PreviewInvoicesID
         'Αναφορές
         intPreviewReports = !PreviewReportsID
+        'QR Code
+        intPrintQRCodeID = !PrintQRCodeID
+        strQRCodeDescription = !QRCodeDescription
         .Close
     End With
     
